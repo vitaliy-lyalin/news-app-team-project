@@ -1,3 +1,7 @@
+//************************
+// GENERAL
+//************************
+
 html {
   box-sizing: border-box;
 }
@@ -6,10 +10,6 @@ html {
 *::before,
 *::after {
   box-sizing: inherit;
-}
-
-main {
-  background-color: var(--body-color);
 }
 
 h1,
@@ -38,22 +38,49 @@ img {
 body {
   font-family: 'Manrope', sans-serif;
   margin: 0;
-  color: var(--body-color);
-  // font-weight: 400;
-  // font-size: 16px;
-  // line-height: 1.18;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 1.13;
+  letter-spacing: 0.01em;
+  color: var(--main-color);
+  background-color: var(--light-them-color);
 
-  // @media screen and (min-width: 768px) {
-  //   font-weight: 400;
-  //   font-size: 24px;
-  //   line-height: 1.16;
-  // }
+  @media screen and (min-width: 768px) {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 1.16;
+  }
 
-  // @media screen and (min-width: 1280px) {
-  //   font-weight: 400;
-  //   font-size: 24px;
-  //   line-height: 0.85;
-  // }
+  @media screen and (min-width: 1280px) {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 0.85;
+  }
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 16px;
+  outline: 1px solid tomato;
+
+  @media screen and (min-width: 320px) and (max-width: 480px) {
+    width: 320px;
+  }
+
+  @media screen and (max-width: 768px) {
+    position: relative;
+  }
+
+  @media screen and (min-width: 768px) {
+    padding: 0 40px;
+    width: 768px;
+  }
+
+  @media screen and (min-width: 1280px) {
+    width: 1280px;
+    padding: 0 40px;
+  }
 }
 
 .visually-hidden {
@@ -71,36 +98,9 @@ body {
 
 a {
   text-decoration: none;
+  color: var(--main-text-color);
 }
 
 .list {
   list-style: none;
-}
-
-button {
-  font-family: inherit;
-  text-align: center;
-  border-color: transparent;
-  cursor: pointer;
-  &:hover {
-    cursor: pointer;
-  }
-}
-
-.container {
-  width: 100%;
-  margin: 0 auto;
-  padding: 0 16px;
-
-  @media screen and (min-width: 320px) {
-    // width: 320px;
-  }
-
-  @media screen and (min-width: 768px) {
-    // width: 768px;
-  }
-
-  @media screen and (min-width: 1280px) {
-    // width: 1280px;
-  }
 }

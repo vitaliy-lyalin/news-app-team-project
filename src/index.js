@@ -1,18 +1,15 @@
-const headerBurger = document.querySelector('.header__burger');
-const headerMenu = document.querySelector('.header__menu');
-const logo = document.querySelector('.header__logo');
-const body = document.querySelector('body');
+import createRenderCategoriesMarkup from './js/createRenderCategories';
+import showHideOthersCategories from './js/showHideOthersCategories';
+import getCategoriesValue from './js/getCategoriesValue';
 
-headerBurger.addEventListener('click', function (e) {
-  headerBurger.classList.toggle('active');
-  headerMenu.classList.toggle('active');
-  body.classList.toggle('lock');
-});
+const categoriesEl = document.querySelector('.filter-wrapper');
 
-logo.addEventListener('click', function () {
-  if (headerBurger.classList.contains('active')) {
-    headerBurger.classList.toggle('active');
-    headerMenu.classList.toggle('active');
-    body.classList.toggle('lock');
-  }
+createRenderCategoriesMarkup();
+
+// -> Show - Hide others categories on 'Others' button click
+categoriesEl.addEventListener('click', showHideOthersCategories);
+// -> Get category value after click
+categoriesEl.addEventListener('click', event => {
+  const categorySelected = getCategoriesValue(event);
+  console.log(categorySelected);
 });
