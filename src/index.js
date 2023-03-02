@@ -1,6 +1,9 @@
 import createRenderCategoriesMarkup from './js/createRenderCategories';
 import showHideOthersCategories from './js/showHideOthersCategories';
 import getCategoriesValue from './js/getCategoriesValue';
+import { getDataMostPopularNews } from './js/fetchData/fetchMostPopularNews';
+import { createCardsMarkup } from './js/createCardsMarkup';
+import { addMarkup } from './js/addMarkup';
 
 const categoriesEl = document.querySelector('.filter-wrapper');
 
@@ -13,3 +16,16 @@ categoriesEl.addEventListener('click', event => {
   const categorySelected = getCategoriesValue(event);
   console.log(categorySelected);
 });
+
+// моя функція
+
+const card__containerEl = document.querySelector('.card-container');
+
+getDataMostPopularNews()
+  .then(({ results }) => {
+    const markup = createCardsMarkup(results);
+    addMarkup(card__containerEl, markup);
+  })
+  .catch(error => {
+    console.log(error.message);
+  });
