@@ -1,6 +1,7 @@
 import createRenderCategoriesMarkup from './js/createRenderCategories';
 import showHideOthersCategories from './js/showHideOthersCategories';
 import getCategoriesValue from './js/getCategoriesValue';
+import { onBurgerBtnClick, refs } from './js/mobileBurger';
 
 const categoriesEl = document.querySelector('.filter-wrapper');
 
@@ -13,3 +14,5 @@ categoriesEl.addEventListener('click', event => {
   const categorySelected = getCategoriesValue(event);
   console.log(categorySelected);
 });
+// -> open burger menu
+refs.headerBurger.addEventListener('click', onBurgerBtnClick);
