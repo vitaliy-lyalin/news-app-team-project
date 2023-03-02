@@ -1,25 +1,37 @@
 <header class="header">
   <h2 class="visually-hidden">Page Header</h2>
-  <div class="header__body container">
-    <a class="header__logo">News</a>
+  <div class="container">
+    <div class="header__body">
+      <a class="header__logo">News</a>
 
-    <nav class="header__menu">
-      <ul class="header__list">
-        <li><a class="header__link" href="#">Home</a></li>
-        <li><a class="header__link" href="#">Favourite</a></li>
-        <li><a class="header__link" href="#">Read</a></li>
-      </ul>
-    </nav>
+      <nav class="header__menu">
+        <ul class="header__list">
+          <li>
+            <svg class="header__list-icon" width="32" height="32">
+              <use href="/src/images/symbol-defs.svg#icon-home"></use></svg
+            ><a class="header__link" href="#">Home</a>
+          </li>
+          <li>
+            <svg class="header__list-icon" width="32" height="32">
+              <use href="/src/images/symbol-defs.svg#icon-heart"></use></svg
+            ><a class="header__link" href="#">Favourite</a>
+          </li>
+          <li>
+            <svg class="header__list-icon" width="32" height="32">
+              <use href="/src/images/symbol-defs.svg#icon-book"></use></svg
+            ><a class="header__link" href="#">Read</a>
+          </li>
+        </ul>
+      </nav>
 
-    <div class="header__search">
-      <button class="search__button"><i class="fa fa-search"></i></button>
-      <input type="text" placeholder="Search" />
+      <div class="header__search">
+        <button class="search__button"><i class="fa fa-search"></i></button>
+        <input class="search__input" type="text" placeholder="Search" />
+      </div>
+
+      <div type="button" tabindex="0" class="header__burger">
+        <span></span>
+      </div>
     </div>
-
-    <button type="button" tabindex="0" class="header__burger">
-      <span></span>
-      <span></span>
-      <span></span>
-    </button>
   </div>
 </header>
