@@ -17,12 +17,13 @@ categoriesEl.addEventListener('click', event => {
   console.log(categorySelected);
 });
 
-// моя функція
+// =================News render==============
 
 const card__containerEl = document.querySelector('.card-container');
 
 getDataMostPopularNews()
   .then(({ results }) => {
+    console.log(results);
     const markup = createCardsMarkup(results);
     addMarkup(card__containerEl, markup);
   })
