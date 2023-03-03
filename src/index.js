@@ -12,6 +12,8 @@ categoriesEl.addEventListener('click', showHideOthersCategories);
 // -> Get category value after click
 categoriesEl.addEventListener('click', event => {
   const categorySelected = getCategoriesValue(event);
-  fetchChosenCategorie(categorySelected.toLowerCase());
-  // console.log(categorySelected);
+  if (categorySelected) {
+    fetchChosenCategorie(categorySelected.toLowerCase());
+    // console.log(categorySelected);
+  }
 });
