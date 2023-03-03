@@ -4,6 +4,7 @@ const locationElement = document.querySelector('.weather__location');
 const iconElement = document.querySelector('.weather-icon__container');
 const dayElement = document.querySelector('.day');
 const dateElement = document.querySelector('.date');
+const cardElement = document.querySelector('.weather__container');
 
 let weather = {
   temperature: {
@@ -56,23 +57,42 @@ async function fetchDataWeather(latitude, longitude) {
     weather.temperature.value = Math.floor(weatherData.main.temp - 273);
     weather.description = weatherData.weather[0].description;
     weather.icon = weatherData.weather[0].icon;
-    console.log(weather.icon);
     weather.city = weatherData.name;
     weather.country = weatherData.sys.country;
     displayWeather(weather.icon);
-    console.log(weatherData);
   } catch (error) {
     console.log(error.message);
   }
 }
 
 function displayWeather() {
-  iconElement.innerHTML = `<img src="https://openweathermap.org/img/wn/${weather.icon}@2x.png"/>`;
-  tempElement.innerHTML = `${weather.temperature.value}°`;
-  descElement.innerHTML = weather.description;
-  locationElement.innerHTML = `${weather.city}, ${weather.country}`;
-  dayElement.innerHTML = `${formattedDay}`;
-  dateElement.innerHTML = `${formattedDate}`;
+  const markup = `
+  <div class="top-wrapper">
+      <div clas="weather-card__body-top">
+        <p class="weather__temp">${weather.temperature.value}°</p>
+      </div>
+      <div class="description-wrapper">
+        <div class="weather__description">${weather.description}</div>
+        <svg class='location-icon' width="18" height="23">
+        <use href="./images/geolocation.svg"> 
+        <div class="weather__location"></use>
+         ${weather.city}
+         </svg>
+        </div>
+      </div>
+    </div>
+    <div class="weather__icon"><img src="https://openweathermap.org/img/wn/${weather.icon}@2x.png"/></div>
+    <div clas="weather-card_body-bottom">
+      <div class="day">
+        ${formattedDay}
+      </div>
+      <div class="date">
+        ${formattedDate}
+      </div>
+    </div>
+    <button type="button" class="weather__button">weather for week</button>
+  </div>
+  `;
+  cardElement.insertAdjacentHTML('beforeend', markup);
 }
-
 //==============================================================================

@@ -37,11 +37,18 @@
   background: rgba(254, 254, 255, 0.3);
   border-radius: 10px;
 }
+
+.location-icon {
+  fill: var(--light-color);
+  margin-right: 10px;
+  transition: var(--transition);
+}
 .weather__icon {
+  height: auto;
+  max-width: 100%;
   display: block;
+  margin: 0 auto;
   margin-bottom: 90px;
-  align-items: center;
-  justify-content: center;
 }
 .day,
 .date {
@@ -67,4 +74,5 @@
   border-radius: 10px;
   border: none;
   margin: 0 auto;
+  cursor: pointer;
 }
