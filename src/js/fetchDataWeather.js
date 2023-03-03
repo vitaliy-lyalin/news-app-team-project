@@ -1,8 +1,7 @@
 const tempElement = document.querySelector('.weather__temp');
 const descElement = document.querySelector('.weather__description');
 const locationElement = document.querySelector('.weather__location');
-const iconElement = document.querySelector('.weather__icon');
-// const weatherCard = document.querySelector('.weather__card');
+const iconElement = document.querySelector('.weather-icon__container');
 const dayElement = document.querySelector('.day');
 const dateElement = document.querySelector('.date');
 
@@ -19,7 +18,7 @@ let weather = {
 const date = new Date();
 const options = {
   day: 'numeric',
-  month: 'long',
+  month: 'short',
   year: 'numeric',
 };
 const formattedDay = date.toLocaleDateString('en-gb', { weekday: 'short' });
@@ -57,9 +56,10 @@ async function fetchDataWeather(latitude, longitude) {
     weather.temperature.value = Math.floor(weatherData.main.temp - 273);
     weather.description = weatherData.weather[0].description;
     weather.icon = weatherData.weather[0].icon;
+    console.log(weather.icon);
     weather.city = weatherData.name;
     weather.country = weatherData.sys.country;
-    displayWeather();
+    displayWeather(weather.icon);
     console.log(weatherData);
   } catch (error) {
     console.log(error.message);
@@ -67,11 +67,12 @@ async function fetchDataWeather(latitude, longitude) {
 }
 
 function displayWeather() {
-  iconElement.innerHTML = `<img src="http://openweathermap.org/img/wn/${weather.icon}@2x.png"/>`;
-  console.log(iconElement.innerHTML);
-  tempElement.innerHTML = `${weather.temperature.value}`;
+  iconElement.innerHTML = `<img src="https://openweathermap.org/img/wn/${weather.icon}@2x.png"/>`;
+  tempElement.innerHTML = `${weather.temperature.value}°`;
   descElement.innerHTML = weather.description;
   locationElement.innerHTML = `${weather.city}, ${weather.country}`;
   dayElement.innerHTML = `${formattedDay}`;
   dateElement.innerHTML = `${formattedDate}`;
 }
+
+//==============================================================================
