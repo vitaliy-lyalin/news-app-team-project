@@ -6,17 +6,17 @@ async function fetchCategories() {
   const response = await fetch(url);
   const responseJson = await response.json();
   const categories = responseJson.results;
-  const categoriesName = categories.map(i => i.section);
-  console.log('categoriesName:', categoriesName);
+  const categoriesName = categories.map(i => i);
+  // console.log('categoriesName:', categoriesName);
 
   return categoriesName;
 }
-fetchCategories();
+// fetchCategories();
 
-async function fetchChosenCategorie() {
+export async function fetchChosenCategorie(categorieValue) {
   const BASE_URL = 'https://api.nytimes.com/svc/news/v3/content/';
   const API_KEY = 'api-key=1H8y2dY2rihC7fdcuGY6W6JByrUaIDi7';
-  const url = `${BASE_URL}inyt/automobiles.json?${API_KEY}`;
+  const url = `${BASE_URL}inyt/${categorieValue}.json?${API_KEY}`;
 
   const response = await fetch(url);
   const responseJson = await response.json();
@@ -25,7 +25,6 @@ async function fetchChosenCategorie() {
 
   return categorie;
 }
-fetchChosenCategorie();
 
 async function filterByDate() {
   try {
@@ -33,9 +32,9 @@ async function filterByDate() {
     const updateDate = categorie.map(i => {
       return i.updated_date;
     });
-    console.log(updateDate.sort().reverse());
+    // console.log(updateDate.sort().reverse());
   } catch (error) {
     console.log(error.message);
   }
 }
-filterByDate();
+// filterByDate();
