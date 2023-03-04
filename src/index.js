@@ -1,7 +1,7 @@
 import createRenderCategoriesMarkup from './js/createRenderCategories';
 import showHideOthersCategories from './js/showHideOthersCategories';
 import getCategoriesValue from './js/getCategoriesValue';
-import { fetchChosenCategorie } from './js/fetchData/filters';
+import { filterByChosenCategorie } from './js/fetchData/filters';
 
 import { getDataMostPopularNews } from './js/fetchData/fetchMostPopularNews';
 import { createCardsMarkup } from './js/createCardsMarkup';
@@ -19,7 +19,7 @@ categoriesEl.addEventListener('click', event => {
   const categorySelected = getCategoriesValue(event);
 
   if (categorySelected) {
-    fetchChosenCategorie(categorySelected.toLowerCase());
+    filterByChosenCategorie(categorySelected.toLowerCase());
     // console.log(categorySelected);
   }
 
