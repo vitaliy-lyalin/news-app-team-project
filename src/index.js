@@ -3,6 +3,11 @@ import showHideOthersCategories from './js/showHideOthersCategories';
 import getCategoriesValue from './js/getCategoriesValue';
 import { fetchChosenCategorie } from './js/fetchData/filters';
 
+import { getDataMostPopularNews } from './js/fetchData/fetchMostPopularNews';
+import { createCardsMarkup } from './js/createCardsMarkup';
+import { addMarkup } from './js/addMarkup';
+import { onBurgerBtnClick, refs } from './js/mobileBurger';
+
 const categoriesEl = document.querySelector('.filter-wrapper');
 
 createRenderCategoriesMarkup();
@@ -12,8 +17,27 @@ categoriesEl.addEventListener('click', showHideOthersCategories);
 // -> Get category value after click
 categoriesEl.addEventListener('click', event => {
   const categorySelected = getCategoriesValue(event);
+
   if (categorySelected) {
     fetchChosenCategorie(categorySelected.toLowerCase());
     // console.log(categorySelected);
   }
+
+  // console.log(categorySelected);
 });
+
+// =================News render==============
+
+const card__containerEl = document.querySelector('.card-container');
+
+getDataMostPopularNews()
+  .then(({ results }) => {
+    const markup = createCardsMarkup(results);
+    addMarkup(card__containerEl, markup);
+  })
+  .catch(error => {
+    console.log(error.message);
+  });
+
+// -> open burger menu
+refs.headerBurger.addEventListener('click', onBurgerBtnClick);
