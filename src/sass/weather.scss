@@ -36,20 +36,32 @@
   padding: 10px 17px 10px 42px;
   background: rgba(254, 254, 255, 0.3);
   border-radius: 10px;
+  &::before {
+    content: url('../images/svg/geolocation.svg');
+    position: absolute;
+    fill: var(--light-color);
+    left: 7px;
+    bottom: 2px;
+    z-index: 100;
+  }
 }
 
-.location-icon {
-  fill: var(--light-color);
-  margin-right: 10px;
-  transition: var(--transition);
-}
 .weather__icon {
   height: auto;
   max-width: 100%;
   display: block;
   margin: 0 auto;
   margin-bottom: 90px;
+  text-align: center;
 }
+.weather__icon-image {
+  display: inline-block;
+  width: 165px;
+  height: 155px;
+  object-position: 50% 50%;
+  object-fit: cover;
+}
+
 .day,
 .date {
   font-weight: 400;

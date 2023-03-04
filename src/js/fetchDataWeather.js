@@ -73,15 +73,13 @@ function displayWeather() {
       </div>
       <div class="description-wrapper">
         <div class="weather__description">${weather.description}</div>
-        <svg class='location-icon' width="18" height="23">
-        <use href="./images/geolocation.svg"> 
         <div class="weather__location"></use>
          ${weather.city}
          </svg>
         </div>
       </div>
     </div>
-    <div class="weather__icon"><img src="https://openweathermap.org/img/wn/${weather.icon}@2x.png"/></div>
+    <div class="weather__icon"><img class="weather__icon-image" src="https://openweathermap.org/img/wn/${weather.icon}@2x.png" width="165" height="155"/></div>
     <div clas="weather-card_body-bottom">
       <div class="day">
         ${formattedDay}
