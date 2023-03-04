@@ -10,16 +10,17 @@ function getCategoriesValue(e) {
   removeActiveClass(categories);
 
   if (e.target.classList.contains('news-category')) {
+    // console.log(!e.target.classList.contains('category-6'));
     if (!e.target.classList.contains('category-6')) {
       if (e.target.classList.contains('other-category')) {
         otherEl.classList.add('active-category');
+        // -> hide 'Others' categories popup
+        otherCategoriesEl.classList.remove('isOpen');
       }
       // console.log(e.target.textContent);
 
       // -> hide 'Others' categories popup
-      if (otherCategoriesEl.classList.contains('isOPen')) {
-        otherCategoriesEl.classList.remove('isOPen');
-      }
+      otherCategoriesEl.classList.remove('isOpen');
 
       // -> add 'active' class to selected category
       e.target.classList.add('active-category');
