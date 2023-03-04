@@ -8,6 +8,7 @@ import { addMarkup } from './js/addMarkup';
 import { refs } from './js/header/refs';
 import { onBurgerBtnClick } from './js/header/mobileBurger';
 import { onSearchIconClick } from './js/header/searchInput';
+import { getArticlesByFormSubmit } from './js/getArticlesByFormSubmit';
 
 const categoriesEl = document.querySelector('.filter-wrapper');
 
@@ -38,3 +39,5 @@ getDataMostPopularNews()
 refs.headerBurger.addEventListener('click', onBurgerBtnClick);
 //  -> open search by click on magnifying glass
 refs.searchIcon.addEventListener('click', onSearchIconClick);
+// -> search input header
+refs.headerSearch.addEventListener('submit', getArticlesByFormSubmit);
