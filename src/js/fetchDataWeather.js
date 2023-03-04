@@ -79,7 +79,7 @@ function displayWeather() {
         </div>
       </div>
     </div>
-    <div class="weather__icon"><img class="weather__icon-image" src="https://openweathermap.org/img/wn/${weather.icon}@2x.png" width="165" height="155"/></div>
+    <div class="weather__icon"><img class="weather__icon-image" src="https://openweathermap.org/img/wn/${weather.icon}@4x.png" width="165" height="155"/></div>
     <div clas="weather-card_body-bottom">
       <div class="day">
         ${formattedDay}

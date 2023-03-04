@@ -1,63 +1,34 @@
-const weekButton = document.querySelector('.weather__button');
-weekButton.addEventListener('click', fetchWeatherForWeek);
+const currentWeatherContainer = document.querySelector('.weather-container');
+const forecastWeatherContainer = document.querySelector('.forecast__container');
+const buttonElement = document.querySelector('.weather__button');
 
-async function fetchWeatherForWeek() {
-  let URL = 'https://api.openweathermap.org/data/2.5/forecast?';
-  let KEY = '0458bf71d4b2f3d6d80c258e4438f735';
+// let weeklyWeatherData = [];
 
-  if ('geolocation' in navigator) {
-    navigator.geolocation.getCurrentPosition(setPosition, showError);
-  } else {
-    console.log(error);
-  }
-}
+// async function showForecast(latitude, longitude) {
 
-function setPosition(position) {
-  if (position && position.coords) {
-    let latitude = position.coords.latitude;
-    let longitude = position.coords.longitude;
+//   currentWeatherContainer.classList.add('hidden');
+//   let URL = 'https://api.openweathermap.org/data/2.5/forecast?';
+//   let API_KEY = '0458bf71d4b2f3d6d80c258e4438f735';
 
-    fetchDataWeatherForWeek(latitude, longitude);
-  } else {
-    console.log(error.message);
-  }
-}
+//   try {
+//     const response = await fetch(
+//       `${URL}lat=${latitude}&lon=${longitude}&appid=${API_KEY}`
+//     );
+//     const forecastData = await response.json();
+//     console.log(forecastData);
+//   } catch (error) {
+//     console.log(error.message);
+//   }
+// }
 
-async function fetchDataWeatherForWeek(latitude, longitude) {
-  try {
-    const response = await fetch(
-      `${URL}lat=${latitude}&lon=${longitude}&appid=${KEY}`
-    );
-    const weatherData = await response.json();
+// buttonElement.addEventListener('click', () => {
+//   buttonElement.innerText = 'current weather';
+// });
+// console.log(buttonElement);
 
-    const dailyWeatherData = weatherData.list.filter(
-      (record, index) => index % 8 === 0
-    );
-
-    displayWeatherforWeek(dailyWeatherData);
-    console.log(weatherData);
-  } catch (error) {
-    console.log(error.message);
-  }
-}
-
-function displayWeatherforWeek(data) {
-  const weekMarkup = data
-    .map(
-      ({ dt_txt, weather, main }) =>
-        `
-    <div class="weather-card">
-            <p>${dt_txt}</p>
-            <img
-              class="weather-icon"
-              src="http://openweathermap.org/img/wn/${weather[0].icon}.png"
-              alt="Weather description"
-            />
-            <p>${weather[0].description}</p>
-            <p>${Math.floor(main.temp - 273)}°</p>
-          </div>
-        `
-    )
-    .join('');
-  weatherCard.innerHTML = weekMarkup;
-}
+// 1. достать елементы с разметки -контейнеры и кнопка
+// 2.повесить слушателя на кнопку и когда нажимается кнопка weather for week должно
+// 2.1 пропадает разметка текущая(display none) и менятся разметка погоды на неделю
+// 2.2 меняется название кнопки на current weather
+// 3.Прописать функцию с помощью которой мы получаем погоду на неделю
+// 4.сделать разметку для одной  карточки погоды на неделю
