@@ -5,7 +5,9 @@ import getCategoriesValue from './js/getCategoriesValue';
 import { getDataMostPopularNews } from './js/fetchData/fetchMostPopularNews';
 import { createCardsMarkup } from './js/createCardsMarkup';
 import { addMarkup } from './js/addMarkup';
-import { onBurgerBtnClick, refs } from './js/mobileBurger';
+import { refs } from './js/header/refs';
+import { onBurgerBtnClick } from './js/header/mobileBurger';
+import { onSearchIconClick } from './js/header/searchInput';
 
 const categoriesEl = document.querySelector('.filter-wrapper');
 
@@ -34,3 +36,5 @@ getDataMostPopularNews()
 
 // -> open burger menu
 refs.headerBurger.addEventListener('click', onBurgerBtnClick);
+//  -> open search by click on magnifying glass
+refs.searchIcon.addEventListener('click', onSearchIconClick);
