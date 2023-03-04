@@ -1,16 +1,23 @@
-// async function fetchMostViwedCategories() {
-//   const BASE_URL = 'https://api.nytimes.com/svc/mostpopular/v2/';
-//   const API_KEY = 'api-key=1H8y2dY2rihC7fdcuGY6W6JByrUaIDi7';
-//   const url = `${BASE_URL}viewed/7.json?${API_KEY}`;
+async function fetchMostViwedCategories() {
+  const BASE_URL = 'https://api.nytimes.com/svc/mostpopular/v2/';
+  const API_KEY = 'api-key=1H8y2dY2rihC7fdcuGY6W6JByrUaIDi7';
+  const url = `${BASE_URL}viewed/7.json?${API_KEY}`;
 
-//   const response = await fetch(url);
-//   const responseJson = await response.json();
-//   const popularCategories = responseJson.results;
-//   console.log('popularCategories:', popularCategories);
+  const response = await fetch(url);
+  const responseJson = await response.json();
+  const popularCategories = responseJson.results;
+  console.log('popularCategories:', popularCategories);
 
-//   return popularCategories;
-// }
-// fetchMostViwedCategories();
+  const b = '2022/04/25';
+
+  customSort = (popularCategories, b) => {
+    const dateA = popularCategories.updated;
+    const dateB = b;
+  };
+
+  return popularCategories;
+}
+fetchMostViwedCategories();
 
 const news = document.querySelector('.news');
 
@@ -35,21 +42,21 @@ export async function fetchChosenCategorie(categorieValue) {
   }
 }
 
-async function filterByDate(selectedDate) {
-  try {
-    // const categorie = await fetchChosenCategorie();
-    const popularCategories = await fetchMostViwedCategories();
-    const filterPopularCategories = popularCategories.map(i => {
-      return i.filter(({ update_date }) => {
-        return update_date === selectedDate;
-      });
-    });
-    console.log(filterPopularCategories);
-  } catch (error) {
-    console.log(error.message);
-  }
-}
-filterByDate();
+// async function filterByDate(a, selectedDate) {
+//   try {
+//     // const categorie = await fetchChosenCategorie();
+//     const a = await fetchMostViwedCategories();
+//     const filterPopularCategories = popularCategories.map(i => {
+//       return i.filter(({ update_date }) => {
+//         return update_date === selectedDate;
+//       });
+//     });
+//     console.log(filterPopularCategories);
+//   } catch (error) {
+//     console.log(error.message);
+//   }
+// }
+// filterByDate();
 
 function renderingNewsNotFound() {
   return `<section class="news-not-found--section">
