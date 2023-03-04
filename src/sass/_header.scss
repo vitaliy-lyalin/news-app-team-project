@@ -5,6 +5,7 @@
   left: 0;
   z-index: 50;
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  background: var(--light-color);
   &::before {
     content: '';
     position: absolute;
@@ -44,19 +45,17 @@
 }
 
 .header__link {
-  padding-top: 12px;
-  padding-bottom: 12px;
+  padding: 10px 3px;
   color: var(--primary-text-color);
   font-weight: 700;
-  font-size: 16px;
+  font-size: 18px;
   line-height: 1.375;
-  transition: 500ms;
+  transition: all var(--duration) var(--timeFunc);
+  border-bottom: 1px solid transparent;
   &:hover,
   &:focus {
-    padding: 0px 3px;
     // border-bottom: 1px solid var(--accent-color);
-    border-radius: 30px;
-    outline: 1px solid var(--accent-color);
+    border-color: var(--accent-color);
   }
 }
 .header__search {
