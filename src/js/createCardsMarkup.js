@@ -1,7 +1,7 @@
 export function createCardsMarkup(data) {
   // console.log(data);
   return data
-    .map(({ title, abstract, media, published_date, url, section }) => {
+    .map(({ title, abstract, media, published_date, url, section }, index) => {
       // console.log(media);
 
       const noImgUrl =
@@ -9,7 +9,7 @@ export function createCardsMarkup(data) {
 
       const img = media.length ? media[0]['media-metadata'][2].url : noImgUrl;
       // console.log(img);
-      return `<div class = "card">
+      return `<div class = "card ${'card-' + index}">
         <div class = "card-img-wrapper">
           <span class="card__btn">Add to favorite
           <img class="like" src='./images/svg/like.svg' alt="Add to favorite" width="16" height="16">

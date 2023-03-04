@@ -1,8 +1,14 @@
 .card-container {
-  display: flex;
-  flex-wrap: wrap;
-  column-gap: 30px;
-  row-gap: 40px;
+  // display: flex;
+  // flex-wrap: wrap;
+  // column-gap: 30px;
+  // row-gap: 40px;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-areas: 'a a .';
+  grid-column-gap: 30px;
+  grid-row-gap: 40px;
 }
 
 .card {
@@ -12,6 +18,10 @@
   overflow: hidden;
   display: flex;
   flex-direction: column;
+}
+
+.card-2 {
+  grid-column-start: 1;
 }
 
 .card-img-wrapper {
