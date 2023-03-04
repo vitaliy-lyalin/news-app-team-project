@@ -1,9 +1,9 @@
-const tempElement = document.querySelector('.weather__temp');
-const descElement = document.querySelector('.weather__description');
-const locationElement = document.querySelector('.weather__location');
-const iconElement = document.querySelector('.weather-icon__container');
-const dayElement = document.querySelector('.day');
-const dateElement = document.querySelector('.date');
+// const tempElement = document.querySelector('.weather__temp');
+// const descElement = document.querySelector('.weather__description');
+// const locationElement = document.querySelector('.weather__location');
+// const iconElement = document.querySelector('.weather-icon__container');
+// const dayElement = document.querySelector('.day');
+// const dateElement = document.querySelector('.date');
 const cardElement = document.querySelector('.weather__container');
 
 let weather = {
@@ -68,7 +68,7 @@ async function fetchDataWeather(latitude, longitude) {
 function displayWeather() {
   const markup = `
   <div class="top-wrapper">
-      <div clas="weather-card__body-top">
+      <div class="weather-card__body-top">
         <p class="weather__temp">${weather.temperature.value}°</p>
       </div>
       <div class="description-wrapper">
