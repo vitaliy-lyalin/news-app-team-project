@@ -18,7 +18,7 @@ categoriesEl.addEventListener('click', showHideOthersCategories);
 // -> Get category value after click
 categoriesEl.addEventListener('click', event => {
   const categorySelected = getCategoriesValue(event);
-  console.log(categorySelected);
+  // console.log(categorySelected);
 });
 
 // =================News render==============
@@ -27,7 +27,6 @@ const card__containerEl = document.querySelector('.card-container');
 
 getDataMostPopularNews()
   .then(({ results }) => {
-    console.log(results);
     const markup = createCardsMarkup(results);
     addMarkup(card__containerEl, markup);
   })
