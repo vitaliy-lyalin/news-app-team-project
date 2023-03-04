@@ -3,10 +3,10 @@
   --dark-color: #2e2e2e;
   --main-color: #111321;
   --secondary-color: #4440f6;
-  
+
   --duration: 250ms;
   --timeFunc: cubic-bezier(0.4, 0, 0.2, 1);
-  
+
   --light-theme-color: #f4f4f4;
   --primary-text-color: #111321;
   --secondary-text-color: rgba(17, 19, 33, 0.4);
@@ -14,3 +14,5 @@
   --dark-theme-color: #2e2e2e;
   --header-border-bottom-color: rgba(0, 0, 0, 0.2);
 }
+
+// const formattedDate = selectedDate.split('/').reverse().join('-');
