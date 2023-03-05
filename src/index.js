@@ -30,6 +30,4 @@ refs.headerBurger.addEventListener('click', onBurgerBtnClick);
 refs.searchIcon.addEventListener('click', onSearchIconClick);
 
 // -> Like Dislike
-cardContainer.addEventListener('click', e => {
-  changeLikeDislikeImg(e, cardContainer);
-});
+cardContainer.addEventListener('click', changeLikeDislikeImg);

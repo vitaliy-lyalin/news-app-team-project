@@ -1,6 +1,6 @@
-export default function changeLikeDislikeImg(e, cardContainer) {
+export default function changeLikeDislikeImg(e) {
   if (e.target.classList.contains('card__btn')) {
-    const imgEl = cardContainer.querySelector('.like');
+    const imgEl = e.target.querySelector('.like');
     const imgElSrc = imgEl.getAttribute('src');
     if (imgElSrc.includes('dislike')) {
       const imageUrl = new URL(
