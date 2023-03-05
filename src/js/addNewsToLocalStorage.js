@@ -6,16 +6,15 @@ let localStorageData = {
 // console.log('localStorageData', localStorageData.options);
 
 export function addNewsToLocalStorage(event) {
-  event.preventDefault();
-
   if (event.target.className === 'card-read-more') {
     const card = event.target.parentElement.parentElement.parentElement;
 
     const cardData = {
+      isRead: true,
       img: card.children[0].children[2].currentSrc,
       title: card.children[1].children[0].textContent,
       text: card.children[1].children[1].textContent,
-      date: card.children[1].children[2].children[0].textContent,
+      date: new Date(),
     };
 
     if (!localStorageData.options.length) {
