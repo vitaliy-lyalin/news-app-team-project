@@ -3,6 +3,7 @@ import showHideOthersCategories from './js/showHideOthersCategories';
 import getCategoriesValue from './js/getCategoriesValue';
 
 import { filterByChosenCategorie } from './js/fetchData/filters';
+import { filterByDateMostViwed } from './js/fetchData/filters';
 
 import changeLikeDislikeImg from './js/changeLikeDislikeImg';
 
@@ -14,8 +15,6 @@ import { onSearchIconClick } from './js/header/searchInput';
 import { getArticlesByFormSubmit } from './js/getArticlesByFormSubmit';
 import displayWeather from './js/displayWeather';
 import flatpickr from './js/calendar.js';
-
-
 
 const categoriesEl = document.querySelector('.filter-wrapper');
 const cardContainer = document.querySelector('.card-container');
@@ -59,4 +58,3 @@ refs.searchIcon.addEventListener('click', onSearchIconClick);
 
 // -> search input header
 refs.headerSearch.addEventListener('submit', getArticlesByFormSubmit);
-

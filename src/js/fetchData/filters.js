@@ -4,33 +4,37 @@ import { renderingNewsNotFound } from '../renderingNewsNotFound';
 
 const news = document.querySelector('.news');
 const card__containerEl = document.querySelector('.card-container');
-const cardDescription = document.querySelector('.card-description');
-console.log('cardDescription:', cardDescription);
+// console.log(card__containerEl);
+// const cardDiscription = document.querySelectorAll('.card-discription');
+// console.log('cardDiscription:', cardDiscription);
 
-async function filterByDateMostViwed() {
-  // if (!date) {
-  //   return;
-  // } else {
-  try {
-    console.log(cardDescription);
-    // const popularCategories = responseJson.results;
-
-    // const filterByDatePopularNews = popularCategories.filter(i => {
-    //   return i.published_date >= '2023-03-01';
-    // });
-    // console.log('filterByDatePopularNews:', filterByDatePopularNews);
-    // if (filterByDatePopularNews.length === 0) {
-    //   return (news.innerHTML = renderingNewsNotFound());
-    // } else {
-    //   return (card__containerEl.innerHTML = createCardsMarkup(
-    //     filterByDatePopularNews
-    //   ));
-    // }
-  } catch (error) {
-    console.log(error);
-  }
-}
-filterByDateMostViwed();
+// export async function filterByDateMostViwed() {
+//   // if (!date) {
+//   //   return;
+//   // } else {
+//   try {
+//     // const divArray = card__containerEl.childNodes.forEach(i => {
+//     //   return i.childNodes;
+//     // });
+//     const card__containerEl = document.querySelectorAll('.card');
+//     console.log('card__containerEl:', card__containerEl);
+//     // const popularCategories = responseJson.results;
+//     // const filterByDatePopularNews = popularCategories.filter(i => {
+//     //   return i.published_date >= '2023-03-01';
+//     // });
+//     // console.log('filterByDatePopularNews:', filterByDatePopularNews);
+//     // if (filterByDatePopularNews.length === 0) {
+//     //   return (news.innerHTML = renderingNewsNotFound());
+//     // } else {
+//     //   return (card__containerEl.innerHTML = createCardsMarkup(
+//     //     filterByDatePopularNews
+//     //   ));
+//     // }
+//   } catch (error) {
+//     console.log(error);
+//   }
+// }
+// filterByDateMostViwed();
 
 export async function filterByChosenCategorie(categorieValue) {
   const BASE_URL = 'https://api.nytimes.com/svc/news/v3/content/';
