@@ -4,4 +4,5 @@ export const refs = {
   body: document.querySelector('body'),
   searchIcon: document.querySelector('.search__icon'),
   headerSearch: document.querySelector('.header__search'),
+  form: document.querySelector('.search__form'),
 };
