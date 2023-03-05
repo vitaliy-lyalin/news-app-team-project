@@ -1,6 +1,10 @@
 import createRenderCategoriesMarkup from './js/createRenderCategories';
 import showHideOthersCategories from './js/showHideOthersCategories';
 import getCategoriesValue from './js/getCategoriesValue';
+
+import { filterByChosenCategorie } from './js/fetchData/filters';
+import { filterByDateMostViwed } from './js/fetchData/filters';
+
 import changeLikeDislikeImg from './js/changeLikeDislikeImg';
 
 import createCardsMarkup from './js/createCardsMarkup';
@@ -30,6 +34,12 @@ categoriesEl.addEventListener('click', showHideOthersCategories);
 // -> Get category value after click
 categoriesEl.addEventListener('click', event => {
   const categorySelected = getCategoriesValue(event);
+
+  if (categorySelected) {
+    filterByChosenCategorie(categorySelected.toLowerCase());
+    // console.log(categorySelected);
+  }
+
   // console.log(categorySelected);
 });
 
