@@ -1,6 +1,15 @@
-const currentWeatherContainer = document.querySelector('.weather-container');
-const forecastWeatherContainer = document.querySelector('.forecast__container');
-const buttonElement = document.querySelector('.weather__button');
+// const currentWeatherContainer = document.querySelector('.weather-container');
+// const forecastWeatherContainer = document.querySelector('.forecast__container');
+// const buttonElement = document
+//   .querySelector('.weather__button')
+//   .addEventListener('click', function (e) {
+//     if (e.target.innetText === 'weather for week') {
+//       e.target.innetText = 'current weather';
+//       console.log(target.innerText);
+//     } else {
+//       e.target.innerText = 'weather for week';
+//     }
+//   });
 
 // let weeklyWeatherData = [];
 

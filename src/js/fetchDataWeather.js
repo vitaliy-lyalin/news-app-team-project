@@ -94,3 +94,14 @@ function displayWeather() {
   cardElement.insertAdjacentHTML('beforeend', markup);
 }
 //==============================================================================
+
+// const forecastWeatherContainer = document.querySelector('.forecast__container');
+// const buttonElement = document.querySelector('.weather__button');
+// buttonElement.addEventListener('click', function (e) {
+//   if (e.target.innetText === 'weather for week') {
+//     e.target.innetText = 'current weather';
+//     console.log(target.innerText);
+//   } else {
+//     e.target.innerText = 'weather for week';
+//   }
+// });
