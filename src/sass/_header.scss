@@ -375,6 +375,9 @@
 }
 
 .checkbox {
+  margin-left: 1000px;
+  position: absolute;
+  z-index: 100;
   height: 80px;
   width: 270px;
   background-color: #fff;
@@ -393,3 +396,6 @@
     -webkit-appearance: none;
     box-shadow: inset 0 8px 60px rgb(28, 32, 163)
   }
+.page__reset {
+  display: none;
+}
