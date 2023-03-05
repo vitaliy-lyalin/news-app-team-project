@@ -47,9 +47,9 @@ export default async function createCardsMarkup() {
     })
     .join('');
   addMarkup(card__containerEl, newsCollectionMarkup);
-  const cardDateArr = [...document.querySelectorAll('.card__date')];
-  const test = cardDateArr.map(i => i.innerText);
-  console.log('test:', test);
+  // const cardDateArr = [...document.querySelectorAll('.card__date')];
+  // const test = cardDateArr.map(i => i.innerText);
+  // console.log('test:', test);
 }
 
 // ['media-metadata'][2].url
