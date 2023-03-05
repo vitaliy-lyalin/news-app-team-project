@@ -1,0 +1,109 @@
+.weather__container {
+  @media screen and (min-width: 1280px) {
+    width: 395px;
+  }
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    width: 353px;
+  }
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+  position: absolute;
+  top: 0;
+  right: 16;
+  height: 675px;
+  background: var(--secondary-color);
+  padding: 45px 70px;
+  color: #ffffff;
+  border-radius: 5px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+}
+
+.top-wrapper {
+  display: flex;
+  margin-bottom: 90px;
+}
+
+.weather__temp {
+  font-weight: 400;
+  font-size: 64px;
+  line-height: 1.17;
+  color: #ffffff;
+  border-right: 1px solid #ffffff;
+  padding-right: 8px;
+  margin-right: 15px;
+}
+.weather__description {
+  margin-bottom: 5px;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 1.16;
+}
+.weather__location {
+  position: relative;
+  width: 177px;
+  height: 42px;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.15;
+  color: #ffffff;
+  text-align: center;
+  padding: 10px 17px 10px 42px;
+  background: rgba(254, 254, 255, 0.3);
+  border-radius: 10px;
+
+  &::before {
+    content: url('../images/svg/geolocation.svg');
+    width: 27px;
+    height: 27px;
+    position: absolute;
+    fill: var(--light-color);
+    margin: 0;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
+  }
+}
+
+.weather__icon {
+  height: auto;
+  max-width: 100%;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 90px;
+  text-align: center;
+}
+.weather__icon-image {
+  display: inline-block;
+  width: 165px;
+  height: 155px;
+  object-position: 50% 50%;
+  object-fit: cover;
+}
+
+.day,
+.date {
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 1.16;
+  text-align: center;
+  color: #ffffff;
+}
+.date {
+}
+
+.weather__button {
+  display: block;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.15;
+  color: #ffffff;
+  width: 177px;
+  height: 42px;
+  background: rgba(254, 254, 255, 0.3);
+  border-radius: 10px;
+  border: none;
+  margin: 0 auto;
+  cursor: pointer;
+}
