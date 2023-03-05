@@ -7,10 +7,18 @@ import createCardsMarkup from './js/createCardsMarkup';
 import { refs } from './js/header/refs';
 import { onBurgerBtnClick } from './js/header/mobileBurger';
 import { onSearchIconClick } from './js/header/searchInput';
+import displayWeather from './js/displayWeather';
 
 const categoriesEl = document.querySelector('.filter-wrapper');
 const cardContainer = document.querySelector('.card-container');
 
+// *************** Header Functionality ***************
+// -> open burger menu
+refs.headerBurger.addEventListener('click', onBurgerBtnClick);
+//  -> open search by click on magnifying glass
+refs.searchIcon.addEventListener('click', onSearchIconClick);
+
+// *************** Render Categories ******************
 createRenderCategoriesMarkup();
 
 // -> Show - Hide others categories on 'Others' button click
@@ -21,13 +29,11 @@ categoriesEl.addEventListener('click', event => {
   // console.log(categorySelected);
 });
 
-// =================News render==============
+// *************** Render News Cards ******************
 createCardsMarkup();
 
-// -> open burger menu
-refs.headerBurger.addEventListener('click', onBurgerBtnClick);
-//  -> open search by click on magnifying glass
-refs.searchIcon.addEventListener('click', onSearchIconClick);
-
-// -> Like Dislike
+// -> Add remove like - dislike
 cardContainer.addEventListener('click', changeLikeDislikeImg);
+
+// *************** Render Forecast ******************
+displayWeather();
