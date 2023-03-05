@@ -1,8 +1,13 @@
+const imgUrl = new URL(
+  '../images/newsNotFound/notFoundNews_image_mobile_1x.jpg?as=webp&width=250',
+  import.meta.url
+);
+
 export function renderingNewsNotFound() {
   return `<section class="news-not-found--section">
     <div class="news-not-found--container">
       <h2 class="news-not-found--title">We haven't found news from this category</h2>
-      <img class="news-not-found--img" src="./images/newsNotFound/notFoundNews_image_mobile_1x.jpg" alt="newspaper on the background of nature" width="250" />
+      <img class="news-not-found--img" src="${imgUrl}" alt="newspaper on the background of nature" />
     </div>
   </section>`;
 }
