@@ -9,6 +9,8 @@ import { refs } from './js/header/refs';
 import { onBurgerBtnClick } from './js/header/mobileBurger';
 import { onSearchIconClick } from './js/header/searchInput';
 
+import flatpickr from './js/calendar.js';
+
 const categoriesEl = document.querySelector('.filter-wrapper');
 
 createRenderCategoriesMarkup();
@@ -38,3 +40,5 @@ getDataMostPopularNews()
 refs.headerBurger.addEventListener('click', onBurgerBtnClick);
 //  -> open search by click on magnifying glass
 refs.searchIcon.addEventListener('click', onSearchIconClick);
+
+// *************** Calendar *******************************
