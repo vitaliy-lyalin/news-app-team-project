@@ -30,6 +30,7 @@
 }
 
 .header__logo {
+  color: inherit;
   font-weight: 700;
   line-height: 1.375;
   position: relative;
@@ -49,7 +50,6 @@
 }
 
 .header__link {
-
   padding: 10px 3px;
   color: var(--primary-text-color);
   font-weight: 700;
@@ -62,7 +62,6 @@
     // border-bottom: 1px solid var(--accent-color);
     border-color: var(--accent-color);
   }
-
 }
 
 .header__search {
@@ -133,8 +132,14 @@
     gap: 14px;
   }
 
-  .header__list li:focus {
+  .header__list li:focus,
+  .header__list li:focus-within {
     background-color: var(--accent-color);
+  }
+
+  .header__list li:focus a,
+  .header__list li:focus-within a {
+    color: var(--light-theme-color);
   }
 
   .header__link {
