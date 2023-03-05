@@ -2,6 +2,13 @@ import NewsApiArticleSearch from './fetchData/fetchArticlesBySearch';
 import { refs } from './header/refs';
 import { createCardsMarkupBySearch } from './createCardsMarkupBySearch';
 import { addMarkup } from './addMarkup';
+import Notiflix from 'notiflix';
+
+// Initialize the configuration options for notification messages
+Notiflix.Notify.init({
+  position: 'center-top',
+  width: '280px',
+});
 
 export async function getArticlesByFormSubmit(event) {
   event.preventDefault();
@@ -11,12 +18,13 @@ export async function getArticlesByFormSubmit(event) {
   //   console.dir(event.target[0].value);
   const inputValue = event.target[0].value.trim();
   if (inputValue === '') {
-    alert('Enter request');
+    Notiflix.Notify.warning('Enter request');
+    return;
   }
   const newsApiArticleSearch = new NewsApiArticleSearch();
   newsApiArticleSearch.searchQuery = inputValue;
   const news = await newsApiArticleSearch.getArticles();
-  console.log(news);
+  // console.log(news);
   const newsMarkup = await createCardsMarkupBySearch(news);
   try {
     if (news.length === 0) {
