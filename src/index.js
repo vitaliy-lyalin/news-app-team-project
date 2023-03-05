@@ -7,8 +7,10 @@ import createCardsMarkup from './js/createCardsMarkup';
 import { refs } from './js/header/refs';
 import { onBurgerBtnClick } from './js/header/mobileBurger';
 import { onSearchIconClick } from './js/header/searchInput';
-import displayWeather from './js/displayWeather';
+import { addNewsToLocalStorage } from './js/addNewsToLocalStorage';
 
+import { getArticlesByFormSubmit } from './js/getArticlesByFormSubmit';
+import displayWeather from './js/displayWeather';
 import flatpickr from './js/calendar.js';
 
 const categoriesEl = document.querySelector('.filter-wrapper');
@@ -45,3 +47,9 @@ displayWeather();
 refs.headerBurger.addEventListener('click', onBurgerBtnClick);
 //  -> open search by click on magnifying glass
 refs.searchIcon.addEventListener('click', onSearchIconClick);
+
+// -> search input header
+refs.headerSearch.addEventListener('submit', getArticlesByFormSubmit);
+
+// -> read more
+cardContainer.addEventListener('click', addNewsToLocalStorage);

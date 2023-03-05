@@ -51,3 +51,5 @@ export default async function createCardsMarkup() {
 
   paginationLaunch();
 }
+
+// ['media-metadata'][2].url
