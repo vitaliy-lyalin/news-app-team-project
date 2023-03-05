@@ -111,3 +111,17 @@
 .page-item.dots {
   background: inherit;
 }
+
+.page__svg--next,
+.page__svg--prev {
+  @media screen and (max-width: 767px) {
+    width: 18px;
+    height: 18px;
+    margin: 3px;
+  }
+  @media screen and (min-width: 768px) {
+    width: 24px;
+    height: 24px;
+    margin: 2px;
+  }
+}
