@@ -27,18 +27,21 @@
         <!-- ❗️❗️❗️ Filters partial -->
         <include src="./partials/_filters.html"></include>
       </div>
-      <div class="news">
+      <div class="news container">
         <!-- ❗️❗️❗️ News partial -->
         <include src="./partials/_news.html"></include>
+        <include src="./partials/_footer.html"></include>
+        <!-- ❗️❗️❗️ Weather partial -->
+        <include src="./partials/_weather.html"></include>
+            <include src="./partials/_footer.html"></include>
+        <!-- ❗️❗️❗️ Pagination -->
+        <include src="./partials/_pagination.html"></include>
       </div>
     </main>
     <!-- ❗️❗️❗️ Footer partial -->
-    <include src="./partials/_footer.html"></include>
-    <!------------!!!! WEATHER-------------------->
-    <include src="./weather.html"></include>
-    <!-- ❗️❗️❗️ Pagination -->
-    <include src="./partials/_pagination.html"></include>
-    <!------------!!!! PAGINATION-------------------->
+
+    <!------------!!!! PAGINATION Script-------------------->
     <script src="./js/fetchDataWeather.js"></script>
+
   </body>
 </html>

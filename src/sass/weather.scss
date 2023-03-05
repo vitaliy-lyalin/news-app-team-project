@@ -1,9 +1,22 @@
 .weather__container {
-  width: 395px;
+  @media screen and (min-width: 1280px) {
+    width: 395px;
+  }
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    width: 353px;
+  }
+  @media screen and (max-width: 767px) {
+    display: none;
+  }
+  position: absolute;
+  top: 0;
+  right: 16;
   height: 675px;
   background: var(--secondary-color);
-  padding: 45px 70px 60px 53px;
+  padding: 45px 70px;
   color: #ffffff;
+  border-radius: 5px;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 .top-wrapper {
@@ -21,11 +34,13 @@
   margin-right: 15px;
 }
 .weather__description {
+  margin-bottom: 5px;
   font-weight: 400;
   font-size: 36px;
   line-height: 1.16;
 }
 .weather__location {
+  position: relative;
   width: 177px;
   height: 42px;
   font-weight: 400;
@@ -36,13 +51,18 @@
   padding: 10px 17px 10px 42px;
   background: rgba(254, 254, 255, 0.3);
   border-radius: 10px;
+
   &::before {
     content: url('../images/svg/geolocation.svg');
+    width: 27px;
+    height: 27px;
     position: absolute;
     fill: var(--light-color);
-    left: 7px;
-    bottom: 2px;
-    z-index: 100;
+    margin: 0;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 10;
   }
 }
 
@@ -71,7 +91,6 @@
   color: #ffffff;
 }
 .date {
-  margin-bottom: 28px;
 }
 
 .weather__button {
