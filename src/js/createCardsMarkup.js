@@ -48,3 +48,5 @@ export default async function createCardsMarkup() {
     .join('');
   addMarkup(card__containerEl, newsCollectionMarkup);
 }
+
+// ['media-metadata'][2].url
