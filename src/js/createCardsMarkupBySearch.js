@@ -1,4 +1,9 @@
 export function createCardsMarkupBySearch(data) {
+  const imageUrl = new URL(
+    '../images/svg/dislike.svg?as=svg&width=16&height=16',
+    import.meta.url
+  );
+
   return data
     .map(
       (
@@ -22,7 +27,7 @@ export function createCardsMarkupBySearch(data) {
         return `<div class = "card ${'card-' + index}">
         <div class = "card-img-wrapper">
         <span class="card__btn">Add to favorite
-        <img class="like" src='./images/svg/like.svg' alt="Add to favorite" width="16" height="16">
+        <img class="like" src=${imageUrl} alt="Add to favorite" width="16" height="16">
 
         </span>
         <span class="card__category">${section_name}</span>
