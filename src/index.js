@@ -40,17 +40,7 @@ cardContainer.addEventListener('click', changeLikeDislikeImg);
 // *************** Render Forecast ******************
 displayWeather();
 
-getDataMostPopularNews()
-  .then(({ results }) => {
-    const markup = createCardsMarkup(results);
-    addMarkup(card__containerEl, markup);
-  })
-  .catch(error => {
-    console.log(error.message);
-  });
-
 // -> open burger menu
 refs.headerBurger.addEventListener('click', onBurgerBtnClick);
 //  -> open search by click on magnifying glass
 refs.searchIcon.addEventListener('click', onSearchIconClick);
-
