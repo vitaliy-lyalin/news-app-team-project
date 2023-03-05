@@ -1,4 +1,4 @@
-function paginationLaunch() {
+export default async function paginationLaunch(galleryContainer) {
   function getPageList(totalPages, page, maxLength) {
     function range(start, end) {
       return Array.from(Array(end - start + 1), (_, i) => i + start);
@@ -33,8 +33,10 @@ function paginationLaunch() {
   }
 
   $(function () {
-    let numberOfItem = $('.gallery .photo-card').length;
-    let limitPerPage = 2;
+    // !!! вказати шлях до контейнера з карточками
+    let numberOfItem = $('.card-container .card').length;
+    console.log(numberOfItem);
+    let limitPerPage = 9;
     let totalPages = Math.ceil(numberOfItem / limitPerPage);
     let paginationSize = 7;
     if (window.screen.width <= 767) {
@@ -46,7 +48,8 @@ function paginationLaunch() {
       if (whichPage < 1 || whichPage > totalPages) return false;
       currentPage = whichPage;
 
-      $('.gallery .photo-card')
+      // !!! вказати шлях до контейнера з карточками
+      $('.card-container .card')
         .hide()
         .slice((currentPage - 1) * limitPerPage, currentPage * limitPerPage)
         .show();
@@ -80,6 +83,7 @@ function paginationLaunch() {
             .addClass('page__svg--prev')
             .append(
               $('<use>').attr({
+                // *** поправити svg
                 href: './images/NextPrev.svg#icon-Prev',
               })
             )
@@ -88,6 +92,7 @@ function paginationLaunch() {
           $('<a>')
             .addClass('page-link')
             .attr({ href: 'javascript:void(0)' })
+            // *** після вставлення свг прибрати "<"
             .text('<Prev')
         ),
 
@@ -98,6 +103,7 @@ function paginationLaunch() {
           $('<a>')
             .addClass('page-link')
             .attr({ href: 'javascript:void(0)' })
+            // *** після вставлення свг прибрати ">"
             .text('Next>')
         )
         .append(
@@ -105,13 +111,15 @@ function paginationLaunch() {
             .addClass('page__svg--next')
             .append(
               $('<use>').attr({
+                // *** поправити шлях до картинок
                 href: './images/NextPrev.svg#icon-Next',
               })
             )
         )
     );
 
-    $('.gallery').show();
+    // !!! вказати контейнер з карточками
+    $('.card-container').show();
     showPage(1);
 
     $(document).on(
@@ -124,6 +132,7 @@ function paginationLaunch() {
 
     $('.next-page').on('click', function () {
       if (currentPage === totalPages) {
+        // !!! налаштування offset , page number
         pageNumber++;
       } else {
         return showPage(currentPage + 1);
@@ -134,5 +143,3 @@ function paginationLaunch() {
     });
   });
 }
-
-export { paginationLaunch };

@@ -1,5 +1,6 @@
 import getDataMostPopularNews from './fetchData/fetchMostPopularNews';
 import { addMarkup } from './addMarkup';
+import paginationLaunch from './createPagination';
 
 const card__containerEl = document.querySelector('.card-container');
 
@@ -47,4 +48,6 @@ export default async function createCardsMarkup() {
     })
     .join('');
   addMarkup(card__containerEl, newsCollectionMarkup);
+
+  paginationLaunch();
 }
