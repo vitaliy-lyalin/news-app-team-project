@@ -2,11 +2,7 @@ import { createCardsMarkup } from '../createCardsMarkup';
 import { createCategorieCardMarkup } from '../createCategorieMarkup';
 import { renderingNewsNotFound } from '../renderingNewsNotFound';
 
-const news = document.querySelector('.news');
 const card__containerEl = document.querySelector('.card-container');
-// console.log(card__containerEl);
-// const cardDiscription = document.querySelectorAll('.card-discription');
-// console.log('cardDiscription:', cardDiscription);
 
 // export async function filterByDateMostViwed() {
 //   // if (!date) {
@@ -17,7 +13,7 @@ const card__containerEl = document.querySelector('.card-container');
 //     //   return i.childNodes;
 //     // });
 //     const card__containerEl = document.querySelectorAll('.card');
-//     console.log('card__containerEl:', card__containerEl);
+
 //     // const popularCategories = responseJson.results;
 //     // const filterByDatePopularNews = popularCategories.filter(i => {
 //     //   return i.published_date >= '2023-03-01';
@@ -34,7 +30,7 @@ const card__containerEl = document.querySelector('.card-container');
 //     console.log(error);
 //   }
 // }
-// filterByDateMostViwed();
+// // filterByDateMostViwed();
 
 export async function filterByChosenCategorie(categorieValue) {
   const BASE_URL = 'https://api.nytimes.com/svc/news/v3/content/';
@@ -47,7 +43,7 @@ export async function filterByChosenCategorie(categorieValue) {
     const chosenCategorie = responseJson.results;
 
     if (chosenCategorie === null) {
-      news.innerHTML = renderingNewsNotFound();
+      card__containerEl.innerHTML = renderingNewsNotFound();
     } else {
       // console.log(chosenCategorie)
       card__containerEl.innerHTML = createCategorieCardMarkup(chosenCategorie);
