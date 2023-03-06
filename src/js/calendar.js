@@ -21,12 +21,6 @@ const options = {
     datePicker.style.border = '#4440F6';
     dateDown.style.display = 'block';
     dateUp.style.display = 'none';
-    // const svgDown = dateDown.getAttribute("href").baseVal;
-    // const svgUp = dateUp.getAttribute("href").baseVal;
-    // svgUp.setAttribute('href', svgDown);
-    // svgDown.style.fill = '#F8F8F8'
-
-    //clearFlatpickr();
   },
 };
 flatpickr(datePicker, options);
@@ -37,7 +31,6 @@ function changeSvg(e) {
   dateInput.style.color = '#F8F8F8';
   dateDown.style.display = 'none';
   dateUp.style.display = 'block';
-  //svgDown.setAttribute('href', svgUp);
 }
 function clearFlatpickr() {
   datePicker.clear();
