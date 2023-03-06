@@ -32,12 +32,12 @@ const options = {
 flatpickr(datePicker, options);
 
 dateInput.addEventListener('click', changeSvg);
+
 function changeSvg(e) {
   dateInput.style.color = '#F8F8F8';
   dateDown.style.display = 'none';
-  dateUp.style.display = 'block'
+  dateUp.style.display = 'block';
   //svgDown.setAttribute('href', svgUp);
-
 }
 // function clearFlatpickr(){
 //   datePicker.clear();
