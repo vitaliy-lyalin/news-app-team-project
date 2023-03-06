@@ -1,6 +1,6 @@
 import getDataMostPopularNews from './fetchData/fetchMostPopularNews';
 import { addMarkup } from './addMarkup';
-
+import { _f } from './favorite/favoritePage';
 const card__containerEl = document.querySelector('.card-container');
 
 export default async function createCardsMarkup() {
@@ -47,6 +47,9 @@ export default async function createCardsMarkup() {
     })
     .join('');
   addMarkup(card__containerEl, newsCollectionMarkup);
+   // ADD CODE for FavoritePage
+  addAttrFavorite()
+  isCheckFavoriteLocalStorage([...document.querySelector(".card-container").children])
   // const cardDateArr = [...document.querySelectorAll('.card__date')];
   // const test = cardDateArr.map(i => i.innerText);
   // console.log('test:', test);
