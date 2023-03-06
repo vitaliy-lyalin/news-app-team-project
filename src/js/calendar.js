@@ -2,10 +2,12 @@ import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
 
 const datePicker = document.querySelector('#date-picker');
-const dateInput = document.querySelector('.date-input')
+const dateInput = document.querySelector('.date-input');
+
 const dateUp = document.querySelector('.date-up');
-const dateDown = document.querySelector('.date-down')
-const calendarSvg = document.querySelector('.icon-Frame');
+const dateDown = document.querySelector('.date-down');
+const calendarSvg = document.querySelector('.date-down');
+
 let selectedDate;
 
 const options = {
@@ -13,18 +15,15 @@ const options = {
   locale: 'en',
   onChange: function (selectedDates) {
     selectedDate = selectedDates[0];
-   
+
+    console.log(dateInput);
+    datePicker.style.backgroundColor = '#4440F6';
+    datePicker.style.color = '#F8F8F8';
   },
 };
 flatpickr(datePicker, options);
 
-dateInput.addEventListener('click', changeSvg)
-  function changeSvg(){
-    if(selectedDate > 0) {
-      dateInput.style.backgroundcolor = '#4440F6';
-    }
-    //dateDown.classList.add('active');
-    //dateInput.classList.add('active');
-    calendarSvg.style.fill('#F8F8F8')
-  }
-
+dateInput.addEventListener('click', changeSvg);
+function changeSvg() {
+  dateInput.style.color = '#F8F8F8';
+}
