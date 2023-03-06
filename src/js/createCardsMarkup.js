@@ -12,10 +12,10 @@ export default async function createCardsMarkup() {
     import.meta.url
   );
 
-  const data = await getDataMostPopularNews();
+  const { results, num_results } = await getDataMostPopularNews();
 
   // -> generate html markup for news card
-  const newsCollectionMarkup = data
+  const newsCollectionMarkup = results
     .map(({ title, abstract, media, published_date, url, section }, index) => {
       // console.log(media);
 
@@ -49,7 +49,7 @@ export default async function createCardsMarkup() {
     .join('');
   addMarkup(card__containerEl, newsCollectionMarkup);
 
-  paginationLaunch();
+  paginationLaunch(num_results);
 }
 
 // ['media-metadata'][2].url

@@ -1,4 +1,8 @@
-export default async function paginationLaunch(hits, offset) {
+export default async function paginationLaunch(
+  hits,
+  requestFrom = 'popular',
+  offset
+) {
   console.log(hits, offset);
   function getPageList(totalPages, page, maxLength) {
     function range(start, end) {
@@ -136,7 +140,9 @@ export default async function paginationLaunch(hits, offset) {
       if (currentPage === totalPages) {
         // !!! налаштування offset , page number
         // pageNumber++;
-        offset++;
+        if (requestFrom !== 'popular') {
+          offset++;
+        }
         console.log(offset);
       } else {
         return showPage(currentPage + 1);

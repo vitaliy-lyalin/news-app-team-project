@@ -3,7 +3,8 @@ const MOST_POPULAR_URL = `https://api.nytimes.com/svc/mostpopular/v2/viewed/1.js
 export default async function getDataMostPopularNews(path = '') {
   const response = await fetch(`${MOST_POPULAR_URL}${path}`);
   if (response.ok) {
-    const { results } = await response.json();
+    const results = await response.json();
+    console.log(results);
     return results;
   }
   throw new Error(response.statusText);
