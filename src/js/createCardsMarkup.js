@@ -1,6 +1,9 @@
 import getDataMostPopularNews from './fetchData/fetchMostPopularNews';
 import { addMarkup } from './addMarkup';
 import { _f } from './favorite/favoritePage';
+import { isCheckFavoriteLocalStorage } from './favorite/isCheckFavoriteLocalStorage';
+import { addAttrFavorite } from './favorite/addAttrFavorite';
+
 const card__containerEl = document.querySelector('.card-container');
 
 export default async function createCardsMarkup() {
@@ -15,31 +18,31 @@ export default async function createCardsMarkup() {
 
   // -> generate html markup for news card
   const newsCollectionMarkup = data
-    .map(({ title, abstract, media, published_date, url, section }, index) => {
+    .map(({ title, text, img, date, readMoreLink, category }, index) => {
       // console.log(media);
 
       const noImgUrl =
         'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png';
 
-      const img = media.length ? media[0]['media-metadata'][2].url : noImgUrl;
+      // const img = media.length ? media[0]['media-metadata'][2].url : noImgUrl;
       // console.log(img);
       return `<div class = "card ${'card-' + index}">
         <div class = "card-img-wrapper">
           <span class="card__btn">Add to favorite
             <img class="like" src=${imageUrl} alt="Add to favorite" width="16" height="16">
           </span>
-          <span class="card__category">${section}</span>
+          <span class="card__category">${category}</span>
           <img class="card__img" src=${img} alt="" width="350px" height="500px">
         </div>
         <div class="card-description">
           <h3 class="card__title">${title}</h3>
-          <p class="card__text">${abstract}</p>
+          <p class="card__text">${text}</p>
           <div class="card__date-creation">
-            <span class="card__date">${published_date
+            <span class="card__date">${date
               .split('-')
               .reverse()
               .join('/')}</span>
-            <a class="card-read-more" href="${url}" target="_blank" rel="noopener noreferrer">Read more</a>
+            <a class="card-read-more" href="${readMoreLink}" target="_blank" rel="noopener noreferrer">Read more</a>
           </div>
         </div>
         
@@ -47,9 +50,11 @@ export default async function createCardsMarkup() {
     })
     .join('');
   addMarkup(card__containerEl, newsCollectionMarkup);
-   // ADD CODE for FavoritePage
-  addAttrFavorite()
-  isCheckFavoriteLocalStorage([...document.querySelector(".card-container").children])
+  // ADD CODE for FavoritePage
+  addAttrFavorite();
+  isCheckFavoriteLocalStorage([
+    ...document.querySelector('.card-container').children,
+  ]);
   // const cardDateArr = [...document.querySelectorAll('.card__date')];
   // const test = cardDateArr.map(i => i.innerText);
   // console.log('test:', test);

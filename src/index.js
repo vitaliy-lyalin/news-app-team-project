@@ -23,10 +23,9 @@ import flatpickr from './js/calendar.js';
 
 import { favoritePage } from './js/favorite/favoritePage';
 
-
 // *************** FavoritePage Functionality ***************
 // 1 Вызываем функцию favorite которая при  выполняет логику отрисовки статей кооторые  находяться localstorage
-favoritePage()
+favoritePage();
 
 const categoriesEl = document.querySelector('.filter-wrapper');
 const cardContainer = document.querySelector('.card-container');
@@ -73,3 +72,14 @@ refs.headerSearch.addEventListener('submit', getArticlesByFormSubmit);
 
 // -> read more
 cardContainer.addEventListener('click', addNewsToLocalStorage);
+
+// !!!!!!!!!!!!!!!!!!!!!!!
+// const a = fetch(
+//   'api.openweathermap.org/data/2.5/forecast?lat=44.34&lon=10.99&appid=59533b4b3da51af7c19202d3a8fbef18'
+// );
+const a = fetch(
+  'https://api.openweathermap.org/data/2.5/forecast?lat=44.34&lon=10.99&appid=59533b4b3da51af7c19202d3a8fbef18'
+);
+a.then(text => {
+  return text.json();
+}).then(data => console.log(data));
