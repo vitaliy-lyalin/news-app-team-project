@@ -3,7 +3,6 @@ export default async function paginationLaunch(
   requestFrom = 'popular',
   offset
 ) {
-  console.log(hits, offset);
   function getPageList(totalPages, page, maxLength) {
     function range(start, end) {
       return Array.from(Array(end - start + 1), (_, i) => i + start);
@@ -40,8 +39,10 @@ export default async function paginationLaunch(
   $(function () {
     // !!! вказати шлях до контейнера з карточками
     // let numberOfItem = $('.card-container .card').length;
+    let currentPage;
+
     let numberOfItem = hits;
-    console.log(numberOfItem);
+    // console.log(numberOfItem);
     let limitPerPage = 9;
     let totalPages = Math.ceil(hits / limitPerPage);
     let paginationSize = 7;
@@ -49,10 +50,14 @@ export default async function paginationLaunch(
       paginationSize = 5;
     }
 
-    let currentPage;
     function showPage(whichPage) {
       if (whichPage < 1 || whichPage > totalPages) return false;
       currentPage = whichPage;
+      if (currentPage === 1) {
+        limitPerPage = 8;
+      } else {
+        limitPerPage = 9;
+      }
 
       // !!! вказати шлях до контейнера з карточками
       $('.card-container .card')
@@ -143,7 +148,7 @@ export default async function paginationLaunch(
         if (requestFrom !== 'popular') {
           offset++;
         }
-        console.log(offset);
+        // console.log(offset);
       } else {
         return showPage(currentPage + 1);
       }
