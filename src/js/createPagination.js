@@ -1,4 +1,5 @@
-export default async function paginationLaunch(galleryContainer) {
+export default async function paginationLaunch(hits, offset) {
+  console.log(hits, offset);
   function getPageList(totalPages, page, maxLength) {
     function range(start, end) {
       return Array.from(Array(end - start + 1), (_, i) => i + start);
@@ -34,10 +35,11 @@ export default async function paginationLaunch(galleryContainer) {
 
   $(function () {
     // !!! вказати шлях до контейнера з карточками
-    let numberOfItem = $('.card-container .card').length;
+    // let numberOfItem = $('.card-container .card').length;
+    let numberOfItem = hits;
     console.log(numberOfItem);
     let limitPerPage = 9;
-    let totalPages = Math.ceil(numberOfItem / limitPerPage);
+    let totalPages = Math.ceil(hits / limitPerPage);
     let paginationSize = 7;
     if (window.screen.width <= 767) {
       paginationSize = 5;
@@ -133,7 +135,9 @@ export default async function paginationLaunch(galleryContainer) {
     $('.next-page').on('click', function () {
       if (currentPage === totalPages) {
         // !!! налаштування offset , page number
-        pageNumber++;
+        // pageNumber++;
+        offset++;
+        console.log(offset);
       } else {
         return showPage(currentPage + 1);
       }

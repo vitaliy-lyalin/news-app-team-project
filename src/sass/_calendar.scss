@@ -1,76 +1,74 @@
 .date {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 .date-input {
-    display: flex;
-    position: relative;
+  display: flex;
+  position: relative;
 }
 
 .date-picker {
-    
-    width: 168px;
-    height: 31px;
-    left: 0px;
-    top: 0px;
+  width: 168px;
+  height: 31px;
+  left: 0px;
+  top: 0px;
 
-    border: 1px solid #111321;
-    border-radius: 20px;
-    //background: #4440F6;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    padding-left: 46px;
-    font-size: 18px;
+  border: 1px solid #111321;
+  border-radius: 20px;
+  //background: #4440F6;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  padding-left: 46px;
+  font-size: 18px;
 }
 .date-picker:focus {
-    outline: none; 
-    border-color: #4440F6; 
-    box-shadow: 0 0 5px #4440F6;
-    color: #FFFFFF;
-    background-color: #4440F6;
+  outline: none;
+  border-color: #4440f6;
+  box-shadow: 0 0 5px #4440f6;
+  color: #ffffff;
+  background-color: #4440f6;
 }
 
-.date-picker .date-svg:focus{
-    fill: #FFFFFF;
-    
+.date-picker .date-svg:focus {
+  fill: #ffffff;
 }
 
-.date-label{
-    margin-right: 37px;
-    color: #111321;
-    font-size: 24px;
+.date-label {
+  margin-right: 37px;
+  color: #111321;
+  font-size: 24px;
 }
-:placeholder-shown{
-    font-size: 14px;
+:placeholder-shown {
+  font-size: 14px;
 }
-:placeholder-shown:hover{
-    color: #F8F8F8;
-}
-
-.date-svg-calendar{
-    position: absolute;
-    margin-top: 6px;
-    margin-left: 12px;
-}
-.date-down{
-    //position: absolute;
-    margin-right: 10px;
-    margin-top: 6px;
+:placeholder-shown:hover {
+  color: #f8f8f8;
 }
 
-.calendar{
-    position: absolute;
+.date-svg-calendar {
+  position: absolute;
+  margin-top: 6px;
+  margin-left: 12px;
+}
+.date-down {
+  //position: absolute;
+  margin-right: 10px;
+  margin-top: 6px;
+}
+
+.calendar {
+  position: absolute;
 }
 .flatpickr-calendar.animate.open {
-    background: #F8F8F8;
-    box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.1);
-    border-radius: 20px;
+  background: #f8f8f8;
+  box-shadow: 0px 10px 60px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
 }
-body .flatpickr-months .flatpickr-next-month{
-    //background: #4440F6;
-    fill: #4440F6;
+body .flatpickr-months .flatpickr-next-month {
+  //background: #4440F6;
+  fill: #4440f6;
 }
-body .flatpickr-months .flatpickr-prev-month{
-    fill: #4440F6;
+body .flatpickr-months .flatpickr-prev-month {
+  fill: #4440f6;
 }
