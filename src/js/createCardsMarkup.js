@@ -49,7 +49,6 @@ export default async function createCardsMarkup() {
     .join('');
   addMarkup(card__containerEl, newsCollectionMarkup);
 
-  paginationLaunch(num_results);
-}
 
-// ['media-metadata'][2].url
+  paginationLaunch(num_results);
+

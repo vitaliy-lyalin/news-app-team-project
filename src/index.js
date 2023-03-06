@@ -1,16 +1,24 @@
 import createRenderCategoriesMarkup from './js/createRenderCategories';
 import showHideOthersCategories from './js/showHideOthersCategories';
 import getCategoriesValue from './js/getCategoriesValue';
+
+import { filterByChosenCategorie } from './js/fetchData/filters';
+import { filterByDateMostViwed } from './js/fetchData/filters';
+
 import changeLikeDislikeImg from './js/changeLikeDislikeImg';
 
 import createCardsMarkup from './js/createCardsMarkup';
 import { refs } from './js/header/refs';
 import { onBurgerBtnClick } from './js/header/mobileBurger';
 import { onSearchIconClick } from './js/header/searchInput';
+
+import { darkmode } from './js/header/darkmode';
+
 import { addNewsToLocalStorage } from './js/addNewsToLocalStorage';
 
 import { getArticlesByFormSubmit } from './js/getArticlesByFormSubmit';
 import displayWeather from './js/displayWeather';
+
 import flatpickr from './js/calendar.js';
 
 const categoriesEl = document.querySelector('.filter-wrapper');
@@ -30,6 +38,12 @@ categoriesEl.addEventListener('click', showHideOthersCategories);
 // -> Get category value after click
 categoriesEl.addEventListener('click', event => {
   const categorySelected = getCategoriesValue(event);
+
+  if (categorySelected) {
+    filterByChosenCategorie(categorySelected.toLowerCase());
+    // console.log(categorySelected);
+  }
+
   // console.log(categorySelected);
 });
 

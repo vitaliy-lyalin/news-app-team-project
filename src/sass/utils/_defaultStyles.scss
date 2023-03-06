@@ -90,3 +90,11 @@ a {
     width: 1280px;
   }
 }
+html.dark body {
+  color: #F4F4F4;
+  background-color:  #111321;
+}
+html.light body {
+  color: #111321;
+  background-color: #F4F4F4;
+}
