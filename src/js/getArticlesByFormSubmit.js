@@ -3,18 +3,19 @@ import { refs } from './header/refs';
 import { createCardsMarkupBySearch } from './createCardsMarkupBySearch';
 import { addMarkup } from './addMarkup';
 import Notiflix from 'notiflix';
+import { renderingNewsNotFound } from './renderingNewsNotFound';
+
+const card__containerEl = document.querySelector('.card-container');
+const mainRef = document.querySelector('main');
 
 // Initialize the configuration options for notification messages
 Notiflix.Notify.init({
   position: 'center-top',
-  width: '280px',
+  timeout: 1500,
 });
 
 export async function getArticlesByFormSubmit(event) {
   event.preventDefault();
-
-  const card__containerEl = document.querySelector('.card-container');
-
   //   console.dir(event.target[0].value);
   const inputValue = event.target[0].value.trim();
   if (inputValue === '') {
@@ -28,7 +29,7 @@ export async function getArticlesByFormSubmit(event) {
   const newsMarkup = await createCardsMarkupBySearch(news);
   try {
     if (news.length === 0) {
-      return alert('We haven’t found news from this category');
+      mainRef.innerHTML = renderingNewsNotFound();
     } else {
       addMarkup(card__containerEl, newsMarkup);
       refs.form.reset();
