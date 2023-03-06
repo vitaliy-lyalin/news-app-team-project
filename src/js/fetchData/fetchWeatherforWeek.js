@@ -1,39 +1,28 @@
-// const currentWeatherContainer = document.querySelector('.weather-container');
-// const forecastWeatherContainer = document.querySelector('.forecast__container');
-// const buttonElement = document
-//   .querySelector('.weather__button')
-//   .addEventListener('click', function (e) {
-//     if (e.target.innetText === 'weather for week') {
-//       e.target.innetText = 'current weather';
-//       console.log(target.innerText);
-//     } else {
-//       e.target.innerText = 'weather for week';
-//     }
-//   });
+export default async function fetchWeeklyForecast(latitude, longitude) {
+  let URL = 'http://api.openweathermap.org/data/2.5/forecast?';
+  let API_KEY = '0458bf71d4b2f3d6d80c258e4438f735';
+  try {
+    const response = await fetch(
+      `${URL}lat=${latitude}&lon=${longitude}&appid=${API_KEY}`
+    );
 
-// let weeklyWeatherData = [];
-
-// async function showForecast(latitude, longitude) {
-
-//   currentWeatherContainer.classList.add('hidden');
-//   let URL = 'https://api.openweathermap.org/data/2.5/forecast?';
-//   let API_KEY = '0458bf71d4b2f3d6d80c258e4438f735';
-
-//   try {
-//     const response = await fetch(
-//       `${URL}lat=${latitude}&lon=${longitude}&appid=${API_KEY}`
-//     );
-//     const forecastData = await response.json();
-//     console.log(forecastData);
-//   } catch (error) {
-//     console.log(error.message);
-//   }
-// }
-
-// buttonElement.addEventListener('click', () => {
-//   buttonElement.innerText = 'current weather';
-// });
-// console.log(buttonElement);
+    const forecastData = await response.json();
+    const filteredForecast = forecastData.list.filter(item =>
+      item.dt_txt.includes('12:00:00')
+    );
+    const dailyForecast = filteredForecast.map(item => {
+      return {
+        date: item.dt_txt.split('')[0],
+        temperature: Math.floor(item.main.temp - 273),
+        description: item.weather[0].description,
+        icon: item.weather[0].icon,
+      };
+    });
+    return dailyForecast;
+  } catch (error) {
+    console.log(error.message);
+  }
+}
 
 // 1. достать елементы с разметки -контейнеры и кнопка
 // 2.повесить слушателя на кнопку и когда нажимается кнопка weather for week должно

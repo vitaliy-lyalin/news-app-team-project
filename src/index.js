@@ -12,7 +12,6 @@ import { getArticlesByFormSubmit } from './js/getArticlesByFormSubmit';
 import displayWeather from './js/displayWeather';
 import flatpickr from './js/calendar.js';
 
-
 const categoriesEl = document.querySelector('.filter-wrapper');
 const cardContainer = document.querySelector('.card-container');
 
@@ -40,7 +39,10 @@ createCardsMarkup();
 cardContainer.addEventListener('click', changeLikeDislikeImg);
 
 // *************** Render Forecast ******************
+
 displayWeather();
+
+//*********************************************************** */
 
 // -> open burger menu
 refs.headerBurger.addEventListener('click', onBurgerBtnClick);
@@ -49,4 +51,3 @@ refs.searchIcon.addEventListener('click', onSearchIconClick);
 
 // -> search input header
 refs.headerSearch.addEventListener('submit', getArticlesByFormSubmit);
-
