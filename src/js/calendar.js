@@ -39,6 +39,6 @@ function changeSvg(e) {
   dateUp.style.display = 'block';
   //svgDown.setAttribute('href', svgUp);
 }
-// function clearFlatpickr(){
-//   datePicker.clear();
-// }
+function clearFlatpickr() {
+  datePicker.clear();
+}
