@@ -9,7 +9,7 @@ export function addNewsToLocalStorage(event) {
   event.preventDefault();
   if (event.target.className === 'card-read-more') {
     const card = event.target.parentElement.parentElement.parentElement;
-    console.dir(card);
+    // console.dir(card);
     const cardData = {
       readMoreLink: card.children[1].children[2].children[1].href,
       category: card.children[0].children[1].textContent,
