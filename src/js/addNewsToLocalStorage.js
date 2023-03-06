@@ -13,12 +13,13 @@ export function addNewsToLocalStorage(event) {
     const cardData = {
       readMoreLink: card.children[1].children[2].children[1].href,
       category: card.children[0].children[1].textContent,
-      isRead: true,
       img: card.children[0].children[2].currentSrc,
       title: card.children[1].children[0].textContent,
       text: card.children[1].children[1].textContent,
       date: card.children[1].children[2].children[0].textContent,
       dateOfRead: new Date(),
+      isRead: true,
+      isFavorite: false,
     };
 
     if (!localStorageData.options.length) {
