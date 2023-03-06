@@ -30,12 +30,6 @@ body .date-label {
   padding-left: 46px;
   font-size: 18px;
 }
-// .date-picker:focus {
-//     outline: none;
-//     border-color: #4440F6;
-//     color: #FFFFFF;
-//     background-color: #4440F6;
-// }
 
 .date-picker.flatpickr-input.active {
   outline: none;
@@ -70,10 +64,14 @@ body .date-label {
 }
 .date-up {
   display: none;
+  fill: #f8f8f8;
+  margin-right: 10px;
+  margin-top: 6px;
+  position: absolute;
+  top: 30%;
+  right: 1px;
+  transform: translateY(-50%);
 }
-// .date-down {
-//   fill: #ffffff;
-// }
 
 .calendar {
   position: relative;
@@ -84,7 +82,7 @@ body .date-label {
   border-radius: 20px;
 }
 body .flatpickr-months .flatpickr-next-month {
-  //background: #4440F6;
+  
   fill: #4440f6;
 }
 body .flatpickr-months .flatpickr-prev-month {

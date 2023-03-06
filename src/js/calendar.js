@@ -16,14 +16,29 @@ const options = {
   onChange: function (selectedDates) {
     selectedDate = selectedDates[0];
 
-    console.log(dateInput);
     datePicker.style.backgroundColor = '#4440F6';
     datePicker.style.color = '#F8F8F8';
+    datePicker.style.border = '#4440F6';
+    dateDown.style.display = 'block';
+    dateUp.style.display = 'none';
+    // const svgDown = dateDown.getAttribute("href").baseVal;
+    // const svgUp = dateUp.getAttribute("href").baseVal;
+    // svgUp.setAttribute('href', svgDown);
+    // svgDown.style.fill = '#F8F8F8'
+
+    //clearFlatpickr();
   },
 };
 flatpickr(datePicker, options);
 
 dateInput.addEventListener('click', changeSvg);
-function changeSvg() {
+function changeSvg(e) {
   dateInput.style.color = '#F8F8F8';
+  dateDown.style.display = 'none';
+  dateUp.style.display = 'block'
+  //svgDown.setAttribute('href', svgUp);
+
 }
+// function clearFlatpickr(){
+//   datePicker.clear();
+// }
