@@ -1,6 +1,20 @@
-export function createCardsMarkup(data) {
+import getDataMostPopularNews from './fetchData/fetchMostPopularNews';
+import { addMarkup } from './addMarkup';
+
+const card__containerEl = document.querySelector('.card-container');
+
+export default async function createCardsMarkup() {
   // console.log(data);
-  return data
+  // -> create ULR for img
+  const imageUrl = new URL(
+    '../images/svg/dislike.svg?as=svg&width=16&height=16',
+    import.meta.url
+  );
+
+  const data = await getDataMostPopularNews();
+
+  // -> generate html markup for news card
+  const newsCollectionMarkup = data
     .map(({ title, abstract, media, published_date, url, section }, index) => {
       // console.log(media);
 
@@ -12,8 +26,7 @@ export function createCardsMarkup(data) {
       return `<div class = "card ${'card-' + index}">
         <div class = "card-img-wrapper">
           <span class="card__btn">Add to favorite
-          <img class="like" src='./images/svg/like.svg' alt="Add to favorite" width="16" height="16">
-
+            <img class="like" src=${imageUrl} alt="Add to favorite" width="16" height="16">
           </span>
           <span class="card__category">${section}</span>
           <img class="card__img" src=${img} alt="" width="350px" height="500px">
@@ -33,4 +46,10 @@ export function createCardsMarkup(data) {
         </div>`;
     })
     .join('');
+  addMarkup(card__containerEl, newsCollectionMarkup);
+  // const cardDateArr = [...document.querySelectorAll('.card__date')];
+  // const test = cardDateArr.map(i => i.innerText);
+  // console.log('test:', test);
 }
+
+// ['media-metadata'][2].url
