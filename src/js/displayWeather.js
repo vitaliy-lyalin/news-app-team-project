@@ -87,11 +87,6 @@ export default async function displayWeather() {
 
 function weeklyForecast(e, forecastContainer) {
   if (e.target.innerText === 'weather for week') {
-    // const topWrapper = forecastContainer.querySelector('.top-wrapper');
-    // const weatherIcon = forecastContainer.querySelector('.weather__icon');
-    // const weatherCardBodyBottom = forecastContainer.querySelector(
-    //   '.weather-card_body-bottom'
-    // );
     e.target.innerText = 'current weather';
     weatherDataWrapper.style.display = 'none';
     forecastContainer.style.display = 'block';
@@ -115,14 +110,16 @@ function getForecast(weather) {
   const formattedDate = date.toLocaleDateString('en-gb', options);
 
   return `
-   <div class="weather-forecast-item">
-    <div class="date">${formattedDate}</div>
-     <div class="date">${formattedDay}</div>
+   <div class="forecast-container">
+    <div class="forecast-date">${formattedDate}</div>
+     <div class="forecast-day">${formattedDay}</div>
+     <div class="weather-forecast-item">
+      <div class="forecast__description">${weather.description}</div>
+    <div class="temp">${weather.temperature}°</div>
       <div class="forecast-icon">
       <img class="forecast-image" src="https://openweathermap.org/img/wn/${weather.icon}@4x.png"/>
       </div>
-    <div class="forecast__description">${weather.description}</div>
-    <div class="temp">${weather.temperature}°</div>
+   </div>
     </div>
     `;
 }
