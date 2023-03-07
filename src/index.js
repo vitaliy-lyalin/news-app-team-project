@@ -21,6 +21,11 @@ import displayWeather from './js/displayWeather';
 
 import flatpickr from './js/calendar.js';
 
+import { favoritePage } from './js/favorite/favoritePage';
+
+// *************** FavoritePage Functionality ***************
+// favoritePage();
+
 const categoriesEl = document.querySelector('.filter-wrapper');
 const cardContainer = document.querySelector('.card-container');
 
