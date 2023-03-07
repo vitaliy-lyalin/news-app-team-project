@@ -23,7 +23,21 @@ async function setPositionRenderMarkup(position) {
     let latitude = position.coords.latitude;
     let longitude = position.coords.longitude;
 
+    const forecastContainer = document.querySelector(
+      '.forecast-content-wrapper'
+    );
+
     const weather = await fetchDataWeather(latitude, longitude);
+    const markupArray = await fetchWeeklyForecast(latitude, longitude);
+    const forecastMarkup =
+      markupArray.length &&
+      markupArray
+        .map(elem => {
+          return getForecast(elem);
+        })
+        .join('');
+    forecastContainer.innerHTML = forecastMarkup;
+    console.log(forecastContainer);
 
     const markup = `
     <div class="top-wrapper">
@@ -46,32 +60,11 @@ async function setPositionRenderMarkup(position) {
         ${formattedDate}
       </div>
       </div>
-    <button type="button" class="weather__button fixed-bottom">weather for week</button>
   `;
-    // cardElement.insertAdjacentHTML('beforeend', markup);
+
     weatherDataWrapper.innerHTML = markup;
 
-    // function celsiustoFahrenheit(temperature) {
-    //   return (temperature * 9) / 5 + 32;
-    // }
-    // tempElement.addEventListener('click', function () {
-    //   if (weather.temperature.value === undefined) return;
-    //   if (weather.temperature.unit == 'celsius') {
-    //     let fahrenheit = celsiustoFahrenheit(weather.temperature.value);
-    //     fahrenheit = Math.floor(fahrenheit);
-
-    //     tempElement.innerHTML = `${fahrenheit}°<span>F</span>`;
-    //     weather.temperature.unit = 'fahrenheit';
-    //   } else {
-    //     tempElement.innerHTML = `${weather.temperature.value}°`;
-    //     weather.temperature.unit = 'celsius';
-    //   }
-    // });
-
     const btnChangeWeather = document.querySelector('.weather__button');
-    const forecastContainer = document.querySelector(
-      '.weather-content-wrapper'
-    );
 
     btnChangeWeather.addEventListener('click', function (e) {
       weeklyForecast(e, forecastContainer);
@@ -94,36 +87,44 @@ export default async function displayWeather() {
 
 function weeklyForecast(e, forecastContainer) {
   if (e.target.innerText === 'weather for week') {
-    const topWrapper = forecastContainer.querySelector('.top-wrapper');
-    const weatherIcon = forecastContainer.querySelector('.weather__icon');
-    const weatherCardBodyBottom = forecastContainer.querySelector(
-      '.weather-card_body-bottom'
-    );
-    topWrapper.style.display = 'none';
-    weatherIcon.style.display = 'none';
-    weatherCardBodyBottom.style.display = 'none';
-
-    // weatherDataWrapper.innerHTML = '';
-    // forecastContainer.innerHTML = forecastMarkup;
+    // const topWrapper = forecastContainer.querySelector('.top-wrapper');
+    // const weatherIcon = forecastContainer.querySelector('.weather__icon');
+    // const weatherCardBodyBottom = forecastContainer.querySelector(
+    //   '.weather-card_body-bottom'
+    // );
     e.target.innerText = 'current weather';
+    weatherDataWrapper.style.display = 'none';
+    forecastContainer.style.display = 'block';
   } else {
     e.target.innerText = 'weather for week';
-    // weatherDataWrapper.innerHTML = markup;
-    // forecastContainer.innerHTML = '';
+    forecastContainer.style.display = 'none';
+    weatherDataWrapper.style.display = 'block';
   }
 }
 
-// forecastMarkup = `
-//    <div class="weather-forecast-item">
+function getForecast(weather) {
+  const date = new Date(weather.date);
+  console.log(weather.date);
+  const options = {
+    day: 'numeric',
+    month: 'short',
+    year: 'numeric',
+  };
 
-//       <div class="forecast-icon">
-//       <img class="forecast-image" src="https://openweathermap.org/img/wn/${weather.icon}@4x.png"
-//       </div>
-//     <div class="forecast__description">${forecast.description}</div>;
-//     <div class="temp">${forecast.temperature}°</div>
-//     </div>
-//       <button type="button" class="weather__button">weather for week</button>
-//     `;
-// forecastContainer.innerHTML = forecastMarkup;
+  const formattedDay = date.toLocaleDateString('en-gb', { weekday: 'short' });
+  const formattedDate = date.toLocaleDateString('en-gb', options);
+
+  return `
+   <div class="weather-forecast-item">
+    <div class="date">${formattedDate}</div>
+     <div class="date">${formattedDay}</div>
+      <div class="forecast-icon">
+      <img class="forecast-image" src="https://openweathermap.org/img/wn/${weather.icon}@4x.png"/>
+      </div>
+    <div class="forecast__description">${weather.description}</div>
+    <div class="temp">${weather.temperature}°</div>
+    </div>
+    `;
+}
 
 fetchWeeklyForecast();

@@ -3,7 +3,7 @@ export default async function fetchDataWeather(latitude, longitude) {
   let API_KEY = '0458bf71d4b2f3d6d80c258e4438f735';
   try {
     const response = await fetch(
-      `${BASE_URL}lat=${latitude}&lon=${longitude}&appid=${API_KEY}`
+      `${BASE_URL}lat=50.45&lon=30.52&appid=${API_KEY}`
     );
 
     let weather = {

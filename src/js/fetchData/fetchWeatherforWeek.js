@@ -18,7 +18,7 @@ export default async function fetchWeeklyForecast(latitude, longitude) {
         icon: item.weather[0].icon,
       };
     });
-    console.log(dailyForecast);
+    return dailyForecast;
   } catch (error) {
     console.log(error.message);
   }
