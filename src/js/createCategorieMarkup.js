@@ -11,6 +11,18 @@ export function createCategoriesCardMarkup(data) {
         { title, abstract, multimedia, published_date, url, section },
         index
       ) => {
+        const formattedPublishedDate = new Date(
+          published_date
+        ).toLocaleDateString('en-GB');
+
+        const titleLength = 33;
+        const abstractLength = 200;
+
+        const trimmedTitle = title.substring(title, titleLength).concat('...');
+        const trimmedAbstract = abstract
+          .substring(abstract, abstractLength)
+          .concat('...');
+
         const noImgUrl =
           'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png';
 
@@ -26,13 +38,10 @@ export function createCategoriesCardMarkup(data) {
           <img class="card__img" src=${img} alt="" width="350px" height="500px">
         </div>
         <div class="card-description">
-          <h3 class="card__title">${title}</h3>
-          <p class="card__text">${abstract}</p>
+          <h3 class="card__title">${trimmedTitle}</h3>
+          <p class="card__text">${trimmedAbstract}</p>
           <div class="card__date-creation">
-            <span class="card__date">${published_date
-              .split('-')
-              .reverse()
-              .join('/')}</span>
+            <span class="card__date">${formattedPublishedDate}</span>
             <a class="card-read-more" href="${url}" target="_blank" rel="noopener noreferrer">Read more</a>
           </div>
         </div>
