@@ -7,6 +7,26 @@
 
   &--categories {
     flex-basis: 68%;
+
+    &.filters.dark-theme {
+      color: #4440f6;
+      background-color: #111321;
+
+      & .filters--category {
+        background-color: #f8f8f8;
+
+        &.active-category {
+          color: var(--light-color);
+          background-color: var(--secondary-color);
+        }
+
+        &:hover,
+        &:focus {
+          color: var(--light-color);
+          background-color: var(--secondary-color);
+        }
+      }
+    }
   }
 }
 

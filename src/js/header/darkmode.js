@@ -1,3 +1,40 @@
+const toggle = document.getElementById('toggle');
+const body = document.body;
+const header = document.querySelector('.header');
+const themeSwitcher = document.querySelector('.toggle');
+const mainNavigation = document.querySelector('.header__list');
+const filterWrapper = document.querySelector('.filter-wrapper--categories');
+
+const mode = window.localStorage.getItem('user-theme');
+// console.log(mode);
+// console.log(toggle);
+
+if (mode === 'dark') {
+  toggle.setAttribute('checked', 'checked');
+  isChecked = true;
+  body.classList.add('dark-theme');
+  header.classList.add('dark-theme');
+  themeSwitcher.classList.add('dark-theme');
+  mainNavigation.classList.add('dark-theme');
+  filterWrapper.classList.add('dark-theme');
+}
+
+toggle.addEventListener('input', e => {
+  body.classList.toggle('dark-theme');
+  header.classList.toggle('dark-theme');
+  themeSwitcher.classList.toggle('dark-theme');
+  mainNavigation.classList.toggle('dark-theme');
+  filterWrapper.classList.toggle('dark-theme');
+});
+
+// if (mode === 'light' || !mode) {
+//   isChecked = false;
+//   toggle.setAttribute('checked', '');
+
+//   document.documentElement.classList.remove('dark');
+//   document.documentElement.classList.add('light');
+// }
+
 window.addEventListener('load', windowLoad);
 
 function windowLoad() {
@@ -16,29 +53,9 @@ function windowLoad() {
     .addEventListener('change', e => {
       !saveUserTheme ? changeTheme() : null;
     });
-  // ===== Закоментовано при заміні розмітки та оформлення перемикача та замінено на код нижче
-  //   const themeButton = document.querySelector('.page__theme');
-  //   const resetButton = document.querySelector('.page__reset');
-  //   if (themeButton) {
-  //     themeButton.addEventListener('click', function (e) {
-  //       resetButton.classList.add('active');
-  //       changeTheme(true);
-  //     });
-  //   }
-  //   if (resetButton) {
-  //     resetButton.addEventListener('click', function (e) {
-  //       resetButton.classList.remove('active');
-  //       localStorage.setItem('user-theme', '');
-  //     });
-  // =============================
-  toggle.addEventListener('input', e => {
-    const isChecked = e.target.checked;
 
-    if (isChecked) {
-      changeTheme(true);
-    } else {
-      localStorage.setItem('user-theme', '');
-    }
+  toggle.addEventListener('input', e => {
+    changeTheme(true);
   });
 
   function setThemeClass() {
@@ -66,17 +83,3 @@ function windowLoad() {
     saveTheme ? localStorage.setItem('user-theme', newTheme) : null;
   }
 }
-
-// ====== Приклад використарння перемикача ======
-// const toggle = document.getElementById('toggle');
-// const body = document.body;
-
-// toggle.addEventListener('input', e => {
-//   const isChecked = e.target.checked;
-
-//   if (isChecked) {
-//     body.classList.add('dark-theme');
-//   } else {
-//     body.classList.remove('dark-theme');
-//   }
-// });
