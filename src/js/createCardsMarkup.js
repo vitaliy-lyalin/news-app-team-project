@@ -1,8 +1,12 @@
 import getDataMostPopularNews from './fetchData/fetchMostPopularNews';
 import { addMarkup } from './addMarkup';
+
+import paginationLaunch from './createPagination';
+
 import { _f } from './favorite/favoritePage';
 import { isCheckFavoriteLocalStorage } from './favorite/isCheckFavoriteLocalStorage';
 import { addAttrFavorite } from './favorite/addAttrFavorite';
+
 
 const card__containerEl = document.querySelector('.card-container');
 
@@ -14,10 +18,10 @@ export default async function createCardsMarkup() {
     import.meta.url
   );
 
-  const data = await getDataMostPopularNews();
+  const { results, num_results } = await getDataMostPopularNews();
 
   // -> generate html markup for news card
-  const newsCollectionMarkup = data
+  const newsCollectionMarkup = results
     .map(({ title, abstract, media, published_date, url, section }, index) => {
       // console.log(media);
 
@@ -28,11 +32,11 @@ export default async function createCardsMarkup() {
       // console.log(img);
       return `<div class = "card ${'card-' + index}">
         <div class = "card-img-wrapper">
-          <span class="card__btn">Add to favorite
-            <img class="like" src=${imageUrl} alt="Add to favorite" width="16" height="16">
-          </span>
-          <span class="card__category">${section}</span>
-          <img class="card__img" src=${img} alt="" width="350px" height="500px">
+            <span class="card__btn">Add to favorite
+              <img class="like" src=${imageUrl} alt="Add to favorite" width="16" height="16">
+            </span>
+            <span class="card__category">${section}</span>
+            <img class="card__img" src=${img} alt="" width="350px" height="500px">
         </div>
         <div class="card-description">
           <h3 class="card__title">${title}</h3>
@@ -43,14 +47,26 @@ export default async function createCardsMarkup() {
               .reverse()
               .join('/')}</span>
             <a class="card-read-more" href="${img}" target="_blank" rel="noopener noreferrer">Read more</a>
+
           </div>
-        </div>
-        
-        </div>`;
+          <div class="card-description">
+            <h3 class="card__title">${title}</h3>
+            <p class="card__text">${abstract}</p>
+            <div class="card__date-creation">
+              <span class="card__date">${published_date
+                .split('-')
+                .reverse()
+                .join('/')}</span>
+              <a class="card-read-more" href="${url}" target="_blank" rel="noopener noreferrer">Read more</a>
+            </div>
+          </div>
+
+          </div>`;
     })
     .join('');
 
   addMarkup(card__containerEl, newsCollectionMarkup);
+
 
   // -> ADD CODE for FavoritePage
   // addAttrFavorite();
@@ -63,4 +79,6 @@ export default async function createCardsMarkup() {
   // console.log('test:', test);
 }
 
-// ['media-metadata'][2].url
+
+  paginationLaunch(num_results);
+}

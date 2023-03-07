@@ -1,5 +1,5 @@
 import { createCardsMarkup } from '../createCardsMarkup';
-import { createCategorieCardMarkup } from '../createCategorieMarkup';
+import { createCategoriesCardMarkup } from '../createCategorieMarkup';
 import { renderingNewsNotFound } from '../renderingNewsNotFound';
 
 const card__containerEl = document.querySelector('.card-container');
@@ -46,7 +46,7 @@ export async function filterByChosenCategorie(categorieValue) {
       card__containerEl.innerHTML = renderingNewsNotFound();
     } else {
       // console.log(chosenCategorie)
-      card__containerEl.innerHTML = createCategorieCardMarkup(chosenCategorie);
+      card__containerEl.innerHTML = createCategoriesCardMarkup(chosenCategorie);
 
       return chosenCategorie;
     }

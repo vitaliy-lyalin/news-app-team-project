@@ -54,6 +54,7 @@ categoriesEl.addEventListener('click', event => {
 
 // *************** Render News Cards ******************
 createCardsMarkup();
+// console.log(cardContainer);
 
 // -> Add remove like - dislike
 cardContainer.addEventListener('click', changeLikeDislikeImg);
