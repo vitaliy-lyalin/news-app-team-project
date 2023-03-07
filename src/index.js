@@ -11,6 +11,7 @@ import createCardsMarkup from './js/createCardsMarkup';
 import { refs } from './js/header/refs';
 import { onBurgerBtnClick } from './js/header/mobileBurger';
 import { onSearchIconClick } from './js/header/searchInput';
+import { addActiveClassToCurrentPage } from './js/header/currentPage';
 
 import { darkmode } from './js/header/darkmode';
 
@@ -60,6 +61,8 @@ displayWeather();
 refs.headerBurger.addEventListener('click', onBurgerBtnClick);
 //  -> open search by click on magnifying glass
 refs.searchIcon.addEventListener('click', onSearchIconClick);
+// -> add active class current page
+addActiveClassToCurrentPage();
 
 // -> search input header
 refs.headerSearch.addEventListener('submit', getArticlesByFormSubmit);
