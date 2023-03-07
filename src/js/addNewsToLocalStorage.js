@@ -6,15 +6,20 @@ let localStorageData = {
 // console.log('localStorageData', localStorageData.options);
 
 export function addNewsToLocalStorage(event) {
+  event.preventDefault();
   if (event.target.className === 'card-read-more') {
     const card = event.target.parentElement.parentElement.parentElement;
-
+    // console.dir(card);
     const cardData = {
-      isRead: true,
+      readMoreLink: card.children[1].children[2].children[1].href,
+      category: card.children[0].children[1].textContent,
       img: card.children[0].children[2].currentSrc,
       title: card.children[1].children[0].textContent,
       text: card.children[1].children[1].textContent,
-      date: new Date(),
+      date: card.children[1].children[2].children[0].textContent,
+      dateOfRead: new Date(),
+      isRead: true,
+      isFavorite: false,
     };
 
     if (!localStorageData.options.length) {

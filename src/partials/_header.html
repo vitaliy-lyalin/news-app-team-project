@@ -8,15 +8,19 @@
         <ul class="header__list">
           <li>
             <svg class="header__list-icon" width="32" height="32">
-              <use href="/src/images/symbol-defs.svg#icon-home"></use></svg><a class="header__link" href="/">Home</a>
+              <use href="/src/images/symbol-defs.svg#icon-home"></use>
+            </svg>
+            <a class="header__link" href="/">Home</a>
           </li>
           <li>
             <svg class="header__list-icon" width="32" height="32">
-              <use href="/src/images/symbol-defs.svg#icon-heart"></use></svg><a class="header__link" href="favorite.html">Favourite</a>
+              <use href="/src/images/symbol-defs.svg#icon-heart"></use></svg
+            ><a class="header__link" href="favorite.html">Favourite</a>
           </li>
           <li>
             <svg class="header__list-icon" width="32" height="32">
-              <use href="/src/images/symbol-defs.svg#icon-book"></use></svg><a class="header__link" href="read.html">Read</a>
+              <use href="/src/images/symbol-defs.svg#icon-book"></use></svg
+            ><a class="header__link" href="read.html">Read</a>
           </li>
         </ul>
       </nav>
@@ -25,20 +29,21 @@
         <div class="header__search">
           <div class="search__icon"></div>
           <div class="search__input">
-          <form class="search__form">
-            <input type="text" placeholder="Search" />
-          </form>
+            <form class="search__form">
+              <input type="text" placeholder="Search" />
+            </form>
+          </div>
+        </div>
+        <div type="button" tabindex="0" class="header__burger">
+          <span></span>
         </div>
       </div>
-      <div type="button" tabindex="0" class="header__burger">
-        <span></span>
+      <div class="toggle">
+        <span class="switch-light">Light</span>
+        <input type="checkbox" id="toggle" />
+        <label for="toggle"></label>
+        <span class="switch-dark">Dark</span>
       </div>
     </div>
-    <div class="checkbox">
-      <label for="" class="switch-light">Light</label>
-      <input type="checkbox" class="page__theme" />
-      <label for="" class="switch-dark">Dark</label>
-    </div>
-    <button type="button" class="page__reset"></button>
   </div>
 </header>
