@@ -1,4 +1,8 @@
 export function createCategorieCardMarkup(data) {
+  const imageUrl = new URL(
+    '../images/svg/dislike.svg?as=svg&width=16&height=16',
+    import.meta.url
+  );
   return data
     .map(
       (
@@ -10,10 +14,26 @@ export function createCategorieCardMarkup(data) {
 
         const img = multimedia.length ? multimedia[2].url : noImgUrl;
 
+        const inComingDate = new Date(published_date);
+
+        function addLeadingZero(d) {
+          return d < 10 ? '0' + d : d;
+        }
+
+        function getUserTime(t) {
+          let Y = t.getFullYear();
+          let M = addLeadingZero(t.getMonth() + 1);
+          let D = addLeadingZero(t.getDate());
+
+          return `${D}/${M}/${Y}`;
+        }
+
+        const transformDate = getUserTime(inComingDate);
+
         return `<div class = "card ${'card-' + index}">
         <div class = "card-img-wrapper">
           <span class="card__btn">Add to favorite
-          <img class="like" src='./images/svg/like.svg' alt="Add to favorite" width="16" height="16">
+          <img class="like" src=${imageUrl} alt="Add to favorite" width="16" height="16">
 
           </span>
           <span class="card__category">${section}</span>
@@ -23,10 +43,7 @@ export function createCategorieCardMarkup(data) {
           <h3 class="card__title">${title}</h3>
           <p class="card__text">${abstract}</p>
           <div class="card__date-creation">
-            <span class="card__date">${published_date
-              .split('-')
-              .reverse()
-              .join('/')}</span>
+            <span class="card__date">${transformDate}</span>
             <a class="card-read-more" href="${url}" target="_blank" rel="noopener noreferrer">Read more</a>
           </div>
         </div>

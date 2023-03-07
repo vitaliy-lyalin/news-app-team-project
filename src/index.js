@@ -19,6 +19,7 @@ import flatpickr from './js/calendar.js';
 
 const categoriesEl = document.querySelector('.filter-wrapper');
 const cardContainer = document.querySelector('.card-container');
+const datePicker = document.querySelector('.date-input');
 
 // *************** Header Functionality ***************
 // -> open burger menu
@@ -51,6 +52,9 @@ cardContainer.addEventListener('click', changeLikeDislikeImg);
 
 // *************** Render Forecast ******************
 displayWeather();
+
+// **************** FilterByDate *********************
+document.addEventListener('change', filterByDateMostViwed);
 
 // -> open burger menu
 refs.headerBurger.addEventListener('click', onBurgerBtnClick);
