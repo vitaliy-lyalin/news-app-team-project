@@ -374,9 +374,9 @@
   }
 }
 
-.toggle input[type='checkbox'] {
+ .toggle input[type='checkbox'] {
   display: none;
-}
+ }
 
 .toggle label {
   z-index: 100;
@@ -413,4 +413,32 @@
 .toggle input[type='checkbox']:checked ~ label::after {
   background-color: var(--light-color);
   transform: translateX(20px);
+}
+
+.switch-light {
+  position: absolute;
+  z-index: 100;
+}
+
+.switch-dark {
+  position: absolute;
+  z-index: 100;
+}
+
+html.dark switch-light {
+  color: #F4F4F4;
+}
+
+html.light switch-light {
+  color: #4B48DB
+}
+
+html.light header {
+  color: #222;
+  background-color: #F4F4F4;
+}
+
+html.light header {
+  color: #F4F4F4;
+  background-color: #222;
 }

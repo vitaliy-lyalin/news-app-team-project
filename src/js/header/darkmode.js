@@ -16,7 +16,7 @@ function windowLoad() {
     .addEventListener('change', e => {
       !saveUserTheme ? changeTheme() : null;
     });
-  // ===== Закоментовано при заміні розмітки та оформлення перемикача та замінено на код нижче
+  // // ===== Закоментовано при заміні розмітки та оформлення перемикача та замінено на код нижче
   //   const themeButton = document.querySelector('.page__theme');
   //   const resetButton = document.querySelector('.page__reset');
   //   if (themeButton) {
@@ -30,7 +30,7 @@ function windowLoad() {
   //       resetButton.classList.remove('active');
   //       localStorage.setItem('user-theme', '');
   //     });
-  // =============================
+  // // =============================
   toggle.addEventListener('input', e => {
     const isChecked = e.target.checked;
 
@@ -68,15 +68,16 @@ function windowLoad() {
 }
 
 // ====== Приклад використарння перемикача ======
-// const toggle = document.getElementById('toggle');
-// const body = document.body;
+const toggle = document.getElementById('toggle');
+const body = document.body;
 
-// toggle.addEventListener('input', e => {
-//   const isChecked = e.target.checked;
+toggle.addEventListener('input', e => {
+  const isChecked = e.target.checked;
 
-//   if (isChecked) {
-//     body.classList.add('dark-theme');
-//   } else {
-//     body.classList.remove('dark-theme');
-//   }
-// });
+  if (isChecked) {
+    body.classList.add('dark-theme');
+  } else {
+    body.classList.remove('dark-theme');
+  }
+});
+
