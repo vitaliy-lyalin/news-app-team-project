@@ -1,6 +1,5 @@
 import fetchDataWeather from './fetchData/fetchDataWeather';
 import fetchWeeklyForecast from './fetchData/fetchWeatherforWeek';
-const tempElement = document.querySelector('.weather__temp');
 const weatherDataWrapper = document.querySelector('.weather-content-wrapper');
 
 function showError(error) {
@@ -37,7 +36,6 @@ async function setPositionRenderMarkup(position) {
         })
         .join('');
     forecastContainer.innerHTML = forecastMarkup;
-    console.log(forecastContainer);
 
     const markup = `
     <div class="top-wrapper">
@@ -99,7 +97,6 @@ function weeklyForecast(e, forecastContainer) {
 
 function getForecast(weather) {
   const date = new Date(weather.date);
-  console.log(weather.date);
   const options = {
     day: 'numeric',
     month: 'short',
@@ -123,5 +120,3 @@ function getForecast(weather) {
     </div>
     `;
 }
-
-fetchWeeklyForecast();

@@ -42,9 +42,10 @@
   font-size: 36px;
   line-height: 1.16;
 }
+
 .weather__location {
   position: relative;
-  min-width: 177px;
+  min-width: auto;
   min-height: 42px;
   font-weight: 400;
   font-size: 20px;
@@ -101,6 +102,10 @@
   justify-content: center;
 }
 
+.weather-card_body-bottom {
+  margin-bottom: 28px;
+}
+
 .weather__button {
   position: absolute;
   display: block;
@@ -116,7 +121,7 @@
   margin: 0 auto;
   cursor: pointer;
   align-items: center;
-  bottom: 30px;
+  bottom: 40px;
   left: 25%;
 }
 
@@ -124,11 +129,11 @@
   border: 1px solid #ffffff;
   border-radius: 25px;
   margin-bottom: 5px;
-  padding: 5px 10px;
+  padding: 5px;
 }
 .forecast-content-wrapper {
   display: none;
-  overflow-y: auto;
+  overflow-y: scroll;
 }
 .forecast__description {
   margin-bottom: 5px;
@@ -161,4 +166,5 @@
 .weather-forecast-item {
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
 }
