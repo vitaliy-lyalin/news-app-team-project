@@ -36,7 +36,7 @@ async function setPositionRenderMarkup(position) {
       </div>
     </div>
     <div class="weather__icon">
-      <img class="weather__icon-image" src="https://openweathermap.org/img/wn/${weather.icon}@2x.png" width="165" height="155"/>
+      <img class="weather__icon-image" src="https://openweathermap.org/img/wn/${weather.icon}@4x.png" width="165" height="155"/>
     </div>
     <div class="weather-card_body-bottom">
       <div class="day">
@@ -54,8 +54,7 @@ async function setPositionRenderMarkup(position) {
     // function celsiustoFahrenheit(temperature) {
     //   return (temperature * 9) / 5 + 32;
     // }
-    // tempElement.addEventListener('click', function (e) {
-    //   console.log(tempElement);
+    // tempElement.addEventListener('click', function () {
     //   if (weather.temperature.value === undefined) return;
     //   if (weather.temperature.unit == 'celsius') {
     //     let fahrenheit = celsiustoFahrenheit(weather.temperature.value);
@@ -104,39 +103,27 @@ function weeklyForecast(e, forecastContainer) {
     weatherIcon.style.display = 'none';
     weatherCardBodyBottom.style.display = 'none';
 
+    // weatherDataWrapper.innerHTML = '';
+    // forecastContainer.innerHTML = forecastMarkup;
     e.target.innerText = 'current weather';
-    weatherDataWrapper.innerHTML = '';
-    forecastContainer.innerHTML = forecastMarkup;
   } else {
     e.target.innerText = 'weather for week';
-    weatherDataWrapper.innerHTML = markup;
-    forecastContainer.innerHTML = '';
+    // weatherDataWrapper.innerHTML = markup;
+    // forecastContainer.innerHTML = '';
   }
 }
 
-const dailyForecast = await fetchWeeklyForecast(latitude, longitude);
+// forecastMarkup = `
+//    <div class="weather-forecast-item">
 
-let forecastMarkup = '';
+//       <div class="forecast-icon">
+//       <img class="forecast-image" src="https://openweathermap.org/img/wn/${weather.icon}@4x.png"
+//       </div>
+//     <div class="forecast__description">${forecast.description}</div>;
+//     <div class="temp">${forecast.temperature}°</div>
+//     </div>
+//       <button type="button" class="weather__button">weather for week</button>
+//     `;
+// forecastContainer.innerHTML = forecastMarkup;
 
-for (let i = 0; i < dailyForecast.length; i++) {
-  const forecast = dailyForecast[i];
-  const formattedDate = formatDate(forecast.date);
-}
-
-forecastMarkup = `
- <div class="forecast__icon">
-      <img class="forecast__icon-image" src="https://openweathermap.org/img/wn/${forecast.icon}@4x.png" width="165" height="155"/>
-    </div>
-        <p class="forecast__temp">${forecast.temperature.value}°</p>
-        <div class="forecast__description">${forecast.description}</div>
-    <div class="forecast-card_body-bottom">
-      <div class="day">
-        ${formattedDay}
-      </div>
-      <div class="date">
-        ${formattedDate}
-      </div>
-      </div>
-    <button type="button" class="weather__button fixed-bottom">weather for week</button>
-  `;
-forecastContainer.innerHTML = forecastMarkup;
+fetchWeeklyForecast();

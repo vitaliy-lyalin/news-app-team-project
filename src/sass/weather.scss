@@ -101,6 +101,7 @@
 }
 
 .weather__button {
+  position: absolute;
   display: block;
   font-weight: 400;
   font-size: 20px;
@@ -113,8 +114,16 @@
   border: none;
   margin: 0 auto;
   cursor: pointer;
+  bottom: -30px;
+  left: 10%;
 }
 
+.weather-content-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
 // .fixed-bottom {
 //   position: fixed;
 //   bottom: 20px;
