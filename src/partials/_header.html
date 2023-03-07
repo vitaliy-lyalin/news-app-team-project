@@ -7,19 +7,25 @@
       <nav class="header__menu">
         <ul class="header__list">
           <li>
-            <svg class="header__list-icon" width="32" height="32">
-              <use href="/src/images/symbol-defs.svg#icon-home"></use></svg
-            ><a class="header__link" href="/">Home</a>
+            <a class="header__link" href="/">
+              <svg class="header__list-icon" width="32" height="32">
+                <use href="/src/images/symbol-defs.svg#icon-home"></use></svg
+              >Home
+            </a>
           </li>
           <li>
-            <svg class="header__list-icon" width="32" height="32">
-              <use href="/src/images/symbol-defs.svg#icon-heart"></use></svg
-            ><a class="header__link" href="favorite.html">Favourite</a>
+            <a class="header__link" href="favorite.html">
+              <svg class="header__list-icon" width="32" height="32">
+                <use href="/src/images/symbol-defs.svg#icon-heart"></use></svg
+              >Favourite
+            </a>
           </li>
           <li>
-            <svg class="header__list-icon" width="32" height="32">
-              <use href="/src/images/symbol-defs.svg#icon-book"></use></svg
-            ><a class="header__link" href="read.html">Read</a>
+            <a class="header__link" href="read.html">
+              <svg class="header__list-icon" width="32" height="32">
+                <use href="/src/images/symbol-defs.svg#icon-book"></use></svg
+              >Read
+            </a>
           </li>
         </ul>
       </nav>
@@ -28,15 +34,20 @@
         <div class="header__search">
           <div class="search__icon"></div>
           <div class="search__input">
-          <form class="search__form">
-            <input type="text" placeholder="Search" />
-           </form>
-            
+            <form class="search__form">
+              <input type="text" placeholder="Search" />
+            </form>
           </div>
         </div>
-
-      <div type="button" tabindex="0" class="header__burger">
-        <span></span>
+        <div type="button" tabindex="0" class="header__burger">
+          <span></span>
+        </div>
+      </div>
+      <div class="toggle">
+        <span class="switch-light">Light</span>
+        <input type="checkbox" id="toggle" />
+        <label for="toggle"></label>
+        <span class="switch-dark">Dark</span>
       </div>
     </div>
   </div>

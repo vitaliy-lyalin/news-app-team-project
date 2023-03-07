@@ -1,4 +1,3 @@
-
 <!-- Filter Categories -->
 <section class="container">
   <div class="filter-wrapper">
@@ -8,6 +7,7 @@
     <!-- Calendar -->
     <div class="filter-wrapper--date">
       <div class="date">
+        <label class="date-label">Search date news</label>
         <div class="date-input">
           <input
             type="text"
@@ -15,15 +15,21 @@
             id="date-picker"
             placeholder="Search date..."
           />
-          <svg class="date-svg-calendar" width="20px" height="20px">
+          <svg
+            class="date-svg-calendar flatpickr-input"
+            width="20px"
+            height="20px"
+          >
             <use href="./images/calendar-defs.svg#icon-Frame"></use>
           </svg>
           <svg class="date-down" width="20px" height="20px">
             <use href="./images/calendar-defs.svg#icon-Frame-11"></use>
+          </svg>
+          <svg class="date-up" width="20px" height="20px">
+            <use href="./images/calendar-defs.svg#icon-Frame-12"></use>
           </svg>
         </div>
       </div>
     </div>
   </div>
 </section>
-
