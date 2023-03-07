@@ -52,10 +52,10 @@ footer .wave {
   left: 0;
   width: 100%;
   height: 100px;
-  background: url(/src/images/wave.png);
+  background: url(/src/images/wave3.png);
   background-size: 1000px 100px;
-  filter: invert(59%) sepia(37%) saturate(5954%) hue-rotate(240deg)
-    brightness(97%) contrast(98%);
+  // filter: invert(60%) sepia(55%) saturate(5954%) hue-rotate(240deg)
+  //   brightness(97%) contrast(98%);
 }
 
 footer .wave#wave1 {
