@@ -10,6 +10,10 @@ html {
 
 main {
   padding-top: 115px;
+  transition: all var(--duration) var(--timeFunc);
+}
+header {
+  transition: all var(--duration) var(--timeFunc);
 }
 
 h1,
@@ -90,10 +94,10 @@ a {
   }
 }
 html.dark body {
-  color: #F4F4F4;
-  background-color:  #111321;
+  color: #f4f4f4;
+  background-color: #111321;
 }
 html.light body {
   color: #111321;
-  background-color: #F4F4F4;
+  background-color: #f4f4f4;
 }
