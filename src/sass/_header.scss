@@ -150,6 +150,9 @@
   }
 
   .header__link {
+    display: flex;
+    align-items: center;
+    gap: 15px;
     font-weight: 500;
     font-size: 16px;
   }
