@@ -1,7 +1,7 @@
 {
   "name": "parcel-project-template",
   "version": "2.0.0",
-  "description": "This project was created with Parcel. For familiarization and setting additional features [refer to documentation](https://parceljs.org/).",
+  "description": "",
   "homepage": "https://vitaliy-lyalin.github.io/news-app-team-project",
   "scripts": {
     "start": "parcel src/*.html",
@@ -31,6 +31,5 @@
     "posthtml-include": "^1.7.4",
     "sharp": "^0.29.3"
   },
-  "browserslist": "> 0.5%, last 2 versions, not dead",
-  "main": "index.js"
+  "browserslist": "> 0.5%, last 2 versions, not dead"
 }
