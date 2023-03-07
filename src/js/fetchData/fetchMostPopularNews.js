@@ -4,7 +4,7 @@ export default async function getDataMostPopularNews(path = '') {
   const response = await fetch(`${MOST_POPULAR_URL}${path}`);
   if (response.ok) {
     const results = await response.json();
-    console.log(results);
+    // console.log(results);
     return results;
   }
   throw new Error(response.statusText);
