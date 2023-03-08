@@ -41,12 +41,12 @@ export function addTolocalStorage(target) {
 function parseDOMElementToObject(element) {
     console.log("function logic parse element to obj")
     const obj = {
-        media: null,
-        title: null,
-        abstract: null,
-        published_date: null,
-        url: null,
-        section: null,
+        media: "",
+        title: "",
+        abstract: "",
+        published_date: "",
+        url: "",
+        section: "",
         isRead: false,
         isFavorite: 1
     }
