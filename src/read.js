@@ -2,6 +2,8 @@ const readCardContainer = document.querySelector('.card-container');
 
 import { createReadPageCardsMarkup } from './js/createReadPageCardsMarkup';
 import { addMarkup } from './js/addMarkup';
+import { addActiveClassToCurrentPage } from './js/header/currentPage';
+addActiveClassToCurrentPage();
 
 addMarkup(readCardContainer, createReadPageCardsMarkup());
 
