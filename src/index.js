@@ -68,7 +68,7 @@ cardContainer.addEventListener('click', addNewsToLocalStorage);
 displayWeather();
 
 // **************** FilterByDate *********************
-document.addEventListener('change', filterByDateMostViwed);
+datePicker.addEventListener('change', filterByDateMostViwed);
 
 //*********************************************************** */
 
