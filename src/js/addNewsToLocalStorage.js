@@ -8,77 +8,36 @@ let localStorageData = {
 // console.log('localStorageData', localStorageData.options.length);
 
 export function addNewsToLocalStorage(event) {
-  // event.preventDefault();
-  if (event.target.className === 'card-read-more') {
-    const card = event.target.parentElement.parentElement.parentElement;
+  const cardData = {
+    readMoreLink: '',
+    category: '',
+    img: '',
+    title: '',
+    text: '',
+    date: '',
+    dateOfRead: new Date(),
+    isRead: false,
+    isFavorite: false,
+  };
 
-    const cardData = {
-      readMoreLink: '',
-      category: '',
-      img: '',
-      title: '',
-      text: '',
-      date: '',
-      dateOfRead: new Date(),
-      isRead: false,
-      isFavorite: false,
-    };
-
-    // -> click on link "Read More"
-
-    console.log(event);
-    if (event.target.classList.contains('card-read-more')) {
-      event.preventDefault();
-      if (event.target.className === 'card-read-more') {
-        const card = event.target.parentElement.parentElement.parentElement;
-        // console.dir(card);
-
-        // const cardData = {
-        //   readMoreLink: card.children[1].children[2].children[1].href,
-        //   category: card.children[0].children[1].textContent,
-        //   img: card.children[0].children[2].currentSrc,
-        //   title: card.children[1].children[0].textContent,
-        //   text: card.children[1].children[1].textContent,
-        //   date: card.children[1].children[2].children[0].textContent,
-        //   dateOfRead: new Date(),
-        //   isRead: true,
-        //   isFavorite: true,
-        // };
-
-        cardData.readMoreLink = card.children[1].children[2].children[1].href;
-        cardData.category = card.children[0].children[1].textContent;
-        cardData.img = card.children[0].children[2].currentSrc;
-        cardData.title = card.children[1].children[0].textContent;
-        cardData.text = card.children[1].children[1].textContent;
-        cardData.date = card.children[1].children[2].children[0].textContent;
-        cardData.dateOfRead = new Date();
-        cardData.isRead = true;
-        // cardData.isFavorite = true;
-
-        if (!localStorageData.options.length) {
-          addDataToLocalStorage(cardData);
-        } else {
-          localStorageData.options.map(({ title }) => {
-            if (title !== cardData.title) {
-              if (
-                !localStorageData.options.find(
-                  item => item.title === cardData.title
-                )
-              ) {
-                addDataToLocalStorage(cardData);
-              }
-            } else {
-              updateLocalStorage(cardData.title, 'isRead');
-            }
-          });
-        }
-      }
-    }
-    // -> click on "Add to favorite"
-    if (event.target.classList.contains('card__btn')) {
-      const card = event.target.parentElement.parentElement;
-
+  // -> click on link "Read More"
+  if (event.target.classList.contains('card-read-more')) {
+    // event.preventDefault();
+    if (event.target.className === 'card-read-more') {
+      const card = event.target.parentElement.parentElement.parentElement;
       // console.dir(card);
+
+      // const cardData = {
+      //   readMoreLink: card.children[1].children[2].children[1].href,
+      //   category: card.children[0].children[1].textContent,
+      //   img: card.children[0].children[2].currentSrc,
+      //   title: card.children[1].children[0].textContent,
+      //   text: card.children[1].children[1].textContent,
+      //   date: card.children[1].children[2].children[0].textContent,
+      //   dateOfRead: new Date(),
+      //   isRead: true,
+      //   isFavorite: true,
+      // };
 
       cardData.readMoreLink = card.children[1].children[2].children[1].href;
       cardData.category = card.children[0].children[1].textContent;
@@ -87,10 +46,8 @@ export function addNewsToLocalStorage(event) {
       cardData.text = card.children[1].children[1].textContent;
       cardData.date = card.children[1].children[2].children[0].textContent;
       cardData.dateOfRead = new Date();
-      // cardData.isRead = true;
-      cardData.isFavorite = true;
-
-      // console.log(localStorageData.options.length);
+      cardData.isRead = true;
+      // cardData.isFavorite = true;
 
       if (!localStorageData.options.length) {
         addDataToLocalStorage(cardData);
@@ -104,12 +61,47 @@ export function addNewsToLocalStorage(event) {
             ) {
               addDataToLocalStorage(cardData);
             }
-            addDataToLocalStorage(cardData);
           } else {
-            updateLocalStorage(cardData.title, 'isFavorite');
+            updateLocalStorage(cardData.title, 'isRead');
           }
         });
       }
+    }
+  }
+  // -> click on "Add to favorite"
+  if (event.target.classList.contains('card__btn')) {
+    const card = event.target.parentElement.parentElement;
+    // console.dir(card);
+
+    cardData.readMoreLink = card.children[1].children[2].children[1].href;
+    cardData.category = card.children[0].children[1].textContent;
+    cardData.img = card.children[0].children[2].currentSrc;
+    cardData.title = card.children[1].children[0].textContent;
+    cardData.text = card.children[1].children[1].textContent;
+    cardData.date = card.children[1].children[2].children[0].textContent;
+    cardData.dateOfRead = new Date();
+    // cardData.isRead = true;
+    cardData.isFavorite = true;
+
+    // console.log(localStorageData.options.length);
+
+    if (!localStorageData.options.length) {
+      addDataToLocalStorage(cardData);
+    } else {
+      localStorageData.options.map(({ title }) => {
+        if (title !== cardData.title) {
+          if (
+            !localStorageData.options.find(
+              item => item.title === cardData.title
+            )
+          ) {
+            addDataToLocalStorage(cardData);
+          }
+          addDataToLocalStorage(cardData);
+        } else {
+          updateLocalStorage(cardData.title, 'isFavorite');
+        }
+      });
     }
   }
 }
