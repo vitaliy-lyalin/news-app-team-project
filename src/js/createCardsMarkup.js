@@ -17,16 +17,12 @@ export default async function createCardsMarkup() {
     import.meta.url
   );
 
-
   const { results, num_results } = await getDataMostPopularNews();
   // console.log(results);
-
 
   // -> generate html markup for news card
   const newsCollectionMarkup = results
     .map(({ title, abstract, media, published_date, url, section }, index) => {
-
-
       const titleLength = 33;
       const abstractLength = 200;
 
@@ -34,7 +30,6 @@ export default async function createCardsMarkup() {
       const trimmedAbstract = abstract
         .substring(abstract, abstractLength)
         .concat('...');
-
 
       const noImgUrl =
         'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png';
