@@ -66,12 +66,12 @@
   transition: border-color var(--duration) var(--timeFunc);
 }
 
-.header__link.active {
+.header__link.current {
   position: relative;
   color: var(--accent-color);
 }
 
-.header__link.active::after {
+.header__link.current::after {
   content: '';
   position: absolute;
   bottom: 0;

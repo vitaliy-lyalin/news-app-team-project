@@ -4,7 +4,7 @@ export function addActiveClassToCurrentPage() {
 
   for (let link of links) {
     if (link.dataset.active === bodyId) {
-      link.classList.add('active');
+      link.classList.add('current');
     }
   }
 }
