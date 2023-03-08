@@ -60,16 +60,17 @@ createCardsMarkup();
 // -> Add remove like - dislike
 cardContainer.addEventListener('click', changeLikeDislikeImg);
 
+// -> Add to local Storage
+cardContainer.addEventListener('click', addNewsToLocalStorage);
+
 // *************** Render Forecast ******************
 
 displayWeather();
-
 
 // **************** FilterByDate *********************
 document.addEventListener('change', filterByDateMostViwed);
 
 //*********************************************************** */
-
 
 // -> open burger menu
 refs.headerBurger.addEventListener('click', onBurgerBtnClick);
