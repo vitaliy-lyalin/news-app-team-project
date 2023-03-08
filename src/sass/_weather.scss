@@ -1,30 +1,22 @@
 .weather__container {
   @media screen and (min-width: 1280px) {
     width: 395px;
-    position: absolute;
   }
   @media screen and (min-width: 768px) and (max-width: 1279px) {
     width: 353px;
-    position: absolute;
   }
   @media screen and (max-width: 767px) {
-    //display: none;
-    min-width: 288px;
-    margin-bottom: 28px;
+    display: none;
   }
-  
+  position: absolute;
   top: 0;
   right: 16;
   height: 675px;
   background: var(--secondary-color);
-  
-  padding: 45px 40px;
+  padding: 45px 70px;
   color: #ffffff;
   border-radius: 5px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-  @media screen and (min-width: 768px){
-    padding: 45px 70px;
-  }
 }
 
 .top-wrapper {
@@ -34,49 +26,31 @@
 
 .weather__temp {
   font-weight: 400;
-  font-size: 44px;
+  font-size: 64px;
   line-height: 1.17;
   color: #ffffff;
   border-right: 1px solid #ffffff;
-  margin-left: auto;
-  margin-right: auto;
-  
-  padding-right: 5px;
-  margin-right: 10px;
-  @media screen and (min-width: 768px){
-    padding-right: 8px;
-    margin-right: 15px;
-    font-size: 64px;
-  }
+  padding-right: 8px;
+  margin-right: 15px;
 }
 .weather__description {
   margin-bottom: 5px;
   font-weight: 400;
-  font-size: 18px;
-  padding-left: 10px;
-  
+  font-size: 36px;
   line-height: 1.16;
-  @media screen and (min-width: 768px){
-    font-size: 36px;
-  }}
+}
 .weather__location {
   position: relative;
-  width: 121px;
-  height: 34px;
+  width: 177px;
+  height: 42px;
   font-weight: 400;
-  font-size: 14px;
-  
+  font-size: 20px;
   line-height: 1.15;
   color: #ffffff;
   text-align: center;
-  
-  padding: 8px 17px 10px 42px;
+  padding: 10px 17px 10px 42px;
   background: rgba(254, 254, 255, 0.3);
   border-radius: 10px;
-  @media screen and (min-width: 768px){
-    width: 177px;
-    height: 42px;
-    font-size: 20px; }
 
   &::before {
     content: url('../images/svg/geolocation.svg');
@@ -108,40 +82,28 @@
   object-fit: cover;
 }
 
-.weather-card_body-bottom {
-  display:block;
+.day,
+.date {
   font-weight: 400;
-  font-size: 28px;
+  font-size: 36px;
   line-height: 1.16;
   text-align: center;
   color: #ffffff;
-  margin-bottom: 18px;
-  @media screen and (min-width: 768px){
-    font-size: 36px;
-  }
 }
 .date {
-  display: inline;
-  text-align: center;
 }
 
 .weather__button {
   display: block;
   font-weight: 400;
-  
-  font-size: 16px;
+  font-size: 20px;
   line-height: 1.15;
   color: #ffffff;
-  width: 151px;
-  height: 34px;
-  
+  width: 177px;
+  height: 42px;
   background: rgba(254, 254, 255, 0.3);
   border-radius: 10px;
   border: none;
   margin: 0 auto;
   cursor: pointer;
-  @media screen and (min-width: 768px){
-    width: 177px;
-    height: 42px;
-    font-size: 20px;}
 }

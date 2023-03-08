@@ -21,8 +21,14 @@ import displayWeather from './js/displayWeather';
 
 import flatpickr from './js/calendar.js';
 
+import { favoritePage } from './js/favorite/favoritePage';
+
+// *************** FavoritePage Functionality ***************
+// favoritePage();
+
 const categoriesEl = document.querySelector('.filter-wrapper');
 const cardContainer = document.querySelector('.card-container');
+const datePicker = document.querySelector('.date-input');
 
 // *************** Header Functionality ***************
 // -> open burger menu
@@ -49,12 +55,22 @@ categoriesEl.addEventListener('click', event => {
 
 // *************** Render News Cards ******************
 createCardsMarkup();
+// console.log(cardContainer);
 
 // -> Add remove like - dislike
 cardContainer.addEventListener('click', changeLikeDislikeImg);
 
+// -> Add to local Storage
+cardContainer.addEventListener('click', addNewsToLocalStorage);
+
 // *************** Render Forecast ******************
+
 displayWeather();
+
+// **************** FilterByDate *********************
+document.addEventListener('change', filterByDateMostViwed);
+
+//*********************************************************** */
 
 // -> open burger menu
 refs.headerBurger.addEventListener('click', onBurgerBtnClick);
@@ -63,6 +79,3 @@ refs.searchIcon.addEventListener('click', onSearchIconClick);
 
 // -> search input header
 refs.headerSearch.addEventListener('submit', getArticlesByFormSubmit);
-
-// -> read more
-cardContainer.addEventListener('click', addNewsToLocalStorage);

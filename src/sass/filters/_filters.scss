@@ -66,6 +66,8 @@
     }
   }
   &--others {
+    max-height: 50vh;
+    overflow-y: scroll;
     opacity: 0;
     position: absolute;
     z-index: -10;
