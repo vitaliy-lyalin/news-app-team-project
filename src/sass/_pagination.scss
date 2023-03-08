@@ -1,0 +1,127 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none;
+  list-style-type: none;
+  @media screen and (max-width: 767px) {
+    margin: 40px 0px 60px;
+  }
+  @media screen and (min-width: 768px) {
+    margin: 48px 0px 100px;
+  }
+  @media screen and (min-width: 1280px) {
+    margin: 60px 0px 150px;
+  }
+}
+
+.pagination li {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pagination li a {
+  color: #111321;
+  text-decoration: none;
+  font-family: 'Manrope';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.38;
+  text-align: center;
+  @media screen and (max-width: 767px) {
+    font-size: 14px;
+    line-height: 1.35;
+  }
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    line-height: 1.38;
+  }
+}
+
+.previuos-page,
+.next-page {
+  background: #f4f4f4;
+  @media screen and (max-width: 767px) {
+    width: 72px;
+    height: 28px;
+    margin: 5px;
+  }
+  @media screen and (min-width: 768px) {
+    width: 82px;
+    height: 31px;
+    margin: 4px;
+  }
+  border: 1px solid #4440f6;
+  border-radius: 2px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.current-page {
+  background: #f4f4f4;
+  @media screen and (max-width: 767px) {
+    width: 28px;
+    height: 28px;
+    margin: 5px;
+  }
+  @media screen and (min-width: 768px) {
+    width: 33px;
+    height: 31px;
+    margin: 4px;
+  }
+  cursor: pointer;
+  border: 1px solid #4440f6;
+  border-radius: 2px;
+}
+
+.dots {
+  background: #f4f4f4;
+  cursor: pointer;
+  @media screen and (max-width: 767px) {
+    width: 12px;
+    height: 16px;
+    margin: 0px;
+  }
+  @media screen and (min-width: 768px) {
+    width: 13px;
+    height: 19px;
+    margin: 5px;
+  }
+}
+
+.active {
+  background: #4440f6;
+}
+
+.active .page-link {
+  color: #f4f4f4;
+}
+
+.disable {
+  background: #f4f4f4;
+  pointer-events: none;
+}
+
+.disable .page-link {
+  color: GrayText;
+}
+
+.page-item.dots {
+  background: inherit;
+}
+
+.page__svg--next,
+.page__svg--prev {
+  @media screen and (max-width: 767px) {
+    width: 18px;
+    height: 18px;
+    margin: 3px;
+  }
+  @media screen and (min-width: 768px) {
+    width: 24px;
+    height: 24px;
+    margin: 2px;
+  }
+}

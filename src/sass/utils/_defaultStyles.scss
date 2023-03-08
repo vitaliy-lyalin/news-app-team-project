@@ -9,8 +9,11 @@ html {
 }
 
 main {
-  background-color: #f4f4f4;
   padding-top: 115px;
+  transition: all var(--duration) var(--timeFunc);
+}
+header {
+  transition: all var(--duration) var(--timeFunc);
 }
 
 h1,
@@ -78,8 +81,12 @@ a {
   margin: 0 auto;
   padding: 0 16px;
 
-  @media screen and (min-width: 320px) {
-    width: 320px;
+  @media screen and (min-width: 320px) and (max-width: 479px) {
+    width: 100%;
+  }
+
+  @media screen and(min-width: 480px) {
+    width: 480px;
   }
 
   @media screen and (min-width: 768px) {
@@ -89,4 +96,12 @@ a {
   @media screen and (min-width: 1280px) {
     width: 1280px;
   }
+}
+html.dark body {
+  color: #f4f4f4;
+  background-color: #111321;
+}
+html.light body {
+  color: #111321;
+  background-color: #f4f4f4;
 }

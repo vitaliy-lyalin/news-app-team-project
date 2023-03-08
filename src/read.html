@@ -4,15 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Read</title>
+
     <link rel="stylesheet" href="./sass/index.scss" />
-    <script type="module" src="./index.js"></script>
+    <script type="module" src="./read.js"></script>
   </head>
-  <body>
+
+  <body id="read">
     <!-- ❗️❗️❗️ Header partial -->
     <include src="./partials/_header.html"></include>
     <main>
-      <!-- ❗️❗️❗️ News partial -->
-      <include src="./partials/read/_readLocal.html"></include>
+      <div class="news container">
+        <!-- ❗️❗️❗️ News partial -->
+        <include src="./partials/read/_readLocal.html"></include>
+      </div>
     </main>
     <!-- ❗️❗️❗️ Footer partial -->
     <include src="./partials/_footer.html"></include>

@@ -4,15 +4,17 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Favorite</title>
-    <link rel="stylesheet" href="./sass/index.scss" />
-    <script type="module" src="./index.js"></script>
+    <link rel="stylesheet" href="./sass/favorite.scss" />
+    <script type="module" src="./favorite.js"></script>
   </head>
-  <body>
+  <body id="favorite">
     <!-- ❗️❗️❗️ Header partial -->
     <include src="./partials/_header.html"></include>
     <main>
-      <!-- ❗️❗️❗️ News partial -->
-      <include src="./partials/favorite/_favoriteLocal.hml"></include>
+      <div class="news container">
+        <!-- ❗️❗️❗️ News partial -->
+        <include src="./partials/favorite/_favoriteLocal.html"></include>
+      </div>
     </main>
     <!-- ❗️❗️❗️ Footer partial -->
     <include src="./partials/_footer.html"></include>
