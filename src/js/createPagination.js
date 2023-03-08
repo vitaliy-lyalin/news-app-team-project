@@ -85,26 +85,21 @@ export default async function paginationLaunch(
       return true;
     }
 
+    const imageUrlP = new URL('../images/prew.svg', import.meta.url);
+    const svgImgP = $('<img>', { src: imageUrlP, class: 'page__svg--prev' });
+    const imageUrlN = new URL('../images/next.svg', import.meta.url);
+    const svgImgN = $('<img>', { src: imageUrlN, class: 'page__svg--next' });
+
     $('.pagination').append(
       $('<li>')
         .addClass('page-item')
         .addClass('previuos-page')
-        .append(
-          $('<svg>')
-            .addClass('page__svg--prev')
-            .append(
-              $('<use>').attr({
-                // *** поправити svg
-                href: './images/NextPrev.svg#icon-Prev',
-              })
-            )
-        )
+        .append(svgImgP)
         .append(
           $('<a>')
             .addClass('page-link')
             .attr({ href: 'javascript:void(0)' })
-            // *** після вставлення свг прибрати "<"
-            .text('<Prev')
+            .text('Prev')
         ),
 
       $('<li>')
@@ -114,19 +109,9 @@ export default async function paginationLaunch(
           $('<a>')
             .addClass('page-link')
             .attr({ href: 'javascript:void(0)' })
-            // *** після вставлення свг прибрати ">"
-            .text('Next>')
+            .text('Next')
         )
-        .append(
-          $('<svg>')
-            .addClass('page__svg--next')
-            .append(
-              $('<use>').attr({
-                // *** поправити шлях до картинок
-                href: './images/NextPrev.svg#icon-Next',
-              })
-            )
-        )
+        .append(svgImgN)
     );
 
     // !!! вказати контейнер з карточками
@@ -137,7 +122,8 @@ export default async function paginationLaunch(
       'click',
       '.pagination li.current-page:not(.active)',
       function () {
-        return showPage(+$(this).text());
+        showPage(+$(this).text());
+        $('html, body').animate({ scrollTop: 0 }, 'slow');
       }
     );
 
@@ -150,11 +136,13 @@ export default async function paginationLaunch(
         }
         // console.log(offset);
       } else {
-        return showPage(currentPage + 1);
+        showPage(currentPage + 1);
+        $('html, body').animate({ scrollTop: 0 }, 'slow');
       }
     });
     $('.previuos-page').on('click', function () {
-      return showPage(currentPage - 1);
+      showPage(currentPage - 1);
+      $('html, body').animate({ scrollTop: 0 }, 'slow');
     });
   });
 }
