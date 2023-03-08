@@ -2,11 +2,13 @@ import NewsApiArticleSearch from './fetchData/fetchArticlesBySearch';
 import { refs } from './header/refs';
 import { createCardsMarkupBySearch } from './createCardsMarkupBySearch';
 import { addMarkup } from './addMarkup';
+
+import paginationLaunch from './createPagination';
+
 import Notiflix from 'notiflix';
 import { renderingNewsNotFound } from './renderingNewsNotFound';
 
 const card__containerEl = document.querySelector('.card-container');
-const mainRef = document.querySelector('main');
 
 // Initialize the configuration options for notification messages
 Notiflix.Notify.init({
@@ -24,15 +26,17 @@ export async function getArticlesByFormSubmit(event) {
   }
   const newsApiArticleSearch = new NewsApiArticleSearch();
   newsApiArticleSearch.searchQuery = inputValue;
-  const news = await newsApiArticleSearch.getArticles();
-  // console.log(news);
-  const newsMarkup = await createCardsMarkupBySearch(news);
+  const { docs, meta } = await newsApiArticleSearch.getArticles();
+  // console.log(docs, meta);
+  const newsMarkup = await createCardsMarkupBySearch(docs);
   try {
-    if (news.length === 0) {
-      mainRef.innerHTML = renderingNewsNotFound();
+    if (docs.length === 0) {
+      card__containerEl.innerHTML = renderingNewsNotFound();
+      refs.form.reset();
     } else {
       addMarkup(card__containerEl, newsMarkup);
       refs.form.reset();
+      paginationLaunch(meta.hits, meta.offset);
     }
     //   console.log(newsMarkup);
   } catch (error) {
