@@ -1,4 +1,4 @@
-import { createCategorieCardMarkup } from '../createCategorieMarkup';
+import { createCategoriesCardMarkup } from '../createCategorieMarkup';
 import { renderingNewsNotFound } from '../renderingNewsNotFound';
 import { createCardsMarkupNoBackend } from '../createCardsMarkupNoBackend';
 
@@ -60,8 +60,7 @@ export async function filterByChosenCategorie(categorieValue) {
     } else {
       weatherContainer.style.display = 'block';
       card__containerEl.style.display = 'grid';
-      card__containerEl.innerHTML = createCategorieCardMarkup(chosenCategorie);
-
+      card__containerEl.innerHTML = createCategoriesCardMarkup(chosenCategorie);
 
       // console.log(chosenCategorie);
     }
