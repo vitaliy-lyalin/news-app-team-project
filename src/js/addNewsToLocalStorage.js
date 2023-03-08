@@ -21,10 +21,8 @@ export function addNewsToLocalStorage(event) {
   };
 
   // -> click on link "Read More"
-
-  console.log(event);
   if (event.target.classList.contains('card-read-more')) {
-    event.preventDefault();
+    // event.preventDefault();
     if (event.target.className === 'card-read-more') {
       const card = event.target.parentElement.parentElement.parentElement;
       // console.dir(card);
