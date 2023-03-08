@@ -9,7 +9,6 @@ import Notiflix from 'notiflix';
 import { renderingNewsNotFound } from './renderingNewsNotFound';
 
 const card__containerEl = document.querySelector('.card-container');
-const mainRef = document.querySelector('main');
 
 // Initialize the configuration options for notification messages
 Notiflix.Notify.init({
@@ -27,20 +26,13 @@ export async function getArticlesByFormSubmit(event) {
   }
   const newsApiArticleSearch = new NewsApiArticleSearch();
   newsApiArticleSearch.searchQuery = inputValue;
-
   const { docs, meta } = await newsApiArticleSearch.getArticles();
   // console.log(docs, meta);
   const newsMarkup = await createCardsMarkupBySearch(docs);
   try {
     if (docs.length === 0) {
-      return alert('We haven’t found news from this category');
-
-      // const news = await newsApiArticleSearch.getArticles();
-      // // console.log(news);
-      // const newsMarkup = await createCardsMarkupBySearch(news);
-      // try {
-      //   if (news.length === 0) {
-      //     mainRef.innerHTML = renderingNewsNotFound();
+      card__containerEl.innerHTML = renderingNewsNotFound();
+      refs.form.reset();
     } else {
       addMarkup(card__containerEl, newsMarkup);
       refs.form.reset();
