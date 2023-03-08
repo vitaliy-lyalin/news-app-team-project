@@ -6,7 +6,12 @@
   column-gap: 10px;
 
   &--categories {
-    flex-basis: 68%;
+    @media screen and (min-width: 768px) {
+      flex-basis: 75%;
+    } 
+    @media screen and (min-width: 1280px) {
+      flex-basis: 68%;
+    }   
 
     &.filters.dark-theme {
       color: #4440f6;
@@ -31,8 +36,11 @@
 }
 
 .filters {
-  display: flex;
-  flex-wrap: wrap;
+  @media screen and (min-width: 768px) and (max-width: 1279px) {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
   &--category {
     display: inline-block;
     text-align: center;
