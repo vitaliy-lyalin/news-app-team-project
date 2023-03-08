@@ -90,6 +90,13 @@ export function addNewsToLocalStorage(event) {
     } else {
       localStorageData.options.map(({ title }) => {
         if (title !== cardData.title) {
+          if (
+            !localStorageData.options.find(
+              item => item.title === cardData.title
+            )
+          ) {
+            addDataToLocalStorage(cardData);
+          }
           addDataToLocalStorage(cardData);
         } else {
           updateLocalStorage(cardData.title, 'isFavorite');
