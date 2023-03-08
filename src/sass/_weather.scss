@@ -4,6 +4,9 @@
   }
   @media screen and (min-width: 768px) and (max-width: 1279px) {
     width: 353px;
+
+    right: 16;
+
   }
   @media screen and (max-width: 767px) {
     display: none;
@@ -32,17 +35,23 @@
   border-right: 1px solid #ffffff;
   padding-right: 8px;
   margin-right: 15px;
+  cursor: pointer;
 }
+
+
 .weather__description {
   margin-bottom: 5px;
   font-weight: 400;
   font-size: 36px;
   line-height: 1.16;
 }
+
 .weather__location {
   position: relative;
-  width: 177px;
-  height: 42px;
+  position: relative;
+  min-width: auto;
+  min-height: 42px;
+
   font-weight: 400;
   font-size: 20px;
   line-height: 1.15;
@@ -71,9 +80,12 @@
   max-width: 100%;
   display: block;
   margin: 0 auto;
+
   margin-bottom: 90px;
   text-align: center;
 }
+
+
 .weather__icon-image {
   display: inline-block;
   width: 165px;
@@ -91,9 +103,22 @@
   color: #ffffff;
 }
 .date {
+
 }
 
 .weather__button {
+  flex-direction: row;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.weather-card_body-bottom {
+  margin-bottom: 28px;
+}
+
+.weather__button {
+  position: absolute;
   display: block;
   font-weight: 400;
   font-size: 20px;
@@ -106,4 +131,51 @@
   border: none;
   margin: 0 auto;
   cursor: pointer;
+  align-items: center;
+  bottom: 40px;
+  left: 25%;
+}
+
+.forecast-container {
+  border: 1px solid #ffffff;
+  border-radius: 25px;
+  margin-bottom: 5px;
+  padding: 5px;
+}
+.forecast-content-wrapper {
+  display: none;
+  // overflow-y: scroll;
+}
+.forecast__description {
+  margin-bottom: 5px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.16;
+}
+.forecast-date .forecast-day {
+  font-weight: 600;
+  font-size: 25px;
+  line-height: 1.02;
+
+  color: #ffffff;
+}
+
+.forecast-date {
+  flex-direction: row;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+.forecast-image {
+  display: flex;
+  flex-direction: column;
+  width: 65px;
+  height: 55px;
+  object-position: 50% 50%;
+  object-fit: cover;
+}
+.weather-forecast-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
