@@ -12,9 +12,9 @@ export function createCategoriesCardMarkup(data) {
         { title, abstract, multimedia, published_date, url, section },
         index
       ) => {
-       // const formattedPublishedDate = new Date(
-       //   published_date
-      //  ).toLocaleDateString('en-GB');
+        // const formattedPublishedDate = new Date(
+        //   published_date
+        //  ).toLocaleDateString('en-GB');
 
         const titleLength = 33;
         const abstractLength = 200;
@@ -60,8 +60,6 @@ export function createCategoriesCardMarkup(data) {
           <div class="card__date-creation">
 
             <span class="card__date">${transformDate}</span>
-
-        //    <span class="card__date">${formattedPublishedDate}</span>
 
             <a class="card-read-more" href="${url}" target="_blank" rel="noopener noreferrer">Read more</a>
           </div>
