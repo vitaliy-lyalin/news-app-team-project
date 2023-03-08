@@ -1,5 +1,6 @@
 import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
+import { filterByDateMostViwed } from './fetchData/filters';
 
 const datePicker = document.querySelector('#date-picker');
 const dateInput = document.querySelector('.date-input');

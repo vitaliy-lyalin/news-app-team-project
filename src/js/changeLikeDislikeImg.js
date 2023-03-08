@@ -1,3 +1,6 @@
+import { addTolocalStorage } from './favorite/addToLocalStorage';
+import { deleteFromLocalStorage } from './favorite/deleteFromLocalStorage';
+
 export default function changeLikeDislikeImg(e) {
   if (e.target.classList.contains('card__btn')) {
     const imgEl = e.target.querySelector('.like');
