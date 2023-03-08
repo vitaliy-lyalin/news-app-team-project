@@ -11,6 +11,7 @@ const calendarSvg = document.querySelector('.date-down');
 let selectedDate;
 
 const options = {
+  //allowInput: true,
   dateFormat: 'd/m/Y',
   locale: 'en',
   onChange: function (selectedDates) {

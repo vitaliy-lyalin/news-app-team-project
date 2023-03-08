@@ -1,13 +1,19 @@
-.date {
+.filter-wrapper--date .date {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 body .date-label {
+  display: none;
+  @media screen and (min-width: 1280px){
+  display: block;
   color: var(--primary-text-color);
   font-weight: 700;
   font-size: 18px;
   line-height: 1.375;
+
+  }
+  
 }
 
 .date-input {
@@ -19,7 +25,7 @@ body .date-label {
 }
 
 .date-picker {
-  width: 190px;
+  width: 152px;
   height: 31px;
   left: 0px;
   top: 0px;
@@ -29,7 +35,14 @@ body .date-label {
   outline: none;
   border-radius: 20px;
   padding-left: 46px;
-  font-size: 18px;
+  font-size: 12px;
+  @media screen and (min-width: 768px){
+    font-size: 14px;
+    width: 168px;
+  }
+  @media screen and (min-width: 1280px){
+    width: 190px;
+  }
 }
 
 .date-picker.flatpickr-input.active {
@@ -44,7 +57,10 @@ body .date-label {
   font-size: 24px;
 }
 :placeholder-shown {
-  font-size: 14px;
+  font-size: 12px;
+  @media screen and (min-width: 768px){
+    font-size: 14px;
+  }
 }
 
 .date-svg-calendar {
@@ -84,6 +100,7 @@ body .date-label {
 }
 body .flatpickr-months .flatpickr-next-month {
   fill: #4440f6;
+  stroke-width: 1px;
 }
 body .flatpickr-months .flatpickr-prev-month {
   fill: #4440f6;
