@@ -1,25 +1,23 @@
-export function createReadPageCardsMarkup() {
+export default function createFavoritePageCardsMarkup() {
   const imageUrl = new URL(
     '../images/svg/dislike.svg?as=svg&width=16&height=16',
     import.meta.url
   );
   const dataFromLocalStorage = JSON.parse(localStorage.getItem('cardsInfo'));
-  //   console.log(dataFromLocalStorage);
 
-  const readItems = dataFromLocalStorage.filter(item => item.isRead === true);
-  return readItems
+  const favoriteItems = dataFromLocalStorage.filter(
+    item => item.isFavorite === true
+  );
+
+  return favoriteItems
     .map(
-      ({ isRead, img, title, text, date, category, readMoreLink }, index) => {
-        //   const http = 'http://static01.nyt.com/';
-        //   const date = new Date(pub_date);
-        //   const formatDate = date.toLocaleDateString();
-        //   const noImgUrl =
-        //     'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png';
-        //   const img = multimedia.length ? http + multimedia[0].url : noImgUrl;
-        // console.log(img);
+      (
+        { isRead, img, title, text, date, category, readMoreLink, isFavorite },
+        index
+      ) => {
         return `<div class = "card">
           <div class = "card-img-wrapper">
-          <span class="card__read">Have read</span>
+          <span class="card__read">${isRead ? 'Have read' : ''}</span>
           <span class="card__btn">Add to favorite
           <img class="like" src=${imageUrl} alt="Add to favorite" width="16" height="16">
 
