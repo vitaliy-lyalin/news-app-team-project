@@ -23,22 +23,23 @@ export async function filterByDateMostViwed(e) {
     const responseJson = await response.json();
     const results = responseJson.results;
 
-    const filterByDatePopularNews = results.filter(i => {
-      return i.published_date == transformDate;
-    });
-
-    console.log(filterByDatePopularNews.length);
-
-    // if (filterByDatePopularNews.length === 0) {
-    //   weatherContainer.style.display = 'none';
-    //   card__containerEl.style.display = 'block';
-    //   card__containerEl.innerHTML = renderingNewsNotFound();
-    // } else {
-    //   weatherContainer.style.display = 'block';
-    //   card__containerEl.style.display = 'grid';
-    //   card__containerEl.innerHTML = createCardsMarkupNoBackend(
-    //     filterByDatePopularNews
-    //   );
+    // try {
+    //   const filterByDatePopularNews = results.filter(i => {
+    //     return i.published_date == transformDate;
+    //   });
+    //   if (filterByDatePopularNews.length === 0) {
+    //     weatherContainer.style.display = 'none';
+    //     card__containerEl.style.display = 'block';
+    //     card__containerEl.innerHTML = renderingNewsNotFound();
+    //   } else {
+    //     weatherContainer.style.display = 'block';
+    //     card__containerEl.style.display = 'grid';
+    //     card__containerEl.innerHTML = createCardsMarkupNoBackend(
+    //       filterByDatePopularNews
+    //     );
+    //   }
+    // } catch (error) {
+    //   console.log(error);
     // }
   }
 }
