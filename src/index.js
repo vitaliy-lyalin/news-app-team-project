@@ -60,7 +60,10 @@ createCardsMarkup();
 cardContainer.addEventListener('click', changeLikeDislikeImg);
 
 // *************** Render Forecast ******************
+
 displayWeather();
+
+//*********************************************************** */
 
 // -> open burger menu
 refs.headerBurger.addEventListener('click', onBurgerBtnClick);
@@ -69,6 +72,3 @@ refs.searchIcon.addEventListener('click', onSearchIconClick);
 
 // -> search input header
 refs.headerSearch.addEventListener('submit', getArticlesByFormSubmit);
-
-// -> read more
-cardContainer.addEventListener('click', addNewsToLocalStorage);
