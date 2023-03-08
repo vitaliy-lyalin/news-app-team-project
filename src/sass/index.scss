@@ -2,7 +2,15 @@
 @import './utils/defaultStyles';
 @import './utils/vars';
 @import './filters/filters';
+
+@import './newsNotFound/newsNotFound';
+
 @import './_header';
 @import './calendar';
 @import './newsCards';
+
 @import './weather';
+
+@import './pagination';
+
+@import './footer';

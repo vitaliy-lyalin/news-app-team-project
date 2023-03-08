@@ -10,12 +10,10 @@ export default class NewsApiArticleSearch {
 
   async getArticles() {
     const data = await fetch(
-      `${URL_ARTICLE_SEARCH}?q=${this.searchQuery}&api-key=${API_KEY}`
+      `${URL_ARTICLE_SEARCH}?q=${this.searchQuery}&api-key=${API_KEY}&begin_date=20230101`
     );
-    const {
-      response: { docs },
-    } = await data.json();
+    const { response } = await data.json();
     // console.log(docs);
-    return docs;
+    return response;
   }
 }
