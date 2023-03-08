@@ -5,15 +5,17 @@
 }
 body .date-label {
   display: none;
-  @media screen and (min-width: 1280px){
-  display: block;
-  color: var(--primary-text-color);
-  font-weight: 700;
-  font-size: 18px;
-  line-height: 1.375;
+  @media screen and (min-width: 1280px) {
+    display: block;
+    color: var(--primary-text-color);
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.375;
 
+    &.dark-theme {
+      color: var(--light-color);
+    }
   }
-  
 }
 
 .date-input {
@@ -36,11 +38,11 @@ body .date-label {
   border-radius: 20px;
   padding-left: 46px;
   font-size: 12px;
-  @media screen and (min-width: 768px){
+  @media screen and (min-width: 768px) {
     font-size: 14px;
     width: 168px;
   }
-  @media screen and (min-width: 1280px){
+  @media screen and (min-width: 1280px) {
     width: 190px;
   }
 }
@@ -58,7 +60,7 @@ body .date-label {
 }
 :placeholder-shown {
   font-size: 12px;
-  @media screen and (min-width: 768px){
+  @media screen and (min-width: 768px) {
     font-size: 14px;
   }
 }

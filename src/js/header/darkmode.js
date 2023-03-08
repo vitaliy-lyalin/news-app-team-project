@@ -4,6 +4,7 @@ const header = document.querySelector('.header');
 const themeSwitcher = document.querySelector('.toggle');
 const mainNavigation = document.querySelector('.header__list');
 const filterWrapper = document.querySelector('.filter-wrapper--categories');
+const calendarWrapper = document.querySelector('.date-label');
 
 const mode = window.localStorage.getItem('user-theme');
 // console.log(mode);
@@ -17,6 +18,7 @@ if (mode === 'dark') {
   themeSwitcher.classList.add('dark-theme');
   mainNavigation.classList.add('dark-theme');
   filterWrapper.classList.add('dark-theme');
+  calendarWrapper.classList.add('dark-theme');
 }
 
 toggle.addEventListener('input', e => {
@@ -25,6 +27,7 @@ toggle.addEventListener('input', e => {
   themeSwitcher.classList.toggle('dark-theme');
   mainNavigation.classList.toggle('dark-theme');
   filterWrapper.classList.toggle('dark-theme');
+  calendarWrapper.classList.toggle('dark-theme');
 });
 
 // if (mode === 'light' || !mode) {
