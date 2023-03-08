@@ -23,6 +23,15 @@ async function setPositionRenderMarkup(position) {
     let longitude = position.coords.longitude;
 
     const weather = await fetchDataWeather(latitude, longitude);
+    const markupArray = await fetchWeeklyForecast(latitude, longitude);
+    const forecastMarkup =
+      markupArray.length &&
+      markupArray
+        .map(elem => {
+          return getForecast(elem);
+        })
+        .join('');
+    forecastContainer.innerHTML = forecastMarkup;
 
     const markup = `
     <div class="top-wrapper">

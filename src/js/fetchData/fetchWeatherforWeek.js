@@ -34,8 +34,26 @@ async function fetchDataWeatherForWeek(latitude, longitude) {
       (record, index) => index % 8 === 0
     );
 
+<<<<<<< Updated upstream
     displayWeatherforWeek(dailyWeatherData);
     console.log(weatherData);
+=======
+    const forecastData = await response.json();
+
+    const filteredForecast = forecastData.list.filter(item =>
+      item.dt_txt.includes('12:00:00')
+    );
+    const dailyForecast = filteredForecast.map(item => {
+      return {
+        date: item.dt_txt.slice(0, 10),
+        temperature: Math.floor(item.main.temp - 273),
+        description: item.weather[0].description,
+        icon: item.weather[0].icon,
+      };
+    });
+
+    return dailyForecast;
+>>>>>>> Stashed changes
   } catch (error) {
     console.log(error.message);
   }

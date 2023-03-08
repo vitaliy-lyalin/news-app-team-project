@@ -4,9 +4,14 @@
   }
   @media screen and (min-width: 768px) and (max-width: 1279px) {
     width: 353px;
+<<<<<<< Updated upstream:src/sass/weather.scss
+=======
+
+    right: 16;
+>>>>>>> Stashed changes:src/sass/_weather.scss
   }
   @media screen and (max-width: 767px) {
-    display: none;
+    // display: none;
   }
   position: absolute;
   top: 0;
@@ -33,6 +38,10 @@
   padding-right: 8px;
   margin-right: 15px;
 }
+<<<<<<< Updated upstream:src/sass/weather.scss
+=======
+
+>>>>>>> Stashed changes:src/sass/_weather.scss
 .weather__description {
   margin-bottom: 5px;
   font-weight: 400;
@@ -41,8 +50,14 @@
 }
 .weather__location {
   position: relative;
+<<<<<<< Updated upstream:src/sass/weather.scss
   width: 177px;
   height: 42px;
+=======
+  min-width: auto;
+  min-height: 42px;
+
+>>>>>>> Stashed changes:src/sass/_weather.scss
   font-weight: 400;
   font-size: 20px;
   line-height: 1.15;
@@ -74,6 +89,10 @@
   margin-bottom: 90px;
   text-align: center;
 }
+<<<<<<< Updated upstream:src/sass/weather.scss
+=======
+
+>>>>>>> Stashed changes:src/sass/_weather.scss
 .weather__icon-image {
   display: inline-block;
   width: 165px;
@@ -90,8 +109,11 @@
   text-align: center;
   color: #ffffff;
 }
+<<<<<<< Updated upstream:src/sass/weather.scss
 .date {
 }
+=======
+>>>>>>> Stashed changes:src/sass/_weather.scss
 
 .weather__button {
   display: block;
@@ -106,4 +128,53 @@
   border: none;
   margin: 0 auto;
   cursor: pointer;
+<<<<<<< Updated upstream:src/sass/weather.scss
+=======
+  align-items: center;
+  bottom: 40px;
+  left: 25%;
+}
+
+.forecast-container {
+  border: 1px solid #ffffff;
+  border-radius: 25px;
+  margin-bottom: 5px;
+  padding: 5px;
+}
+.forecast-content-wrapper {
+  display: none;
+}
+.forecast__description {
+  margin-bottom: 5px;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 1.16;
+}
+.forecast-date .forecast-day {
+  font-weight: 600;
+  font-size: 25px;
+  line-height: 1.02;
+
+  color: #ffffff;
+}
+
+.forecast-date {
+  flex-direction: row;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+.forecast-image {
+  display: flex;
+  flex-direction: column;
+  width: 65px;
+  height: 55px;
+  object-position: 50% 50%;
+  object-fit: cover;
+}
+.weather-forecast-item {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+>>>>>>> Stashed changes:src/sass/_weather.scss
 }
