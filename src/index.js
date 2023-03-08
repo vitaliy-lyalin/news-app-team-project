@@ -64,12 +64,10 @@ cardContainer.addEventListener('click', changeLikeDislikeImg);
 
 displayWeather();
 
-
 // **************** FilterByDate *********************
-document.addEventListener('change', filterByDateMostViwed);
+datePicker.addEventListener('change', filterByDateMostViwed);
 
 //*********************************************************** */
-
 
 // -> open burger menu
 refs.headerBurger.addEventListener('click', onBurgerBtnClick);
