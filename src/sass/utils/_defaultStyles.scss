@@ -81,8 +81,12 @@ a {
   margin: 0 auto;
   padding: 0 16px;
 
-  @media screen and (min-width: 320px) {
-    width: 320px;
+  @media screen and (min-width: 320px) and (max-width: 479px) {
+    width: 100%;
+  }
+
+  @media screen and(min-width: 480px) {
+    width: 480px;
   }
 
   @media screen and (min-width: 768px) {

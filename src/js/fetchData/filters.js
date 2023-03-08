@@ -60,7 +60,11 @@ export async function filterByChosenCategorie(categorieValue) {
     } else {
       weatherContainer.style.display = 'block';
       card__containerEl.style.display = 'grid';
+
+
+
       card__containerEl.innerHTML = createCategoriesCardMarkup(chosenCategorie);
+
 
       // console.log(chosenCategorie);
     }

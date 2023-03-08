@@ -63,6 +63,7 @@
   color: var(--main-color);
   font-weight: 500;
   cursor: pointer;
+  font-size: 12px;
 
   .like {
     position: absolute;
@@ -84,6 +85,7 @@
   background: rgba(68, 64, 247, 0.7);
   color: var(--light-color);
   font-weight: 500;
+  font-size: 12px;
 }
 
 .card__img {
@@ -104,13 +106,19 @@
 
 .card__title {
   font-weight: 700;
-  font-size: 32px;
+  font-size: 24px;
   line-height: 1.375;
+  @media screen and (min-width: 768px){
+    font-size: 32px;
+  }
 }
 
 .card__text {
-  font-size: 16px;
+  font-size: 14px;  
   line-height: 1.375;
+  @media screen and (min-width: 768px){
+    font-size: 16px;
+  }
 }
 
 .card__date-creation {
@@ -120,16 +128,22 @@
   align-items: flex-end;
 
   .card__date {
-    font-size: 16;
+    font-size: 14px;
     font-weight: 1.375;
     color: #a8a8a8;
+    @media screen and (min-width: 768px){
+      font-size: 16px;
+    }
   }
 
   .card-read-more {
-    font-size: 16px;
+    font-size: 14px;
     line-height: 1.375;
     color: var(--secondary-color);
     transition: all var(--duration) var(--timeFunc);
+    @media screen and (min-width: 768px){
+      font-size: 16px;
+    }
 
     &:hover,
     &:focus {

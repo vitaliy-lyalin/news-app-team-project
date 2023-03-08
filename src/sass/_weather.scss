@@ -4,7 +4,9 @@
   }
   @media screen and (min-width: 768px) and (max-width: 1279px) {
     width: 353px;
+
     right: 16;
+
   }
   @media screen and (max-width: 767px) {
     display: none;
@@ -36,6 +38,7 @@
   cursor: pointer;
 }
 
+
 .weather__description {
   margin-bottom: 5px;
   font-weight: 400;
@@ -45,8 +48,10 @@
 
 .weather__location {
   position: relative;
+  position: relative;
   min-width: auto;
   min-height: 42px;
+
   font-weight: 400;
   font-size: 20px;
   line-height: 1.15;
@@ -75,9 +80,11 @@
   max-width: 100%;
   display: block;
   margin: 0 auto;
-  margin-bottom: 60px;
+
+  margin-bottom: 90px;
   text-align: center;
 }
+
 
 .weather__icon-image {
   display: inline-block;
@@ -96,6 +103,10 @@
   color: #ffffff;
 }
 .date {
+
+}
+
+.weather__button {
   flex-direction: row;
   text-align: center;
   display: flex;
