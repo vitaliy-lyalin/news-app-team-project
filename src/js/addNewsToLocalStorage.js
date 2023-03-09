@@ -69,8 +69,11 @@ export function addNewsToLocalStorage(event) {
       }
     }
   }
+
   // -> click on "Add to favorite"
   if (event.target.classList.contains('card__btn')) {
+    // console.log('localStorageData length', localStorageData.options.length);
+
     const card = event.target.parentElement.parentElement;
     // console.dir(card);
 
@@ -84,25 +87,41 @@ export function addNewsToLocalStorage(event) {
     // cardData.isRead = true;
     cardData.isFavorite = true;
 
-    // console.log(localStorageData.options.length);
-
     if (!localStorageData.options.length) {
       addDataToLocalStorage(cardData);
     } else {
-      localStorageData.options.map(({ title }) => {
-        if (title !== cardData.title) {
-          if (
-            !localStorageData.options.find(
-              item => item.title === cardData.title
-            )
-          ) {
-            addDataToLocalStorage(cardData);
-          }
-        } else {
-          updateLocalStorage(cardData.title, 'isFavorite');
-        }
-      });
+      if (
+        localStorageData.options.find(
+          element => element.title === cardData.title
+        )
+      ) {
+        console.log('Record exist');
+        updateLocalStorage(cardData.title, 'isFavorite', localStorageData);
+      } else {
+        addDataToLocalStorage(cardData);
+      }
     }
+
+    // if (!localStorageData.options.length) {
+    //   addDataToLocalStorage(cardData);
+    //   for (const key in localStorageData) {
+    //     delete localStorageData[key];
+    //   }
+    // } else {
+    //   localStorageData.options.map(({ title }) => {
+    //     if (title !== cardData.title) {
+    //       if (
+    //         !localStorageData.options.find(
+    //           item => item.title === cardData.title
+    //         )
+    //       ) {
+    //         addDataToLocalStorage(cardData);
+    //       }
+    //     } else {
+    //       updateLocalStorage(cardData.title, 'isFavorite');
+    //     }
+    //   });
+    // }
   }
 }
 
@@ -111,17 +130,29 @@ export function addDataToLocalStorage(cardData) {
   localStorage.setItem('cardsInfo', JSON.stringify(localStorageData.options));
 }
 
-// if (!localStorageData.options.find(item => item.title === cardData.title)) {
-//   addDataToLocalStorage(cardData);
-// }
-
-function updateLocalStorage(cardTitle, propertyToUpdate) {
-  const localStorageData = JSON.parse(localStorage.getItem('cardsInfo'));
-  // console.log(localStorageData[0]);
-  localStorageData.forEach(el => {
-    if (el.title === cardTitle) {
-      el[propertyToUpdate] = true;
+function updateLocalStorage(cardTitle, propertyToUpdate, localStorageData) {
+  for (let i = 0; i < localStorageData.options.length; i++) {
+    if (localStorageData.options[i].title === cardTitle) {
+      if (localStorageData.options[i][propertyToUpdate] !== true) {
+        localStorageData.options[i][propertyToUpdate] = true;
+      }
+    } else if (localStorageData.options[i].title === cardTitle) {
+      if (propertyToUpdate === 'isFavorite') {
+        if (localStorageData.options[i][propertyToUpdate] === true) {
+          if (localStorageData.options[i].isRead === false) {
+            localStorageData.options.splice(i, 1);
+            console.log(localStorageData.options);
+          }
+        }
+      }
+    } else if (localStorageData.options[i].title === cardTitle) {
+      if (propertyToUpdate === 'isFavorite') {
+        if (localStorageData.options[i][propertyToUpdate] === true) {
+          localStorageData.options[i][propertyToUpdate] = false;
+        }
+      }
     }
-    localStorage.setItem('cardsInfo', JSON.stringify(localStorageData));
-  });
+  }
+
+  localStorage.setItem('cardsInfo', JSON.stringify(localStorageData.options));
 }
