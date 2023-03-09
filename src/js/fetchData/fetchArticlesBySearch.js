@@ -13,7 +13,6 @@ export default class NewsApiArticleSearch {
       `${URL_ARTICLE_SEARCH}?q=${this.searchQuery}&api-key=${API_KEY}&begin_date=20230101`
     );
     const { response } = await data.json();
-    // console.log(docs);
     return response;
   }
 }
