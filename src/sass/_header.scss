@@ -42,7 +42,6 @@
   position: relative;
   z-index: 5;
   cursor: pointer;
-  color: var(--primary-text-color);
 }
 
 .header__logo.dark-theme {
@@ -63,7 +62,7 @@
   font-weight: 700;
   font-size: 18px;
   line-height: 1.375;
-  transition: border-color var(--duration) var(--timeFunc);
+  transition: color var(--duration) var(--timeFunc);
 }
 
 .header__link.current {
@@ -322,7 +321,7 @@
     font-weight: 700;
     font-size: 16px;
     &:focus {
-      border-bottom: 2px solid var(--accent-color);
+      // border-bottom: 2px solid var(--accent-color);
     }
   }
 
@@ -402,7 +401,8 @@
     &:hover,
     &:focus {
       outline: none;
-      border-bottom: 2px solid var(--accent-color);
+      // border-bottom: 2px solid var(--accent-color);
+      color: var(--secondary-color);
       width: 100%;
     }
   }
