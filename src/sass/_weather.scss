@@ -10,7 +10,6 @@
   @media screen and (max-width: 767px) {
   }
   position: absolute;
-  // top: 0;
   right: 16;
   width: 395px;
   height: 675px;
@@ -81,7 +80,7 @@
   display: block;
   margin: 0 auto;
 
-  margin-bottom: 90px;
+  margin-bottom: 80px;
   text-align: center;
 }
 
@@ -134,7 +133,7 @@
   margin: 0 auto;
   cursor: pointer;
   align-items: center;
-  bottom: 40px;
+  bottom: 30px;
   left: 28%;
 }
 
@@ -146,7 +145,6 @@
 }
 .forecast-content-wrapper {
   display: none;
-  // overflow-y: scroll;
 }
 .forecast__description {
   margin-bottom: 5px;
