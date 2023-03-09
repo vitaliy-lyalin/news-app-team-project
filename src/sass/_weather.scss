@@ -7,19 +7,23 @@
     width: 353px;
     position: absolute;
     right: 16;
-
   }
+
   // @media screen and (max-width: 767px) {
   //   //display: none;
   // }
   margin-bottom: 28px;
   top: 0;
+  position: absolute;
   right: 16;
+  width: 395px;
   height: 675px;
-  background: var(--secondary-color);
+  border-radius: 4px;
+  background-color: rgba(92, 92, 230, 0.6);
+
+  background-color: var(--secondary-color);
   padding: 45px 70px;
   color: #ffffff;
-  border-radius: 5px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
@@ -38,7 +42,6 @@
   margin-right: 15px;
   cursor: pointer;
 }
-
 
 .weather__description {
   margin-bottom: 5px;
@@ -82,10 +85,9 @@
   display: block;
   margin: 0 auto;
 
-  margin-bottom: 90px;
+  margin-bottom: 80px;
   text-align: center;
 }
-
 
 .weather__icon-image {
   display: inline-block;
@@ -104,7 +106,10 @@
   color: #ffffff;
 }
 .date {
-
+  flex-direction: row;
+  text-align: center;
+  display: flex;
+  justify-content: center;
 }
 
 .weather__button {
@@ -133,8 +138,8 @@
   margin: 0 auto;
   cursor: pointer;
   align-items: center;
-  bottom: 40px;
-  left: 25%;
+  bottom: 30px;
+  left: 28%;
 }
 
 .forecast-container {
@@ -145,27 +150,28 @@
 }
 .forecast-content-wrapper {
   display: none;
-  // overflow-y: scroll;
 }
 .forecast__description {
   margin-bottom: 5px;
   font-weight: 400;
-  font-size: 18px;
+  font-size: 15px;
   line-height: 1.16;
 }
-.forecast-date .forecast-day {
-  font-weight: 600;
-  font-size: 25px;
-  line-height: 1.02;
 
+.forecast-day {
+  font-weight: 600;
+  font-size: 15px;
   color: #ffffff;
 }
 
 .forecast-date {
+  font-weight: 600;
+  font-size: 17px;
   flex-direction: row;
   text-align: center;
   display: flex;
   justify-content: center;
+  color: #ffffff;
 }
 .forecast-image {
   display: flex;
@@ -179,4 +185,15 @@
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+}
+
+.temp {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.17;
+  color: #ffffff;
+  border-right: 1px solid #ffffff;
+  padding-right: 8px;
+  margin-right: 15px;
+  cursor: pointer;
 }
