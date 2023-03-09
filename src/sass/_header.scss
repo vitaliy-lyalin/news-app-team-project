@@ -250,6 +250,11 @@
     position: relative;
     z-index: 3;
   }
+  // .header__burger:before .dark-theme,
+  // .header__burger::before .dark-theme,
+  // .header__burger span.dark-theme {
+  //   background-color: var(--light-theme-color);
+  // }
 
   .header__burger span {
     background-color: var(--primary-text-color);
