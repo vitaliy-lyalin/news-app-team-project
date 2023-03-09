@@ -3,7 +3,6 @@ export function createCardsMarkupBySearch(data) {
     '../images/svg/dislike.svg?as=svg&width=16&height=16',
     import.meta.url
   );
-
   return data
     .map(
       (
@@ -17,6 +16,16 @@ export function createCardsMarkupBySearch(data) {
         },
         index
       ) => {
+        const headlineLength = 33;
+        const abstractLength = 200;
+
+        const trimmedHeadline = main
+          .substring(main, headlineLength)
+          .concat('...');
+        const trimmedAbstract = abstract
+          .substring(abstract, abstractLength)
+          .concat('...');
+
         const http = 'http://static01.nyt.com/';
         const date = new Date(pub_date);
         const formatDate = date.toLocaleDateString();
@@ -34,8 +43,8 @@ export function createCardsMarkupBySearch(data) {
         <img class="card__img" src=${img} alt="" width="350px" height="500px">
       </div>
       <div class="card-description">
-        <h3 class="card__title">${main}</h3>
-        <p class="card__text">${abstract}</p>
+        <h3 class="card__title">${trimmedHeadline}</h3>
+        <p class="card__text">${trimmedAbstract}</p>
         <div class="card__date-creation">
           <span class="card__date">${formatDate.split('.').join('/')}</span>
           <a class="card-read-more" href="${web_url}" target="_blank" rel="noopener noreferrer">Read more</a>

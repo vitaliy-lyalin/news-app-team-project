@@ -32,11 +32,14 @@ const cardContainer = document.querySelector('.card-container');
 const datePicker = document.querySelector('.date-input');
 
 addActiveClassToCurrentPage();
+
 // *************** Header Functionality ***************
 // -> open burger menu
 refs.headerBurger.addEventListener('click', onBurgerBtnClick);
 //  -> open search by click on magnifying glass
 refs.searchIcon.addEventListener('click', onSearchIconClick);
+// -> search input header by submit
+refs.headerSearch.addEventListener('submit', getArticlesByFormSubmit);
 
 // *************** Render Categories ******************
 createRenderCategoriesMarkup();
@@ -73,14 +76,4 @@ displayWeather();
 
 datePicker.addEventListener('change', filterByDateMostViwed);
 
-
 //*********************************************************** */
-
-// -> open burger menu
-refs.headerBurger.addEventListener('click', onBurgerBtnClick);
-//  -> open search by click on magnifying glass
-refs.searchIcon.addEventListener('click', onSearchIconClick);
-// -> add active class current page
-
-// -> search input header
-refs.headerSearch.addEventListener('submit', getArticlesByFormSubmit);
