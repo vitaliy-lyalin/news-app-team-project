@@ -166,7 +166,6 @@
 }
 
 @media screen and (max-width: 767px) {
-
   body.lock {
     overflow: hidden;
   }
@@ -385,6 +384,62 @@
 
   .toggle {
     display: none;
+  }
+
+  .toggle-nav {
+    position: absolute;
+    bottom: 18;
+    left: 18;
+    display: flex;
+    column-gap: 10px;
+  }
+  .toggle span {
+    z-index: 3;
+  }
+
+  .toggle-nav input[type='checkbox'] {
+    display: none;
+  }
+
+  .toggle-nav label {
+    z-index: 100;
+    background-color: var(--light-color);
+    border: 0.6px solid #4b48db;
+    border-radius: 20px;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: all ease-in-out 0.3s;
+    width: 40px;
+    height: 20px;
+  }
+
+  .toggle-nav label::after {
+    background-color: var(--secondary-color);
+    border-radius: 50%;
+    content: ' ';
+    cursor: pointer;
+    display: inline-block;
+    position: absolute;
+    left: 1px;
+    top: 1.5px;
+    transition: all ease-in-out 0.3s;
+    width: 16px;
+    height: 16px;
+  }
+
+  .toggle-nav input[type='checkbox']:checked ~ label {
+    background-color: var(--secondary-color);
+    border-color: var(--light-color);
+  }
+
+  .toggle-nav input[type='checkbox']:checked ~ label::after {
+    background-color: var(--light-color);
+    transform: translateX(20px);
+  }
+
+  .header__list {
+    color: inherit;
   }
 }
 
