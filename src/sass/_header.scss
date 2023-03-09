@@ -22,6 +22,9 @@
   color: #f8f8f8;
   background-color: #111321;
   border-bottom: 1px solid rgba(244, 244, 244, 0.2);
+  &::before {
+    background-color: var(--primary-text-color);
+  }
 }
 
 .header__body {
