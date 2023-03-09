@@ -8,16 +8,18 @@
     right: 16;
   }
   @media screen and (max-width: 767px) {
-    // display: none;
   }
   position: absolute;
-  top: 0;
+  // top: 0;
   right: 16;
+  width: 395px;
   height: 675px;
-  background: var(--secondary-color);
+  border-radius: 4px;
+  background-color: rgba(92, 92, 230, 0.6);
+
+  background-color: var(--secondary-color);
   padding: 45px 70px;
   color: #ffffff;
-  border-radius: 5px;
   box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
@@ -79,7 +81,7 @@
   display: block;
   margin: 0 auto;
 
-  margin-bottom: 60px;
+  margin-bottom: 90px;
   text-align: center;
 }
 
@@ -133,7 +135,7 @@
   cursor: pointer;
   align-items: center;
   bottom: 40px;
-  left: 25%;
+  left: 28%;
 }
 
 .forecast-container {
