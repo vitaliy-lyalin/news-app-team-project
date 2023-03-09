@@ -7,7 +7,7 @@ export const refs = {
 refs.headerBurger.addEventListener('click', onBurgerBtnClick);
 
 export function onBurgerBtnClick() {
-  refs.headerBurger.classList.toggle('active');
-  refs.headerMenu.classList.toggle('active');
+  refs.headerBurger.classList.toggle('open');
+  refs.headerMenu.classList.toggle('open');
   refs.body.classList.toggle('lock');
 }

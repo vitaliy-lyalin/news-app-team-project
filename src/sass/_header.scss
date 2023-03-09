@@ -141,7 +141,7 @@
     color: var(--light-theme-color);
   }
 
-  .header__menu.active {
+  .header__menu.open {
     top: 0;
   }
 
@@ -214,7 +214,7 @@
     transform: translate(7px, 7px) rotate(-45deg);
   }
 
-  .header__search.active {
+  .header__search.open {
     outline: 1px solid var(--primary-text-color);
     width: 173px;
   }
@@ -287,16 +287,16 @@
     bottom: 0;
   }
 
-  .header__burger.active span {
+  .header__burger.open span {
     transform: scale(0);
   }
 
-  .header__burger.active::before {
+  .header__burger.open::before {
     transform: rotate(45deg);
     top: 9px;
   }
 
-  .header__burger.active::after {
+  .header__burger.open::after {
     transform: rotate(-45deg);
     bottom: 9px;
   }
