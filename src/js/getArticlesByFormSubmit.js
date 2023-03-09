@@ -2,6 +2,7 @@ import NewsApiArticleSearch from './fetchData/fetchArticlesBySearch';
 import { refs } from './header/refs';
 import { createCardsMarkupBySearch } from './createCardsMarkupBySearch';
 import { addMarkup } from './addMarkup';
+import { renderingNewsNotFound } from './renderingNewsNotFound';
 
 import paginationLaunch from './createPagination';
 
@@ -9,6 +10,7 @@ import Notiflix from 'notiflix';
 import { renderingNewsNotFound } from './renderingNewsNotFound';
 
 const card__containerEl = document.querySelector('.card-container');
+const weatherContainer = document.querySelector('.weather__container');
 
 // Initialize the configuration options for notification messages
 Notiflix.Notify.init({
@@ -31,14 +33,16 @@ export async function getArticlesByFormSubmit(event) {
   const newsMarkup = await createCardsMarkupBySearch(docs);
   try {
     if (docs.length === 0) {
+      weatherContainer.style.display = 'none';
+      card__containerEl.style.display = 'block';
       card__containerEl.innerHTML = renderingNewsNotFound();
       refs.form.reset();
     } else {
       addMarkup(card__containerEl, newsMarkup);
       refs.form.reset();
+
       paginationLaunch(meta.hits, meta.offset);
     }
-    //   console.log(newsMarkup);
   } catch (error) {
     console.error(error);
   }

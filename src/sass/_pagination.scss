@@ -5,13 +5,13 @@
   user-select: none;
   list-style-type: none;
   @media screen and (max-width: 767px) {
-    margin: 40px 0px 60px;
+    padding: 40px 0px 60px;
   }
   @media screen and (min-width: 768px) {
-    margin: 48px 0px 100px;
+    padding: 48px 0px 100px;
   }
   @media screen and (min-width: 1280px) {
-    margin: 60px 0px 150px;
+    padding: 60px 0px 150px;
   }
 }
 
@@ -124,4 +124,9 @@
     height: 24px;
     margin: 2px;
   }
+}
+
+.disable .page__svg--prev,
+.disable .page__svg--next {
+  display: none;
 }
