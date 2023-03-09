@@ -5,11 +5,14 @@ const themeSwitcher = document.querySelector('.toggle');
 const mainNavigation = document.querySelector('.header__list');
 const filterWrapper = document.querySelector('.filter-wrapper--categories');
 
-// const burgerMenu = document.querySelector('.header__menu');
-// const logo = document.querySelector('.header__logo');
+const headerBurger = document.querySelector('.header__burger');
+const burgerMenu = document.querySelector('.header__menu');
+const headerSearch = document.querySelector('.header__search');
+const headerSearchIcon = document.querySelector(
+  '.header__search .search__icon'
+);
 
 const calendarWrapper = document.querySelector('.date-label');
-
 
 const mode = window.localStorage.getItem('user-theme');
 // console.log(mode);
@@ -24,11 +27,12 @@ if (mode === 'dark') {
   mainNavigation.classList.add('dark-theme');
   filterWrapper.classList.add('dark-theme');
 
-  // burgerMenu.classList.add('dark-theme');
-  // logo.classList.add('dark-theme');
+  headerBurger.classList.add('dark-theme');
+  burgerMenu.classList.add('dark-theme');
+  headerSearch.classList.add('dark-theme');
+  headerSearchIcon.classList.add('dark-theme');
 
   calendarWrapper.classList.add('dark-theme');
-
 }
 
 toggle.addEventListener('input', e => {
