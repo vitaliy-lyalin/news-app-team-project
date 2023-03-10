@@ -26,7 +26,13 @@ if (!localStorageData) {
         card => card.title === cardTitle
       );
 
-      localStorageData.splice(indexOfELemToRemove, 1);
+      if (localStorageData[indexOfELemToRemove].isRead === false) {
+        localStorageData.splice(indexOfELemToRemove, 1);
+      } else {
+        console.log(localStorageData[indexOfELemToRemove]);
+
+        localStorageData[indexOfELemToRemove].isFavorite = false;
+      }
 
       localStorage.setItem('cardsInfo', JSON.stringify(localStorageData));
 
