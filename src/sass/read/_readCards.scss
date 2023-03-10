@@ -1,3 +1,10 @@
+#read {
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
 .news {
   position: relative;
   margin-bottom: 100px;
