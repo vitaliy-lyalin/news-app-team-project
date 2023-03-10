@@ -4,6 +4,7 @@ import { createCardsMarkupNoBackend } from '../createCardsMarkupNoBackend';
 
 const card__containerEl = document.querySelector('.card-container');
 const weatherContainer = document.querySelector('.weather__container');
+const paginationContainer = document.querySelector('.pagination');
 
 export async function filterByDateMostViwed(e) {
   const dateFromInput = e.target.value;

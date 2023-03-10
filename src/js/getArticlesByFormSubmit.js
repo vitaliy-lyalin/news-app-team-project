@@ -11,6 +11,7 @@ import { renderingNewsNotFound } from './renderingNewsNotFound';
 
 const card__containerEl = document.querySelector('.card-container');
 const weatherContainer = document.querySelector('.weather__container');
+const paginationContainer = document.querySelector('.pagination');
 
 // Initialize the configuration options for notification messages
 Notiflix.Notify.init({
@@ -35,9 +36,13 @@ export async function getArticlesByFormSubmit(event) {
     if (docs.length === 0) {
       weatherContainer.style.display = 'none';
       card__containerEl.style.display = 'block';
+      paginationContainer.style.display = 'none';
       card__containerEl.innerHTML = renderingNewsNotFound();
       refs.form.reset();
     } else {
+      weatherContainer.style.display = 'block';
+      card__containerEl.style.display = 'grid';
+      paginationContainer.style.display = 'flex';
       addMarkup(card__containerEl, newsMarkup);
       refs.form.reset();
 
