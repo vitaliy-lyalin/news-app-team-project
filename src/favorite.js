@@ -3,10 +3,14 @@ import { addMarkup } from './js/addMarkup';
 import { addActiveClassToCurrentPage } from './js/header/currentPage';
 addActiveClassToCurrentPage();
 import { renderingNewsNotFound } from './js/renderingNewsNotFound';
+import { addNewsToLocalStorage } from './js/addNewsToLocalStorage';
 
 const favoriteCardContainer = document.querySelector(
   '.favorite-card-container'
 );
+
+// -> Add to local Storage
+favoriteCardContainer.addEventListener('click', addNewsToLocalStorage);
 
 let localStorageData = JSON.parse(localStorage.getItem('cardsInfo'));
 
