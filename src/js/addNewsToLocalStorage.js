@@ -63,7 +63,11 @@ export function addNewsToLocalStorage(event) {
               addDataToLocalStorage(cardData);
             }
           } else {
-            updateLocalStorage(cardData.title, 'isRead');
+            updateLocalStorageReadFavorite(
+              cardData.title,
+              'isRead',
+              localStorageData
+            );
           }
         });
       }
@@ -95,7 +99,6 @@ export function addNewsToLocalStorage(event) {
           element => element.title === cardData.title
         )
       ) {
-        console.log('Record exist');
         updateLocalStorage(cardData.title, 'isFavorite', localStorageData);
       } else {
         addDataToLocalStorage(cardData);
@@ -130,29 +133,37 @@ export function addDataToLocalStorage(cardData) {
   localStorage.setItem('cardsInfo', JSON.stringify(localStorageData.options));
 }
 
-function updateLocalStorage(cardTitle, propertyToUpdate, localStorageData) {
+function updateLocalStorageReadFavorite(
+  cardTitle,
+  propertyToUpdate,
+  localStorageData
+) {
   for (let i = 0; i < localStorageData.options.length; i++) {
     if (localStorageData.options[i].title === cardTitle) {
       if (localStorageData.options[i][propertyToUpdate] !== true) {
         localStorageData.options[i][propertyToUpdate] = true;
-      }
-    } else if (localStorageData.options[i].title === cardTitle) {
-      if (propertyToUpdate === 'isFavorite') {
-        if (localStorageData.options[i][propertyToUpdate] === true) {
-          if (localStorageData.options[i].isRead === false) {
-            localStorageData.options.splice(i, 1);
-            console.log(localStorageData.options);
-          }
-        }
-      }
-    } else if (localStorageData.options[i].title === cardTitle) {
-      if (propertyToUpdate === 'isFavorite') {
-        if (localStorageData.options[i][propertyToUpdate] === true) {
-          localStorageData.options[i][propertyToUpdate] = false;
-        }
+        console.log('update property -> true');
       }
     }
   }
 
   localStorage.setItem('cardsInfo', JSON.stringify(localStorageData.options));
 }
+
+// else if (localStorageData.options[i].title === cardTitle) {
+//   if (propertyToUpdate === 'isFavorite') {
+//     if (localStorageData.options[i][propertyToUpdate] === true) {
+//       if (localStorageData.options[i].isRead === false) {
+//         localStorageData.options.splice(i, 1);
+//         console.log('remove favorite');
+//       }
+//     }
+//   }
+// } else if (localStorageData.options[i].title === cardTitle) {
+//   if (propertyToUpdate === 'isFavorite') {
+//     if (localStorageData.options[i][propertyToUpdate] === true) {
+//       console.log('favorite -> false');
+//       localStorageData.options[i][propertyToUpdate] = false;
+//     }
+//   }
+// }
