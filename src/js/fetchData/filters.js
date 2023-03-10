@@ -10,7 +10,6 @@ export async function filterByDateMostViwed(e) {
   const dateFromInput = e.target.value;
   // console.log('dateFromInput:', dateFromInput);
   const transformDate = dateFromInput.split('/').reverse().join('-');
-
   // console.log('transformDate:', transformDate);
 
   if (!dateFromInput) {
@@ -23,24 +22,28 @@ export async function filterByDateMostViwed(e) {
     const responseJson = await response.json();
     const results = responseJson.results;
 
-    // try {
-    //   const filterByDatePopularNews = results.filter(i => {
-    //     return i.published_date == transformDate;
-    //   });
-    //   if (filterByDatePopularNews.length === 0) {
-    //     weatherContainer.style.display = 'none';
-    //     card__containerEl.style.display = 'block';
-    //     card__containerEl.innerHTML = renderingNewsNotFound();
-    //   } else {
-    //     weatherContainer.style.display = 'block';
-    //     card__containerEl.style.display = 'grid';
-    //     card__containerEl.innerHTML = createCardsMarkupNoBackend(
-    //       filterByDatePopularNews
-    //     );
-    //   }
-    // } catch (error) {
-    //   console.log(error);
-    // }
+    try {
+      const filterByDatePopularNews = results.filter(
+        i => i.published_date === transformDate
+        //   console.log(i.published_date);
+      );
+      // console.log(transformDate);
+      if (filterByDatePopularNews.length === 0) {
+        weatherContainer.style.display = 'none';
+        card__containerEl.style.display = 'block';
+        paginationContainer.style.display = 'none';
+        card__containerEl.innerHTML = renderingNewsNotFound();
+      } else {
+        weatherContainer.style.display = 'block';
+        card__containerEl.style.display = 'grid';
+        paginationContainer.style.display = 'flex';
+        card__containerEl.innerHTML = createCardsMarkupNoBackend(
+          filterByDatePopularNews
+        );
+      }
+    } catch (error) {
+      console.log(error);
+    }
   }
 }
 
