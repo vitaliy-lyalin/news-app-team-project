@@ -387,13 +387,15 @@
 
   .toggle-nav {
     position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 10px;
     bottom: 18;
     left: 18;
-    display: flex;
-    column-gap: 10px;
   }
-  .toggle span {
-    z-index: 3;
+
+  .toggle-nav span > ion-icon {
+    font-size: 19px;
   }
 
   .toggle-nav input[type='checkbox'] {
