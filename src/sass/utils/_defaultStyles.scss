@@ -13,6 +13,10 @@ main {
   transition: all var(--duration) var(--timeFunc);
 }
 header {
+  transition: all 200ms var(--timeFunc);
+}
+
+header::after {
   transition: all var(--duration) var(--timeFunc);
 }
 
@@ -44,6 +48,7 @@ body {
   margin: 0;
   background-color: #f4f4f4;
   color: var(--primary-text-color);
+  transition: all var(--duration) var(--timeFunc);
 }
 
 .visually-hidden {

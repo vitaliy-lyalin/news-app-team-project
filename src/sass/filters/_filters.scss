@@ -4,8 +4,10 @@
   position: relative;
   display: flex;
   column-gap: 10px;
+  
 
   &--categories {
+    flex-basis: 80%;
     @media screen and (min-width: 768px) {
       flex-basis: 75%;
     } 

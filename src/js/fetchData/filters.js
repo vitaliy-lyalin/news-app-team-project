@@ -4,6 +4,7 @@ import { createCardsMarkupNoBackend } from '../createCardsMarkupNoBackend';
 
 const card__containerEl = document.querySelector('.card-container');
 const weatherContainer = document.querySelector('.weather__container');
+const paginationContainer = document.querySelector('.pagination');
 
 export async function filterByDateMostViwed(e) {
   const dateFromInput = e.target.value;
@@ -56,15 +57,13 @@ export async function filterByChosenCategorie(categorieValue) {
     if (chosenCategorie === null) {
       weatherContainer.style.display = 'none';
       card__containerEl.style.display = 'block';
+      paginationContainer.style.display = 'none';
       card__containerEl.innerHTML = renderingNewsNotFound();
     } else {
       weatherContainer.style.display = 'block';
       card__containerEl.style.display = 'grid';
-
-
-
+      paginationContainer.style.display = 'flex';
       card__containerEl.innerHTML = createCategoriesCardMarkup(chosenCategorie);
-
 
       // console.log(chosenCategorie);
     }

@@ -1,15 +1,18 @@
 const toggle = document.getElementById('toggle');
+const toggleNav = document.getElementById('toggle-nav');
 const body = document.body;
 const header = document.querySelector('.header');
 const themeSwitcher = document.querySelector('.toggle');
 const mainNavigation = document.querySelector('.header__list');
 const filterWrapper = document.querySelector('.filter-wrapper--categories');
-
-// const burgerMenu = document.querySelector('.header__menu');
-// const logo = document.querySelector('.header__logo');
+const headerBurger = document.querySelector('.header__burger');
+const burgerMenu = document.querySelector('.header__menu');
+const headerSearch = document.querySelector('.header__search');
+const headerSearchIcon = document.querySelector(
+  '.header__search .search__icon'
+);
 
 const calendarWrapper = document.querySelector('.date-label');
-
 
 const mode = window.localStorage.getItem('user-theme');
 // console.log(mode);
@@ -17,6 +20,7 @@ const mode = window.localStorage.getItem('user-theme');
 
 if (mode === 'dark') {
   toggle.setAttribute('checked', 'checked');
+  toggleNav.setAttribute('checked', 'checked');
   isChecked = true;
   body.classList.add('dark-theme');
   header.classList.add('dark-theme');
@@ -24,11 +28,12 @@ if (mode === 'dark') {
   mainNavigation.classList.add('dark-theme');
   filterWrapper.classList.add('dark-theme');
 
-  // burgerMenu.classList.add('dark-theme');
-  // logo.classList.add('dark-theme');
+  headerBurger.classList.add('dark-theme');
+  burgerMenu.classList.add('dark-theme');
+  headerSearch.classList.add('dark-theme');
+  headerSearchIcon.classList.add('dark-theme');
 
   calendarWrapper.classList.add('dark-theme');
-
 }
 
 toggle.addEventListener('input', e => {
@@ -38,6 +43,25 @@ toggle.addEventListener('input', e => {
   mainNavigation.classList.toggle('dark-theme');
   filterWrapper.classList.toggle('dark-theme');
   calendarWrapper.classList.toggle('dark-theme');
+
+  headerBurger.classList.toggle('dark-theme');
+  burgerMenu.classList.toggle('dark-theme');
+  headerSearch.classList.toggle('dark-theme');
+  headerSearchIcon.classList.toggle('dark-theme');
+});
+
+toggleNav.addEventListener('input', e => {
+  body.classList.toggle('dark-theme');
+  header.classList.toggle('dark-theme');
+  themeSwitcher.classList.toggle('dark-theme');
+  mainNavigation.classList.toggle('dark-theme');
+  filterWrapper.classList.toggle('dark-theme');
+  calendarWrapper.classList.toggle('dark-theme');
+
+  headerBurger.classList.toggle('dark-theme');
+  burgerMenu.classList.toggle('dark-theme');
+  headerSearch.classList.toggle('dark-theme');
+  headerSearchIcon.classList.toggle('dark-theme');
 });
 
 // if (mode === 'light' || !mode) {
@@ -68,6 +92,10 @@ function windowLoad() {
     });
 
   toggle.addEventListener('input', e => {
+    changeTheme(true);
+  });
+
+  toggleNav.addEventListener('input', e => {
     changeTheme(true);
   });
 
