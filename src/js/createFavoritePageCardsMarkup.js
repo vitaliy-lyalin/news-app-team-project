@@ -1,6 +1,6 @@
 export default function createFavoritePageCardsMarkup() {
   const imageUrl = new URL(
-    '../images/svg/dislike.svg?as=svg&width=16&height=16',
+    '../images/svg/like.svg?as=svg&width=16&height=16',
     import.meta.url
   );
   const dataFromLocalStorage = JSON.parse(localStorage.getItem('cardsInfo'));
@@ -18,7 +18,7 @@ export default function createFavoritePageCardsMarkup() {
         return `<div class = "card">
           <div class = "card-img-wrapper">
           <span class="card__read">${isRead ? 'Have read' : ''}</span>
-          <span class="card__btn">Add to favorite
+          <span class="card__btn">Remove from favorite
           <img class="like" src=${imageUrl} alt="Add to favorite" width="16" height="16">
 
           </span>
