@@ -5,8 +5,6 @@ import getCategoriesValue from './js/getCategoriesValue';
 import { filterByChosenCategorie } from './js/fetchData/filters';
 import { filterByDateMostViwed } from './js/fetchData/filters';
 
-import changeLikeDislikeImg from './js/changeLikeDislikeImg';
-
 import createCardsMarkup from './js/createCardsMarkup';
 import { refs } from './js/header/refs';
 import { onBurgerBtnClick } from './js/header/mobileBurger';
@@ -61,9 +59,6 @@ categoriesEl.addEventListener('click', event => {
 // *************** Render News Cards ******************
 createCardsMarkup();
 // console.log(cardContainer);
-
-// -> Add remove like - dislike
-cardContainer.addEventListener('click', changeLikeDislikeImg);
 
 // -> Add to local Storage
 cardContainer.addEventListener('click', addNewsToLocalStorage);
