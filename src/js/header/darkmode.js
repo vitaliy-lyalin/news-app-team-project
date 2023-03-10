@@ -124,3 +124,32 @@ function windowLoad() {
     saveTheme ? localStorage.setItem('user-theme', newTheme) : null;
   }
 }
+
+// document.getElementById('toggle').addEventListener('click', event => {
+//   event.preventDefault();
+//   if (localStorage.getItem('theme') === 'dark') {
+//     localStorage.removeItem('theme');
+//   } else {
+//     localStorage.setItem('theme', 'dark');
+//   }
+//   addDarkClassToHTML();
+// });
+
+// function addDarkClassToHTML() {
+//   try {
+//     if (localStorage.getItem('theme') === 'dark') {
+//       document.querySelector('html').classList.add('dark');
+//       document.getElementById('toggle').setAttribute('checked', 'checked');
+//       document.getElementById('toggle-nav').setAttribute('checked', 'checked');
+//       isChecked = true;
+//     } else {
+//       document.querySelector('html').classList.remove('dark');
+
+//       document.getElementById('toggle').setAttribute('checked', '');
+//       document.getElementById('toggle-nav').setAttribute('checked', '');
+//       isChecked = false;
+//     }
+//   } catch (err) {}
+// }
+
+// addDarkClassToHTML();
