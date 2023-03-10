@@ -4,20 +4,19 @@
   position: relative;
   display: flex;
   column-gap: 10px;
-  
 
   &--categories {
     flex-basis: 80%;
     @media screen and (min-width: 768px) {
       flex-basis: 75%;
-    } 
+    }
     @media screen and (min-width: 1280px) {
       flex-basis: 68%;
-    }   
+    }
 
     &.filters.dark-theme {
       color: #4440f6;
-      background-color: #111321;
+      background-color: transparent;
 
       & .filters--category {
         background-color: #f8f8f8;
@@ -42,7 +41,7 @@
     display: flex;
     flex-wrap: wrap;
   }
-  
+
   &--category {
     display: inline-block;
     text-align: center;

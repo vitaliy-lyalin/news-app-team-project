@@ -417,7 +417,7 @@
     background-color: var(--secondary-color);
     border-radius: 50%;
     content: ' ';
-    cursor: pointer;
+    // cursor: pointer;
     display: inline-block;
     position: absolute;
     left: 1px;
@@ -443,6 +443,9 @@
 }
 
 @media screen and (min-width: 768px) {
+  .toggle-nav {
+    display: none;
+  }
   .header__body {
     height: 113px;
   }
