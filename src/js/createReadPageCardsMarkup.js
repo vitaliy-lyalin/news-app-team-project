@@ -1,27 +1,34 @@
 export function createReadPageCardsMarkup() {
-  const imageUrl = new URL(
-    '../images/svg/dislike.svg?as=svg&width=16&height=16',
-    import.meta.url
-  );
   const dataFromLocalStorage = JSON.parse(localStorage.getItem('cardsInfo'));
-  //   console.log(dataFromLocalStorage);
 
   const readItems = dataFromLocalStorage.filter(item => item.isRead === true);
   return readItems
     .map(
-      ({ isRead, img, title, text, date, category, readMoreLink }, index) => {
-        //   const http = 'http://static01.nyt.com/';
-        //   const date = new Date(pub_date);
-        //   const formatDate = date.toLocaleDateString();
-        //   const noImgUrl =
-        //     'https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/No-Image-Placeholder.svg/1665px-No-Image-Placeholder.svg.png';
-        //   const img = multimedia.length ? http + multimedia[0].url : noImgUrl;
-        // console.log(img);
+      (
+        { isRead, img, title, text, date, category, readMoreLink, isFavorite },
+        index
+      ) => {
+        const favoriteText = isFavorite
+          ? 'Remove from favorite'
+          : 'Add to favorite';
+
+        let imageUrl = '';
+        if (isFavorite) {
+          imageUrl = new URL(
+            '../images/svg/like.svg?as=svg&width=16&height=16',
+            import.meta.url
+          );
+        } else {
+          imageUrl = new URL(
+            '../images/svg/dislike.svg?as=svg&width=16&height=16',
+            import.meta.url
+          );
+        }
         return `<div class = "card">
           <div class = "card-img-wrapper">
           <span class="card__read">Have read</span>
-          <span class="card__btn">Add to favorite
-          <img class="like" src=${imageUrl} alt="Add to favorite" width="16" height="16">
+          <span class="card__btn">${favoriteText}
+          <img class="like" src=${imageUrl} alt=${favoriteText} width="16" height="16">
 
           </span>
           <span class="card__category">${category}</span>
