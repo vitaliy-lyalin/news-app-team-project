@@ -456,7 +456,7 @@
     font-weight: 700;
     font-size: 16px;
     &:focus {
-      // border-bottom: 2px solid var(--accent-color);
+      border-bottom: 2px solid var(--accent-color);
     }
   }
 
@@ -534,8 +534,8 @@
     line-height: 1.39;
     &:hover,
     &:focus {
-      outline: none;
-      color: var(--secondary-color);
+      border-bottom: 2px solid var(--accent-color);
+      // color: var(--secondary-color);
       width: 100%;
     }
   }
