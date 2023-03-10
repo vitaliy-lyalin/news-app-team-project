@@ -1,4 +1,3 @@
-import { removeFavoriteFromLocalStorage } from './removeFromLocalStorage';
 import changeLikeDislikeImg from './changeLikeDislikeImg';
 // -> get local storage data
 let localStorageData = {
@@ -76,7 +75,7 @@ export function addNewsToLocalStorage(event) {
     // console.log('localStorageData length', localStorageData.options.length);
 
     // -> Add remove like - dislike
-    event.target.addEventListener('click', changeLikeDislikeImg);
+    changeLikeDislikeImg(event);
 
     const card = event.target.parentElement.parentElement;
     // console.dir(card);
@@ -134,14 +133,11 @@ export function addDataToLocalStorage(cardData) {
 }
 
 function updateLocalStorage(cardTitle, propertyToUpdate, localStorageData) {
-  console.log('inside updateLocalStorage');
-  console.log(localStorageData.options.length);
   for (let i = 0; i < localStorageData.options.length; i++) {
     // -> update isRead or isFavorite to true
     if (localStorageData.options[i].title === cardTitle) {
       if (localStorageData.options[i][propertyToUpdate] !== true) {
         localStorageData.options[i][propertyToUpdate] = true;
-        console.log('update property -> true');
       } else {
         // -> remove item if only favorite and not read
         if (localStorageData.options[i].title === cardTitle) {
@@ -149,7 +145,6 @@ function updateLocalStorage(cardTitle, propertyToUpdate, localStorageData) {
             if (localStorageData.options[i][propertyToUpdate] === true) {
               if (localStorageData.options[i].isRead === false) {
                 localStorageData.options.splice(i, 1);
-                console.log('remove favorite');
               } else {
                 // -> change like dislike if item has read
                 if (localStorageData.options[i].title === cardTitle) {
@@ -169,12 +164,3 @@ function updateLocalStorage(cardTitle, propertyToUpdate, localStorageData) {
 
   localStorage.setItem('cardsInfo', JSON.stringify(localStorageData.options));
 }
-
-// } else if (localStorageData.options[i].title === cardTitle) {
-//   if (propertyToUpdate === 'isFavorite') {
-//     if (localStorageData.options[i][propertyToUpdate] === true) {
-//       console.log('favorite -> false');
-//       localStorageData.options[i][propertyToUpdate] = false;
-//     }
-//   }
-// }
