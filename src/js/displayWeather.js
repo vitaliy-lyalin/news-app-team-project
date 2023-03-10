@@ -5,9 +5,10 @@ const weatherDataWrapper = document.querySelector('.weather-content-wrapper');
 function showError(error) {
   console.error('Position data is not available');
   console.error(error.message);
+  setPositionRenderMarkup(null, `Error getting current position: ${error.message}`);
 }
 
-async function setPositionRenderMarkup(position) {
+async function setPositionRenderMarkup(latitude, longitude, errorMessage) {
   const date = new Date();
   const options = {
     day: 'numeric',
@@ -19,9 +20,10 @@ async function setPositionRenderMarkup(position) {
   const formattedDate = date.toLocaleDateString('en-gb', options);
 
   if (position && position.coords) {
+    if (latitude && longitude) {
     let latitude = position.coords.latitude;
     let longitude = position.coords.longitude;
-
+    
     const forecastContainer = document.querySelector(
       '.forecast-content-wrapper'
     );
@@ -68,20 +70,45 @@ async function setPositionRenderMarkup(position) {
       weeklyForecast(e, forecastContainer);
     });
   } else {
+    
     console.log(error.message);
   }
-}
+}}
 
 export default async function displayWeather() {
-  if ('geolocation' in navigator) {
-    navigator.geolocation.getCurrentPosition(
-      setPositionRenderMarkup,
-      showError
-    );
-  } else {
-    console.log(error);
+  const defaultLatitude = 51.5074;
+  const defaultLongitude = 0.1278;
+
+  let position;
+  try {
+    position = await getCurrentPosition();
+  } catch (error) {
+    showError(error);
+    return;
   }
-}
+
+  if (position && position.coords) {
+    const { latitude, longitude } = position.coords;
+    await setPositionRenderMarkup(latitude, longitude);
+  } else {
+    await setPositionRenderMarkup(defaultLatitude, defaultLongitude);}
+  }
+
+  
+  // if ('geolocation' in navigator) {
+  //   navigator.geolocation.getCurrentPosition(
+     
+  //      setPositionRenderMarkup,
+  //      showError
+  //   );
+  
+  // } else {
+  //   console.log(error);
+
+  //   }
+  // }
+  
+
 
 function weeklyForecast(e, forecastContainer) {
   if (e.target.innerText === 'weather for week') {
